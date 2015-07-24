@@ -1,0 +1,2 @@
+=== lanoda-laravel Config Vars
+CLEARDB_DATABASE_URL: mysql://b4b7e0bef7d27a:c6be7f14@us-cdbr-iron-east-02.cleardb.net/heroku_cd393479a47ba63?reconnect=true
