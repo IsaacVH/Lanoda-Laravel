@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
-
-Route::get('/auth/login', function () {
-    return view('auth.login');
-});
-
 Route::group(['middleware' => 'auth'], function () {
+
+	Route::get('/', function () {
+		return view('');
+	});
+
+	Route::get('/auth/login', function () {
+	    return view('auth.login');
+	});
+
 	Route::get('user/{id}', 'User\UserController@showProfile');
 
 	Route::get('/contacts', function () {
