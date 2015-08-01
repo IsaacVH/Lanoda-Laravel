@@ -1,0 +1,31 @@
+html {
+	background-image: url('/img/background/login-signup.jpg');
+	background-size: 100%;
+}
+
+.lanoda-login-card {
+
+	&.mdl-card {
+	  width: 512px;
+	  margin: 10% auto;
+	}
+
+	> .mdl-card__title {
+	  color: #fff;
+	  height: 176px;
+	  background: url('/img/lanoda-app-icon.png') center / cover;
+	}
+
+	> .mdl-card__menu {
+	  color: #fff;
+	}
+
+	form {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	form .mdl-textfield {
+		margin-top: 15px;
+	}
+}

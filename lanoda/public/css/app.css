@@ -1,0 +1,36 @@
+/* BEGIN Google Material Icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(/fonts/Material-Icons-v7.woff2) format("woff2"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  word-wrap: normal;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
+/* END Google Material Icons */
+.mdl-layout__header {
+  background-color: #6cc0c0; }
+  .mdl-layout__header .mdl-layout-title .lanoda-header-logo {
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 100%; }
+
+.lanoda-left {
+  float: left; }
+
+.lanoda-right {
+  float: right; }
+
+/*# sourceMappingURL=app.css.map */

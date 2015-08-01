@@ -12,5 +12,24 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
+
+Route::get('/auth/login', function () {
+    return view('auth.login');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('user/{id}', 'User\UserController@showProfile');
+
+	Route::get('/contacts', function () {
+		// Uses Auth Middleware
+		return "You're looking at contacts.";
+	});
+
+	Route::get('/contacts/{contactId}/notes', function() {
+		// Users Auth Middleware
+		return "You're looking at notes.";
+	});
+});
+
