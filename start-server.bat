@@ -1,1 +1,1 @@
-php artisan serve
+php ./lanoda/artisan serve

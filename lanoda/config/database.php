@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,10 +66,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host'     => env('DB_HOST', array_key_exists("host", parse_url(getenv("DATABASE_URL"))) ? parse_url(getenv("DATABASE_URL"))["host"] : 'localhost'),
+            'database' => env('DB_DATABASE', array_key_exists("path", parse_url(getenv("DATABASE_URL"))) ? substr(parse_url(getenv("DATABASE_URL"))["path"], 1) : "forge"),
+            'username' => env('DB_USERNAME', array_key_exists("user", parse_url(getenv("DATABASE_URL"))) ? parse_url(getenv("DATABASE_URL"))["user"] : "forge"),
+            'password' => env('DB_PASSWORD', array_key_exists("pass", parse_url(getenv("DATABASE_URL"))) ? parse_url(getenv("DATABASE_URL"))["pass"] : ""),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',

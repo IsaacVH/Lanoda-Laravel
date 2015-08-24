@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -34,6 +35,75 @@ class AuthController extends Controller
     }
 
     /**
+     * Handle an authentication attempt.
+     *
+     * @return void
+     */
+    public function getLogin() {
+        return view('auth.login');
+    }
+
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function postLogin(Request $request) {
+        return $this->authenticate($request->input('email'), $request->input('password'));
+    }
+
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function getRegister() {
+        return view('auth.register');
+    }
+
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function postRegister(Request $request) {
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $exists = User::where('email', $email)->get()->toArray();
+        if(sizeof($exists) > 0) {
+            return redirect('/auth/login')->with('error' => 'Email already registered!');
+        }
+
+        $user_data = array(
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'email' => $email,
+            'password' => $password
+        );
+
+        $user = $this->createUser($user_data);
+        return $this->authenticate($user['email'], $user['password']);
+    }
+
+    /**
+     * Authenticate a user
+     *
+     * @param  string  $email
+     * @param  string  $password
+     * @return redirect
+     */
+    protected function authenticate($email, $password)
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            // Authentication passed...
+            return redirect()->intended('/contacts');
+        }
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -42,8 +112,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:355|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -54,10 +123,11 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function createUser(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

@@ -1,18 +1,29 @@
 html {
 	background-image: url('/img/background/login-signup.jpg');
-	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.page-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100%;
 }
 
 .lanoda-login-card {
 
 	&.mdl-card {
 	  width: 512px;
-	  margin: 10% auto;
+	  margin: 0 auto;
 	}
 
 	> .mdl-card__title {
 	  color: #fff;
-	  height: 176px;
+	  height: 250px;
 	  background: url('/img/lanoda-app-icon.png') center / cover;
 	}
 
@@ -22,10 +33,17 @@ html {
 
 	form {
 		text-align: center;
-		margin-bottom: 30px;
+		margin: 0 auto;
+		margin-bottom: 40px;
+		width: 300px;
 	}
 
 	form .mdl-textfield {
 		margin-top: 15px;
+	}
+
+	form .mdl-checkbox {
+		margin: 25px 0 20px 0;
+		text-align: left;
 	}
 }

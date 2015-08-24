@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DB;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -24,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['firstname', 'lastname', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,4 +33,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function createNewUser(string $email, string $password) {
+
+        $existing = get('email', $data['email']);
+        if(sizeof($existing) > 0) {
+            return ["error" => "Email address already registered!"];
+        }
+
+        App\User::create(['email' => $email, 'password' => $password]);
+        $user = App\User::where('email', $email)->get()->toArray();
+        if (sizeof($user) > 0) {
+            return $user[0];
+        }
+
+        return ["error" => "Couldn't retrieve user."];
+    }
+
+    public function getUserList(string $key, $value) {
+        $users = App\User::where($key, $value)->get();
+        return $users->toArray();
+    }
 }
