@@ -140,9 +140,9 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Lanoda\Providers\AppServiceProvider::class,
+        Lanoda\Providers\EventServiceProvider::class,
+        Lanoda\Providers\RouteServiceProvider::class,
 
     ],
 

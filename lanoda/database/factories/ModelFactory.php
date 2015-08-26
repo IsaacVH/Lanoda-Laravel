@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(Lanoda\User::class, function (Faker\Generator $faker) {
     return [
         'firstname' => $faker->firstname,
         'lastname' => $faker->lastname,

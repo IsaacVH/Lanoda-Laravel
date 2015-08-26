@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Lanoda\Http\Controllers;
 
+use Illuminate\Console\AppNamespaceDetectorTrait;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;

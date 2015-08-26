@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Lanoda\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

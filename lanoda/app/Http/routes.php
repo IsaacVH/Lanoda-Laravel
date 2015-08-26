@@ -11,15 +11,14 @@
 |
 */
 
-Route::get('/', 'Contact\ContactController@listContacts');
-Route::get('/users/list', 'User\UserController@listUsers');
-Route::get('/users/{id}/profile', 'User\UserController@showProfile');
+Route::get('/', function () {
+	return "This is the main";
+});
 
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -28,16 +27,23 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('user/{id}', 'User\UserController@showProfile');
+	// Auth
+	Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-	Route::get('/contacts', function () {
-		// Uses Auth Middleware
-		return "You're looking at contacts.";
-	});
+	// Users
+	Route::get('/user/profile', 'User\UserController@showProfile');
+	Route::get('/user/list', 'User\UserController@listUsers');
 
+	// Contacts
+	Route::get('/contacts', 'Contact\ContactController@listContacts');
+	Route::get('/contacts/{contactId}', 'Contact\ContactController@showContact');
+	Route::post('/contacts', 'Contact\ContactController@createContact');
+
+	// Notes
 	Route::get('/contacts/{contactId}/notes', function() {
-		// Users Auth Middleware
 		return "You're looking at notes.";
 	});
+
+
 });
 

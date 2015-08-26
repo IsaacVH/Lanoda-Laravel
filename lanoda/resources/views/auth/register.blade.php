@@ -1,25 +1,17 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Sign Up')
 
 @section('styles')
-	<link rel="stylesheet" href="/css/login.css" />
-@stop
-
-@section('header')
-	
-@stop
-
-@section('sidebar')
-	@parent
+	<link rel="stylesheet" href="/css/form-card.css" />
 @stop
 
 @section('content')
 	<!-- Wide card with share menu button -->
-	<div class="mdl-card mdl-shadow--2dp lanoda-login-card">
+	<div class="mdl-card mdl-shadow--2dp lanoda-form-card">
 		<div class="mdl-card__title"></div>
 		<div class="mdl-card__supporting-text">
-			<h2 class="mdl-card__title-text">Log In</h2>
+			<h2 class="mdl-card__title-text">Sign Up</h2>
 		</div>
 
 		<div class="lanoda-form mdl-card--border">

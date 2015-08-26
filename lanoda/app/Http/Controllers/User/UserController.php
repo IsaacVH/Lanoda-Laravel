@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace Lanoda\Http\Controllers\User;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use Auth;
+use Lanoda\User;
+use Lanoda\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -13,14 +14,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id)
+    public function showProfile()
     {
-        $user = User::findOrFail($id);
-        $attributes = array();
-        if ($user != null) {
-            $attributes = $user->toArray();
-        }
-        return view('user.profile', ['user' => $attributes]);
+        $user = Auth::user()->toArray();
+        return view('user.profile', ['user' => $user]);
     }
 
     /**
@@ -30,7 +27,7 @@ class UserController extends Controller
      */
     public function listUsers()
     {
-        $users = User::all()->toArray();
+        $users = User::all()->get()->toArray();
         return view('user.list', ['users' => $users]);
     }
 }

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('header')
-	@parent
 	<!-- no content -->
 @endsection
 

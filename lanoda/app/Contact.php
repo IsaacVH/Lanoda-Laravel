@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Lanoda;
 
 use Illuminate\Database\Eloquent\Model;
 

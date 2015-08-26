@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Lanoda\Http\Controllers\Auth;
 
-use App\User;
+use Lanoda\User;
+use Auth;
 use Validator;
-use App\Http\Controllers\Controller;
+use Lanoda\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -74,7 +75,7 @@ class AuthController extends Controller
 
         $exists = User::where('email', $email)->get()->toArray();
         if(sizeof($exists) > 0) {
-            return redirect('/auth/login')->with('error' => 'Email already registered!');
+            return redirect('/auth/login')->with(['error' => 'Email already registered!']);
         }
 
         $user_data = array(
@@ -101,6 +102,8 @@ class AuthController extends Controller
             // Authentication passed...
             return redirect()->intended('/contacts');
         }
+
+        return redirect('/auth/login')->with(['error' => 'User not found.']);
     }
 
     /**

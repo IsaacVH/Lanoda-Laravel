@@ -1,0 +1,42 @@
+html {
+  background-image: url("/img/background/login-signup.jpg");
+  background-size: cover; }
+
+.page-content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%; }
+
+.lanoda-form-card.mdl-card {
+  width: 512px;
+  margin: 0 auto; }
+
+.lanoda-form-card > .mdl-card__title {
+  color: #fff;
+  height: 250px;
+  background: url("/img/lanoda-app-icon.png") center/cover; }
+
+.lanoda-form-card > .mdl-card__menu {
+  color: #fff; }
+
+.lanoda-form-card form {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 300px; }
+
+.lanoda-form-card form .mdl-textfield {
+  margin-top: 15px; }
+
+.lanoda-form-card form .mdl-checkbox {
+  margin: 25px 0 20px 0;
+  text-align: left; }
+
+/*# sourceMappingURL=form-card.css.map */

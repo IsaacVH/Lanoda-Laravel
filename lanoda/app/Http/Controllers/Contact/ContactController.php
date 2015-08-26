@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Contact;
+namespace Lanoda\Http\Controllers\Contact;
 
-use DB;
-use App\User;
-use App\Http\Controllers\Controller;
+use Auth;
+use Lanoda\Contact;
+use Lanoda\Image;
+use Lanoda\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
@@ -14,9 +15,49 @@ class ContactController extends Controller
      * @param  int $userId
      * @return Response
      */
-    public function listContactsForUser($userId)
+    public function listContacts()
     {
-        $contacts = DB::select('SELECT * FROM user_contact WHERE user_id = $userId');
-        return view('contact.list', ['contacts' => $contacts]);
+        $user = Auth::user()->toArray();
+
+        $imageEntry = Image::Find($user['image_id']);
+        $image = $imageEntry != null ? $imageEntry->get()->toArray() : null;
+        
+        $contacts = Contact::where('user_id', $user['id'])->get()->toArray();
+        return view('contact.list', ['contacts' => $contacts, 'user' => $user, 'profile-image' => $image]);
+    }
+
+    /**
+     * Show the contact detail page
+     *
+     * @param  int $contactId
+     * @return Response
+     */
+    public function showContact($contactId) 
+    {
+        $user = Auth::user()->toArray();
+
+        $imageEntry = Image::Find($user['image_id']);
+        $image = $imageEntry != null ? $imageEntry->get()->toArray() : null;
+
+        $contact = Contact::FindOrFail($contactId)->get()->toArray();
+        return view('contact.detail', ['contact' => $contact, 'user' => $user, 'profile-image' => $image]);
+    }
+
+    /**
+     * Create a new contact for the current user
+     *
+     * @return Response
+     */
+    public function createContact(Request $request) 
+    {
+        $contact = $request->input('contact');
+        return Contact::create([
+            'user_id' => Auth::user()->toArray()['id'],
+            'firstname' => $contact['firstname'],
+            'middlename' => $contact['middlename'],
+            'lastname' => $contact['lastname'],
+            'address' => $contact['address'],
+            'birthday' => $contact['birthday']
+        ]);
     }
 }

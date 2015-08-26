@@ -19,8 +19,8 @@
 	<div>
 		<?php 
 			echo "<table>";
-			foreach ($user as $attribute) {
-				echo "<tr><td>".$attribute."</td></tr>";
+			foreach ($user as $key => $value) {
+				echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 			}
 			echo "</table>";
 		?>

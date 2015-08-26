@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Lanoda\Events;
 
 abstract class Event
 {

@@ -3,20 +3,20 @@
 @section('title', 'Login')
 
 @section('styles')
-	<link rel="stylesheet" href="/css/login.css" />
+	<link rel="stylesheet" href="/css/form-card.css" />
 @stop
 
-@section('header')
-	
-@stop
-
-@section('sidebar')
-	@parent
+@section('error')
+	<?php 
+		if(isset($error)) {
+			echo $error;
+		} 
+	?>
 @stop
 
 @section('content')
 	<!-- Wide card with share menu button -->
-	<div class="mdl-card mdl-shadow--2dp lanoda-login-card">
+	<div class="mdl-card mdl-shadow--2dp lanoda-form-card">
 		<div class="mdl-card__title"></div>
 		<div class="mdl-card__supporting-text">
 			<h2 class="mdl-card__title-text">Log In</h2>
