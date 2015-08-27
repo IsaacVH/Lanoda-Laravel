@@ -1,1 +1,0 @@
-psql -f create_tables.sql -h ec2-54-197-255-248.compute-1.amazonaws.com -p 5432 -U wchighgrqrwuns d33su30gktsfnr

@@ -1,1 +1,0 @@
-php ./lanoda/artisan serve
