@@ -1,12 +1,12 @@
 <?php
 
-namespace Lanoda\Http\Controllers\User;
+namespace Lanoda\Http\Controllers\Image;
 
 use Auth;
-use Lanoda\User;
+use Lanoda\Image;
 use Lanoda\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ImageController extends Controller
 {
     /**
      * Show the profile for the given user.
@@ -14,7 +14,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showUser()
+    public function showImage()
     {
         $user = Auth::user()->toArray();
         return view('user.profile', ['user' => $user]);
@@ -25,7 +25,7 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function listUsers()
+    public function listImage()
     {
         $users = User::all()->get()->toArray();
         return view('user.list', ['users' => $users]);

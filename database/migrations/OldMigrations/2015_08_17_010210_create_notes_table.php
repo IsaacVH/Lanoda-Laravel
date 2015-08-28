@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactsTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,11 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('firstname');
-            $table->string('middlename');
-            $table->string('lastname');
-            $table->string('address');
-            $table->date('birthday');
+            $table->integer('contact_id')->unsigned();
+            $table->string('title');
+            $table->string('body');
             $table->timestamps();
         });
     }
@@ -31,6 +28,9 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('contacts');
+        Schema::table('notes', function (Blueprint $table) {
+            $table->dropForeign('notes_contact_id_foreign');
+        });
+        Schema::drop('notes');
     }
 }
