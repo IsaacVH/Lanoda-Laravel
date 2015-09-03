@@ -6,6 +6,7 @@ use Auth;
 use Lanoda\Contact;
 use Lanoda\Image;
 use Lanoda\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -25,9 +26,9 @@ class ContactController extends Controller
         }
 
         $imageEntry = Image::find($user['image_id']);
-        $image = $imageEntry != null ? $imageEntry->get()->toArray() : null;
+        $profileimage = $imageEntry != null ? $imageEntry->get()->toArray() : null;
 
-        return view('contact.detail', ['contact' => $contact, 'user' => $user, 'profile-image' => $image]);
+        return view('contact.detail', compact($contact, $user, $profileimage));
     }
 
     /**
@@ -41,10 +42,10 @@ class ContactController extends Controller
         $user = Auth::user()->toArray();
 
         $imageEntry = Image::find($user['image_id']);
-        $image = $imageEntry != null ? $imageEntry->get()->toArray() : null;
+        $profileimage = $imageEntry != null ? $imageEntry->get()->toArray() : null;
         
         $contacts = Contact::where('user_id', $user['id'])->get();
-        return view('contact.list', ['contacts' => $contacts, 'user' => $user, 'profile-image' => $image]);
+        return view('contact.list', ['contacts' => $contacts, 'user' => $user, 'profileimage' => $profileimage]);
     }
 
 
@@ -68,9 +69,16 @@ class ContactController extends Controller
      */
     public function createContact(Request $request) 
     {
-        $contact = $request->all();
-        $contact['user_id'] = Auth::user()->id;
-        return Contact::create($contact);
+        $contact = [
+            'user_id' => Auth::user()->id,
+            'firstname' => $request->input('firstname'),
+            'middlename' => $request->input('middlename'),
+            'lastname' => $request->input('lastname'),
+            'address' => $request->input('address'),
+            'birthday' => $request->input('birthday')
+        ];
+        $result = Contact::create($contact);
+        return redirect('/contacts')->with(['create_result' => $result]);
     }
 
     /**
@@ -81,12 +89,12 @@ class ContactController extends Controller
     public function updateContact(Contact $contact, Request $request)
     {
         $new = $request->all();
-        if(array_key_exists('image_id',   $new)) { $contact->image_id   = $new['image_id'];   };
-        if(array_key_exists('firstname',  $new)) { $contact->firstname  = $new['firstname'];  };
-        if(array_key_exists('middlename', $new)) { $contact->middlename = $new['middlename']; };
-        if(array_key_exists('lastname',   $new)) { $contact->lastname   = $new['lastname'];   };
-        if(array_key_exists('birthday',   $new)) { $contact->birthday   = $new['birthday'];   };
+        foreach($new as $key => $value) {
+            if ($value != "") {
+                $contact->$key = $value;
+            }
+        }
         $contact->save();
-        return $contact->toArray();
+        return $contact;
     }
 }

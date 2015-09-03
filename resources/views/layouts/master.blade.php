@@ -16,6 +16,7 @@
 
 		<!-- Always shows a header, even in smaller screens. -->
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
 			@section('header')
 				<header class="mdl-layout__header">
 					<div class="mdl-layout__header-row">
@@ -43,11 +44,16 @@
 					</div>
 				</header>
 			@show
+
 	        @section('sidebar')
 	        	<!-- sidebar will go here on sub views -->
 	        @show
+
 			<main class="mdl-layout__content">
-				<div class="page-content">@yield('content')</div>
+				<div class="background-shadow"></div>
+				<div class="page-content">
+					@yield('content')
+				</div>
 			</main>
 		</div>
 

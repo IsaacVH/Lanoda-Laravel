@@ -11,10 +11,10 @@
 |
 */
 
+// The default route
 Route::get('/', function () {
 	return redirect('/contacts');
 });
-
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

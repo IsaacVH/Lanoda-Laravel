@@ -18,7 +18,33 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased; }
 
+.material-icons.md-18 {
+  font-size: 18px; }
+
+.material-icons.md-24 {
+  font-size: 24px; }
+
+.material-icons.md-36 {
+  font-size: 36px; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
+
 /* END Google Material Icons */
+.mdl-layout.modal-open .background-shadow {
+  display: block; }
+
+.mdl-layout.modal-open.is-small-screen .background-shadow {
+  top: -56px;
+  height: calc(100% + 56px); }
+
+.mdl-layout.modal-open .mdl-layout__header {
+  z-index: 1; }
+
+.mdl-layout.modal-open .mdl-layout__content {
+  overflow-y: visible;
+  overflow-x: visible; }
+
 .mdl-layout__header {
   background-color: #6cc0c0; }
   .mdl-layout__header .mdl-layout-title .lanoda-header-logo {
@@ -32,5 +58,29 @@
 
 .lanoda-right {
   float: right; }
+
+.background-shadow {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 5;
+  position: absolute;
+  top: -64px;
+  left: 0;
+  height: calc(100% + 64px);
+  width: 100%; }
+
+.modal {
+  z-index: 6;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transition: top 0.5s;
+  transition-timing-function: cubic-bezier(0.5, 0.8, 0, 1);
+  -webkit-transform: -webkit-translate3d(-50%, -200%, 0);
+  transform: translate3d(-50%, -200%, 0); }
+  .modal.show {
+    top: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0); }
 
 /*# sourceMappingURL=app.css.map */
