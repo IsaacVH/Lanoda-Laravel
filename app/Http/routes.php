@@ -28,11 +28,11 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::group(['middleware' => 'auth'], function () {
 
 	// Route Models
-	Route::model('contact', 'Contact');
-	Route::model('image', 'Image');
-	Route::model('note', 'Note');
-	Route::model('tag', 'Tag');
-	Route::model('user', 'User');
+	Route::model('contact', 'Lanoda\Contact');
+	Route::model('image', 'Lanoda\Image');
+	Route::model('note', 'Lanoda\Note');
+	Route::model('tag', 'Lanoda\Tag');
+	Route::model('user', 'Lanoda\User');
 
 	// Auth
 	Route::get('auth/logout', 'Auth\AuthController@getLogout');
@@ -47,17 +47,18 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// Contacts
-	Route::get('/contacts/{contact}', 'Contact\ContactController@showContact');
+	Route::get('/contacts/{contact_name}', 'Contact\ContactController@showContactDetail');
 	Route::get('/contacts', 'Contact\ContactController@showContactsForCurrentUser');
+	Route::post('/contacts', 'Contact\ContactController@renderCreateContact');
 
-	Route::delete('/contacts/{contact}', 'Contact\ContactController@deleteContact');
-	Route::post('/contacts', 'Contact\ContactController@createContact');
-	Route::put('/contacts/{contact}', 'Contact\ContactController@updateContact');
+	Route::delete('/contacts/{contact}/raw', 'Contact\ContactController@deleteContact');
+	Route::post('/contacts/raw', 'Contact\ContactController@createContact');
+	Route::put('/contacts/{contact}/raw', 'Contact\ContactController@updateContact');
 
 
 	// Notes
-	Route::get('/contacts/{contact}/notes/{note}', 'Note\NoteController@showNote');
-	Route::get('/contacts/{contact}/notes', 'Note\NoteController@showNotesForContact');
+	Route::get('/contacts/{contact_name}/notes/{note}', 'Note\NoteController@showNote');
+	Route::get('/contacts/{contact_name}/notes', 'Note\NoteController@showNotesForContact');
 
 	Route::delete('/notes/{note}', 'Note\NoteController@deleteNote');
 	Route::post('/notes', 'Note\NoteController@createNote');

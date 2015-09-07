@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.sidebar')
 
-@section('title', 'Contact List')
+@section('title', 'Contact Detail')
 
 @section('styles')
 	<link rel="stylesheet" href="/css/contact.css" />
@@ -11,14 +11,23 @@
 @stop
 
 @section('sidebar')
-	<!-- No sidebar -->
+	<div class="mdl-layout__drawer">
+		<span class="mdl-layout-title">{{ $contact->firstname }} {{ $contact->middlename }} {{ $contact->lastname }}</span>
+		<div><i class="material-icons">left arrow</i></div>
+		<div>
+			<div>{{ $contact->address }}</div>
+		</div>
+		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+		</nav>
+	</div>
 @stop
 
 @section('content')
 	<div class="sub-header" style="margin: 20px auto; padding: 0 10% 0 5%;">
-		<h4 class="sub-header-title" style="margin: 0; float: left; height: 48px; line-height: 48px; font-weight: 300;">
-			CONTACT PAGE
-		</h4>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="text-align: center;">
 			<div class="mdl-tabs__tab-bar" style="display: inline-block; margin: 0 auto;">
 				<a href="#show-all" class="mdl-tabs__tab is-active">All</a>
@@ -31,14 +40,11 @@
 	</div>
 	<div class="contact-list mdl-grid">
 		<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell loading-cell lanoda-hide"><div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div></div>
-		@foreach ($user->contacts as $contact)
+		<!--foreach ($contacts as $contact)
 			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell">
-				@include('contact.partials.contact-tile', compact($contact))
+				@include('contact.partials.contact-tile', ['contact'=>$contact])
 			</div>
-		@endforeach
-	
-		<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell">
-			@include('contact.partials.contact-create-tile')
-		</div>
+		endforeach
+		-->
 	</div>
 @stop

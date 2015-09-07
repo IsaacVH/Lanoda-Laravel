@@ -30,9 +30,55 @@ $PrimaryMintTeal: #6cc0c0;
 
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
+.material-icons.md-30 { font-size: 30px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 /* END Google Material Icons */
+
+/* mdl-layout Customizations */
+.mdl-layout--fixed-drawer {
+  &:not(.is-small-screen) {
+    & > .mdl-layout__header {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media(min-width: 1025px) {
+  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
+    margin-top: 64px;
+    height: calc(100% - 64px);
+  }
+}
+
+@media(max-width: 1024px) {
+  .mdl-layout--fixed-drawer {
+    & > .mdl-layout__drawer {
+      margin-top: 0;
+      height: 100%;
+    }
+  }
+}
+
+
+.mdl-layout__header {
+  background-color: $PrimaryMintTeal;
+
+  .mdl-layout-title {
+    .lanoda-header-logo {
+      box-sizing: border-box;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      height: 100%;
+    }
+  }
+
+  .mdl-layout__header-row {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
 
 .mdl-layout.modal-open {
 
@@ -57,17 +103,8 @@ $PrimaryMintTeal: #6cc0c0;
   }
 }
 
-.mdl-layout__header {
-	background-color: $PrimaryMintTeal;
-
-	.mdl-layout-title {
-		.lanoda-header-logo {
-			box-sizing: border-box;
-			padding-top: 5px;
-			padding-bottom: 5px;
-			height: 100%;
-		}
-	}
+.lanoda-hide {
+  display: none;
 }
 
 .lanoda-left {

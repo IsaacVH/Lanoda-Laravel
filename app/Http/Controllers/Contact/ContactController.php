@@ -17,18 +17,10 @@ class ContactController extends Controller
      * @param  int $contactId
      * @return Response
      */
-    public function showContact(Contact $contact) 
+    public function showContactDetail($contact_name) 
     {
-        $user = Auth::user()->toArray();
-
-        if($contact->user_id != $user['id']) {
-            return redirect('/contacts')->with(['error' => 'You don\'t have access to that contact.']);
-        }
-
-        $imageEntry = Image::find($user['image_id']);
-        $profileimage = $imageEntry != null ? $imageEntry->get()->toArray() : null;
-
-        return view('contact.detail', compact($contact, $user, $profileimage));
+        $contact = Contact::where('url_name', $contact_name)->first();
+        return view('contact.detail', ['user' => Auth::user(), 'contact' => $contact]);
     }
 
     /**
@@ -39,14 +31,20 @@ class ContactController extends Controller
      */
     public function showContactsForCurrentUser()
     {
-        $user = Auth::user()->toArray();
-
-        $imageEntry = Image::find($user['image_id']);
-        $profileimage = $imageEntry != null ? $imageEntry->get()->toArray() : null;
-        
-        $contacts = Contact::where('user_id', $user['id'])->get();
-        return view('contact.list', ['contacts' => $contacts, 'user' => $user, 'profileimage' => $profileimage]);
+        return view('contact.list', ['user' => Auth::user()]);
     }
+
+    /**
+     * Render a partial view of a contact tile (for Ajax requests).
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function renderCreateContact(Request $request) {
+        $contact = $this->createContact($request);
+        return view('contact.partials.contact-tile', ['contact'=>$contact]);
+    }
+
 
 
     /**
@@ -69,16 +67,19 @@ class ContactController extends Controller
      */
     public function createContact(Request $request) 
     {
+        $middleinitial = $request->has('middlename') && sizeof($request->input('middlename')) > 0 ? $request->input('middlename')[0] : "";
         $contact = [
             'user_id' => Auth::user()->id,
+            'url_name' => $this->buildUrlName($request->input('firstname'), $request->input('middlename'), $request->input('lastname')),
             'firstname' => $request->input('firstname'),
             'middlename' => $request->input('middlename'),
             'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
             'address' => $request->input('address'),
             'birthday' => $request->input('birthday')
         ];
         $result = Contact::create($contact);
-        return redirect('/contacts')->with(['create_result' => $result]);
+        return $result;
     }
 
     /**
@@ -96,5 +97,30 @@ class ContactController extends Controller
         }
         $contact->save();
         return $contact;
+    }
+
+
+    /**
+     * Build url-friendly unique identifier
+     *
+     * @return Response
+     */
+    private function buildUrlName($firstname, $middlename, $lastname) {
+        $firstname = $firstname != null ? $firstname : "";
+        $middleInitial = $middlename != null && sizeof($middlename) > 0 ? $middlename[0] . "-" : "";
+        $lastname = $lastname != null ? $lastname : "";
+        $urlName = $firstname . "-" . $middleInitial . $lastname;
+
+        if (sizeof(Contact::where('url_name', $urlName)->get()) > 0) {
+            $urlName .= "-1";
+
+            $counter = 2;
+            while(sizeof(Contact::where('url_name', $urlName)->get()) > 0) {
+                $urlName[sizeof($urlName) - 1] = $counter;
+                $counter++;
+            }
+        }
+
+        return $urlName;
     }
 }

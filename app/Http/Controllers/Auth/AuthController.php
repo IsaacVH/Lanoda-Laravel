@@ -81,6 +81,7 @@ class AuthController extends Controller
         $user_data = array(
             'firstname' => $firstname,
             'lastname' => $lastname,
+            'is_admin' => false,
             'email' => $email,
             'password' => $password
         );
@@ -103,7 +104,7 @@ class AuthController extends Controller
             return redirect()->intended('/contacts');
         }
 
-        return redirect('/auth/login')->with(['error' => 'User not found.']);
+        return redirect('/auth/login')->with(['errors' => ['error' => 'User not found.']]);
     }
 
     /**

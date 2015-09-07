@@ -23,6 +23,7 @@ elixir(function(mix) {
     mix.scripts([
     	"vendor/jquery/jquery-1.11.3.min.js",
     	"vendor/mdl/material.min.js",
-    	"app.js"
+    	"app.js",
+        "contact.js"
     ], 'public/js/compiled.js', null);
 });

@@ -34,6 +34,7 @@ class GenerateBaseTables extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->integer('image_id')->unsigned()->nullable();
+            $table->boolean('is_admin')->default(false);
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->timestamp('last_login_at')->nullable();
@@ -53,11 +54,22 @@ class GenerateBaseTables extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('image_id')->unsigned()->nullable();
+            $table->integer('type_id')->unsigned()->nullable();
+            $table->string('url_name')->unique();
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->string('email');
             $table->string('address');
             $table->date('birthday');
+            $table->timestamps();
+        });
+
+        // ContactTypes
+        Schema::create('contact_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('description');
             $table->timestamps();
         });
 
@@ -71,12 +83,20 @@ class GenerateBaseTables extends Migration
         });
 
 
-        //---- Setup the foreign key constraints on the tables. -----------------------
+        // Notes - Tags Relationship
+        Schema::create('note_tag', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('note_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
+            $table->timestamps();
+        });
+
+
+        //------- Setup the foreign key constraints on the tables. -----------------------
         // users
         Schema::table('users', function (Blueprint $table) {
             $table->foreign('image_id')
-                  ->references('id')->on('images')
-                  ->onDelete('cascade');
+                  ->references('id')->on('images');
         });
 
         // contacts
@@ -85,14 +105,26 @@ class GenerateBaseTables extends Migration
                   ->references('id')->on('users')
                   ->onDelete('cascade');
             $table->foreign('image_id')
-                  ->references('id')->on('images')
-                  ->onDelete('cascade');
+                  ->references('id')->on('images');
+            $table->foreign('type_id')
+                  ->references('id')->on('contact_types');
         });
 
         // notes
         Schema::table('notes', function (Blueprint $table) {
             $table->foreign('contact_id')
-                  ->references('id')->on('contacts');
+                  ->references('id')->on('contacts')
+                  ->onDelete('cascade');
+        });
+
+        // notes_tags
+        Schema::table('note_tag', function (Blueprint $table) {
+            $table->foreign('note_id')
+                  ->references('id')->on('notes')
+                  ->onDelete('cascade');
+            $table->foreign('tag_id')
+                  ->references('id')->on('tags')
+                  ->onDelete('cascade');
         });
     }
 
@@ -103,8 +135,10 @@ class GenerateBaseTables extends Migration
      */
     public function down()
     {
+        Schema::drop('note_tag');
         Schema::drop('notes');
         Schema::drop('contacts');
+        Schema::drop('contact_types');
         Schema::drop('users');
         Schema::drop('password_resets');
         Schema::drop('images');

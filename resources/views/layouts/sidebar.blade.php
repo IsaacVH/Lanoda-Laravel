@@ -10,11 +10,12 @@
     <body>
     	<div class="error-bar">
     		@section('error')
+
     		@show
     	</div>
 
 		<!-- Always shows a header, even in smaller screens. -->
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
 
 			@section('header')
 				<header class="mdl-layout__header">
@@ -38,8 +39,8 @@
 							</form>
 						</div>
 						<div class="profile-icon">
-							@if (isset($user) && $user->image != null)
-								<img src=<?php echo "'".$user->image->file_url."'"; ?> />
+							@if (isset($profileImage) && array_key_exists('file_url', $profileImage))
+								<img src=<?php echo "'".$profileImage['file_url']."'"; ?> />
 							@else
 								<button class="mdl-button mdl-js-button mdl-button--icon" style="height: 36px; width: 30px;">
 									<i class="material-icons md-30" style="margin-left: -3px">person</i>
@@ -64,6 +65,7 @@
 
 		<!-- Scripts -->
         <script src="/js/compiled.js"></script>
+        <script src="/js/app.js"></script>
 		@section('scripts')
 
 		@show
