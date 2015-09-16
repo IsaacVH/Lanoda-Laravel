@@ -30,7 +30,11 @@
 		</div>
 	</div>
 	<div class="contact-list mdl-grid">
-		<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell loading-cell lanoda-hide"><div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div></div>
+		<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell loading-cell lanoda-hide">
+			<div class="spinner-wrapper">
+				<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+			</div>
+		</div>
 		@foreach ($user->contacts as $contact)
 			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell">
 				@include('contact.partials.contact-tile', compact($contact))

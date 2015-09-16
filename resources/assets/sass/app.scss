@@ -2,6 +2,7 @@
 
 $DarkBlue: #1b1464;
 $SecondaryPurple: #93278f;
+$SecondaryPurpleLight: #bb32b6;
 $LightBlue: #7ac1ed;
 $LightGrey: #999999;
 $PrimaryMintTeal: #6cc0c0;
@@ -45,22 +46,6 @@ $PrimaryMintTeal: #6cc0c0;
   }
 }
 
-@media(min-width: 1025px) {
-  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
-    margin-top: 64px;
-    height: calc(100% - 64px);
-  }
-}
-
-@media(max-width: 1024px) {
-  .mdl-layout--fixed-drawer {
-    & > .mdl-layout__drawer {
-      margin-top: 0;
-      height: 100%;
-    }
-  }
-}
-
 
 .mdl-layout__header {
   background-color: $PrimaryMintTeal;
@@ -68,15 +53,21 @@ $PrimaryMintTeal: #6cc0c0;
   .mdl-layout-title {
     .lanoda-header-logo {
       box-sizing: border-box;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 15px;
       height: 100%;
     }
   }
 
+  .mdl-layout__drawer-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding-left: 18px;
+    padding-top: 18px;
+  }
+
   .mdl-layout__header-row {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 30px;
+    padding-right: 60px;
   }
 }
 
@@ -103,6 +94,36 @@ $PrimaryMintTeal: #6cc0c0;
   }
 }
 
+.mdl-layout__drawer {
+  padding: 15px;
+}
+.mdl-button--fab.mdl-button--colored {
+  background: $SecondaryPurple;
+
+  &:hover {
+    background: $SecondaryPurple;
+  }
+}
+.mdl-button--colored {
+  color: white;
+}
+
+.sub-header {
+  margin: 20px auto; 
+  apadding: 0 10% 0 5%;
+}
+
+.hidden-menu {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.1s;
+  transition: height 0.1s;
+
+  &.show {
+    height: 36px;
+  }
+}
+
 .lanoda-hide {
   display: none;
 }
@@ -113,6 +134,14 @@ $PrimaryMintTeal: #6cc0c0;
 
 .lanoda-right {
 	float: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-black {
+  color: black;
 }
 
 .background-shadow {
@@ -145,6 +174,42 @@ $PrimaryMintTeal: #6cc0c0;
   &.show {
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.spinner-wrapper {
+  box-sizing: border-box;
+  padding-top: 60px;
+}
+
+.dotted-button {
+  font-size: 34px;
+}
+
+@media(min-width: 1025px) {
+  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
+    margin-top: 64px;
+    height: calc(100% - 64px);
+  }
+
+  .mdl-layout__header {
+    .mdl-layout__drawer-button {
+      display: none;
+    }
+  }
+}
+
+@media(max-width: 1024px) {
+  .mdl-layout--fixed-drawer {
+    & > .mdl-layout__drawer {
+      margin-top: 0;
+      height: 100%;
+    }
+  }
+  .mdl-layout__header {
+    .mdl-layout__header-row {
+      padding-left: 50px;
+    }
   }
 }
 

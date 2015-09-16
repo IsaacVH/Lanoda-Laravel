@@ -1,13 +1,79 @@
-$DarkBlue: #1b1464;
-$SecondaryPurple: #93278f;
-$LightBlue: #7ac1ed;
-$LightGrey: #999999;
-$PrimaryMintTeal: #6cc0c0;
+$PrimaryColor: #6cc0c0; /* MintTeal */
+$SecondaryColor: #93278f; /* Purple */
+$BackgroundBaseOne: #D3D3D3; /* LightGray */
+$BackgroundBaseTwo: #999999; /* DarkGray */
+$AccentOne: #7ac1ed; /* LightBlue */
+$AccentTwo: #1b1464; /* DarkBlue */
+
+
+.mdl-layout__drawer {
+
+
+	.contact-image-wrapper {
+		background-color: $BackgroundBaseOne;
+		text-align: center;
+		width: 100%;
+		height: 190px;
+		margin-bottom: 15px;
+		box-sizing: border-box;
+
+		.contact-image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.contact-icon {
+			font-size: 180px;
+			color: $BackgroundBaseTwo;
+		}
+	}
+}
+
+.profile-image-background {
+	color: #999999;
+	margin-top: 20px;
+	width: 100%;
+	height: 209px;
+	padding: 15px;
+	box-sizing: border-box;
+
+	.shadow-overlay {
+		display: none;
+	}
+
+	&:hover {
+		.shadow-overlay {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.6);
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.add-image-button {
+		background-color: lightgray;
+		font-weight: bold;
+		height: 36px;
+		margin-top: calc(50% - 18px);
+
+		&:hover {
+			background-color: #eaeaea;
+			cursor: pointer;
+		}
+	}
+}
+
+.menu-item {
+	height: 24px;
+	margin-bottom: 5px;
+}
 
 .contact-list {
 	max-width: 1200px;
 }
-
 
 .contact-list-cell {
 	min-width: 190px;
@@ -23,7 +89,7 @@ $PrimaryMintTeal: #6cc0c0;
 	cursor: pointer;
 
 	.contact-image-wrapper {
-		background-color: lightgray;
+		background-color: $BackgroundBaseOne;
 		text-align: center;
 		width: 100%;
 		height: 190px;
@@ -37,26 +103,26 @@ $PrimaryMintTeal: #6cc0c0;
 
 		.contact-icon {
 			font-size: 180px;
-			color: darkgray;
+			color: $BackgroundBaseTwo;
 		}
 	}
 
 	.contact-plus {
 		margin-top: -43px;
-		background-color: $SecondaryPurple;
+		background-color: $SecondaryColor;
 	}
 
 	.contact-name {
 		text-align: center;
 		width: 100%;
 		font-size: 18px;
-		color: $SecondaryPurple;
+		color: $SecondaryColor;
 		box-sizing: border-box;
 	}
 
 	&:hover {
 		.contact-plus {
-			background-color: $LightBlue;
+			background-color: $AccentOne;
 		}
 	}
 }
@@ -72,3 +138,18 @@ $PrimaryMintTeal: #6cc0c0;
 		}
 	}
 }
+
+.lanoda-tooltip {
+	display: none;
+
+	&.lanoda-tooltip--left {
+		transform: translate3d(-100px, 0, 0);
+	}
+}
+
+#addNoteButton {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+

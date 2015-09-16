@@ -39,26 +39,20 @@
   margin-left: 0;
   width: 100%; }
 
-@media (min-width: 1025px) {
-  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
-    margin-top: 64px;
-    height: calc(100% - 64px); } }
-
-@media (max-width: 1024px) {
-  .mdl-layout--fixed-drawer > .mdl-layout__drawer {
-    margin-top: 0;
-    height: 100%; } }
-
 .mdl-layout__header {
   background-color: #6cc0c0; }
   .mdl-layout__header .mdl-layout-title .lanoda-header-logo {
     box-sizing: border-box;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 15px;
     height: 100%; }
+  .mdl-layout__header .mdl-layout__drawer-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding-left: 18px;
+    padding-top: 18px; }
   .mdl-layout__header .mdl-layout__header-row {
-    padding-left: 50px;
-    padding-right: 50px; }
+    padding-left: 30px;
+    padding-right: 60px; }
 
 .mdl-layout.modal-open .background-shadow {
   display: block; }
@@ -74,6 +68,28 @@
   overflow-y: visible;
   overflow-x: visible; }
 
+.mdl-layout__drawer {
+  padding: 15px; }
+
+.mdl-button--fab.mdl-button--colored {
+  background: #93278f; }
+  .mdl-button--fab.mdl-button--colored:hover {
+    background: #93278f; }
+
+.mdl-button--colored {
+  color: white; }
+
+.sub-header {
+  margin: 20px auto;
+  apadding: 0 10% 0 5%; }
+
+.hidden-menu {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.1s; }
+  .hidden-menu.show {
+    height: 36px; }
+
 .lanoda-hide {
   display: none; }
 
@@ -82,6 +98,12 @@
 
 .lanoda-right {
   float: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-black {
+  color: black; }
 
 .background-shadow {
   background-color: rgba(0, 0, 0, 0.7);
@@ -106,5 +128,26 @@
     top: 50%;
     -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0); }
+
+.spinner-wrapper {
+  box-sizing: border-box;
+  padding-top: 60px; }
+
+.dotted-button {
+  font-size: 34px; }
+
+@media (min-width: 1025px) {
+  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
+    margin-top: 64px;
+    height: calc(100% - 64px); }
+  .mdl-layout__header .mdl-layout__drawer-button {
+    display: none; } }
+
+@media (max-width: 1024px) {
+  .mdl-layout--fixed-drawer > .mdl-layout__drawer {
+    margin-top: 0;
+    height: 100%; }
+  .mdl-layout__header .mdl-layout__header-row {
+    padding-left: 50px; } }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,6 +4,7 @@ namespace Lanoda\Http\Controllers\Contact;
 
 use Auth;
 use Lanoda\Contact;
+use Lanoda\ContactType;
 use Lanoda\Image;
 use Lanoda\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,8 +20,7 @@ class ContactController extends Controller
      */
     public function showContactDetail($contact_name) 
     {
-        $contact = Contact::where('url_name', $contact_name)->first();
-        return view('contact.detail', ['user' => Auth::user(), 'contact' => $contact]);
+        return view('contact.detail', ['contact' => Contact::where('url_name', $contact_name)->first(), 'contactTypes' => ContactType::all()]);
     }
 
     /**
@@ -40,9 +40,9 @@ class ContactController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function renderCreateContact(Request $request) {
-        $contact = $this->createContact($request);
-        return view('contact.partials.contact-tile', ['contact'=>$contact]);
+    public function renderCreateContact(Request $request) 
+    {
+        return view('contact.partials.contact-tile', ['contact' => $this->createContact($request)]);
     }
 
 
@@ -56,8 +56,9 @@ class ContactController extends Controller
     {
         if($contact['user_id'] == Auth::user()->id) {
             return $contact->delete();
+        } else {
+            return ["error" => "Unauthorized"];
         }
-        return redirect('/contacts')->with(['error' => 'You don\'t have access to that contact.']);
     }
 
     /**
@@ -80,6 +81,16 @@ class ContactController extends Controller
         ];
         $result = Contact::create($contact);
         return $result;
+    }
+
+    /**
+     * Get a contact's data
+     *
+     * @return Response
+     */
+    public function getContact(Contact $contact)
+    {
+        return $contact;
     }
 
     /**
@@ -109,7 +120,7 @@ class ContactController extends Controller
         $firstname = $firstname != null ? $firstname : "";
         $middleInitial = $middlename != null && sizeof($middlename) > 0 ? $middlename[0] . "-" : "";
         $lastname = $lastname != null ? $lastname : "";
-        $urlName = $firstname . "-" . $middleInitial . $lastname;
+        $urlName = strtolower($firstname) . "-" . strtolower($middleInitial) . strtolower($lastname);
 
         if (sizeof(Contact::where('url_name', $urlName)->get()) > 0) {
             $urlName .= "-1";

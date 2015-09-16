@@ -1,9 +1,9 @@
 
 <div id="createContactModal" class="modal">
 	<div class="mdl-card mdl-shadow--2dp lanoda-form-card">
-		<div class="mdl-card--border">
-			<!-- Simple Textfield -->
-			<form id="createContactForm" method="POST" action="javascript:submitContactForm()">
+		<form id="createContactForm" onsubmit="return contacts.submitCreateForm()">
+			<div class="mdl-card--border">
+				<!-- Simple Textfield -->
 				{!! csrf_field() !!}
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
 					<input class="mdl-textfield__input" type="text" name="firstname" id="contact-firstname" />
@@ -29,15 +29,15 @@
 					<input class="mdl-textfield__input" type="text" name="birthday" id="contact-birthday" />
 					<label class="mdl-textfield__label" for="contact-birthday">Birthday</label>
 				</div>
-			</form>
-		</div>
-		<div class="mdl-card__actions mdl-card--border">
-			<button onclick="javascript:$('#createContactForm').submit()" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored lanoda-right">
-				Create
-			</button>
-			<button onclick="javascript:closeModal()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect lanoda-left">
-				Cancel
-			</button>
-		</div>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+				<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored lanoda-right">
+					Create
+				</button>
+				<button onclick="javascript:closeModal()" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect lanoda-left">
+					Cancel
+				</button>
+			</div>
+		</form>
 	</div>
 </div>

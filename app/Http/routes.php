@@ -40,7 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Users
 	Route::get('/user/profile', 'User\UserController@showCurrentUser');
-	Route::get('/user/list', 'User\UserController@showAllUsers');
 
 	Route::delete('/user/{user}', 'User\UserController@deleteUser');
 	Route::put('/user/{user}', 'User\UserController@updateUser');
@@ -51,34 +50,54 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/contacts', 'Contact\ContactController@showContactsForCurrentUser');
 	Route::post('/contacts', 'Contact\ContactController@renderCreateContact');
 
-	Route::delete('/contacts/{contact}/raw', 'Contact\ContactController@deleteContact');
-	Route::post('/contacts/raw', 'Contact\ContactController@createContact');
-	Route::put('/contacts/{contact}/raw', 'Contact\ContactController@updateContact');
-
 
 	// Notes
 	Route::get('/contacts/{contact_name}/notes/{note}', 'Note\NoteController@showNote');
 	Route::get('/contacts/{contact_name}/notes', 'Note\NoteController@showNotesForContact');
-
-	Route::delete('/notes/{note}', 'Note\NoteController@deleteNote');
-	Route::post('/notes', 'Note\NoteController@createNote');
-	Route::put('/notes/{note}', 'Note\NoteController@updateNote');
 
 
 	// Tags
 	Route::get('/tags/{tag}', 'Tag\TagController@showTag');
 	Route::get('/tags', 'Tag\TagController@showTagsForCurrentUser');
 
+
+	// Images
+	Route::get('/images/{image}', 'Image\ImageController@showImage');
+	Route::get('/images', 'Image\ImageController@showImagesForCurrentUser');
+});
+
+
+// API
+Route::group(['middleware' => 'auth', 'prefix' => 'api'], function() {
+
+	// Contacts
+	Route::delete('/contacts/{contact}', 'Contact\ContactController@deleteContact');
+	Route::get('/contacts/{contact}', 'Contact\ContactController@getContact');
+	Route::get('/contacts', 'Contact\ContactController@getContacts');
+	Route::post('/contacts', 'Contact\ContactController@createContact');
+	Route::put('/contacts/{contact}', 'Contact\ContactController@updateContact');
+
+
+	// Notes
+	Route::delete('/notes/{note}', 'Note\NoteController@deleteNote');
+	Route::get('/notes/{note}', 'Note\NoteController@getNote');
+	Route::get('/notes', 'Note\NoteController@getNotes');
+	Route::post('/notes', 'Note\NoteController@createNote');
+	Route::put('/notes/{note}', 'Note\NoteController@updateNote');
+
+
+	// Tags
 	Route::delete('/tags/{tag}', 'Tag\TagController@deleteTag');
+	Route::get('/tags/{tag}', 'Tag\TagController@getTag');
+	Route::get('/tags', 'Tag\TagController@getTags');
 	Route::post('/tags', 'Tag\TagController@createTag');
 	Route::put('/tags{tag}', 'Tag\TagController@updateTag');
 
 
 	// Images
-	Route::get('/images/{image}', 'Image\ImageController@showImage');
-	Route::get('/images', 'Image\ImageController@showImagesForCurrentUser');
-
 	Route::delete('/images/{image}', 'Image\ImageController@deleteImage');
+	Route::get('/images/{image}', 'Image\ImageController@getImage');
+	Route::get('/images', 'Image\ImageController@getImages');
 	Route::post('/images', 'Image\ImageController@createImage');
 	Route::put('/images{image}', 'Image\ImageController@updateImage');
 });

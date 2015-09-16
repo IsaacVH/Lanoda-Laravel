@@ -39,13 +39,9 @@
 							</form>
 						</div>
 						<div class="profile-icon">
-							@if (isset($profileImage) && array_key_exists('file_url', $profileImage))
-								<img src=<?php echo "'".$profileImage['file_url']."'"; ?> />
-							@else
-								<button class="mdl-button mdl-js-button mdl-button--icon" style="height: 36px; width: 30px;">
-									<i class="material-icons md-30" style="margin-left: -3px">person</i>
-								</button>
-							@endif
+							<button class="mdl-button mdl-js-button mdl-button--icon" style="height: 36px; width: 30px;">
+								<i class="material-icons md-30" style="margin-left: -3px">person</i>
+							</button>
 						</div>
 					</div>
 				</header>
@@ -65,7 +61,6 @@
 
 		<!-- Scripts -->
         <script src="/js/compiled.js"></script>
-        <script src="/js/app.js"></script>
 		@section('scripts')
 
 		@show
