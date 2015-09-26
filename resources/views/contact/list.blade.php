@@ -15,8 +15,8 @@
 @stop
 
 @section('content')
-	<div class="sub-header" style="margin: 20px auto; padding: 0 10% 0 5%;">
-		<h4 class="sub-header-title" style="margin: 0; float: left; height: 48px; line-height: 48px; font-weight: 300;">
+	<div class="sub-header">
+		<h4 class="sub-header-title">
 			CONTACT PAGE
 		</h4>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="text-align: center;">

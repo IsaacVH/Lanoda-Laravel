@@ -8,6 +8,7 @@ var app = {
 		$('.open-modal').on('click', function(event) {
 			var modal = $(event.target).closest('.open-modal').data("modal");
 			$("#"+modal).addClass('show');
+			$("#"+modal).find('.close-modal').on('click', app.closeModal);
 			$(".mdl-layout").addClass("modal-open");
 		});
 
@@ -17,7 +18,7 @@ var app = {
 			hiddenMenu.toggleClass('show');
 		});
 
-		$(".background-shadow").on('click', closeModal);
+		$(".background-shadow").on('click', app.closeModal);
 	},
 
 	closeModal: function() {
@@ -71,6 +72,56 @@ var app = {
 				"type": "DELETE",
 				success: handleDeleteContactSuccess,
 				error: handleDeleteContactError
+			});
+		},
+	},
+
+	notes: {
+		CreateNote: function(data, handleCreateNoteSuccess, handleCreateNoteError) {
+			$.ajax({
+				"url": "/api/notes",
+				"type": "POST",
+				"data": data,
+				success: handleCreateNoteSuccess,
+				error: handleCreateNoteError
+			});
+		},
+
+		GetNote: function(noteId, handleGetNoteSuccess, handleGetNoteFailure) {
+			$.ajax({
+				"url": "/api/notes/" + noteId,
+				"type": "GET",
+				"data": data,
+				success: handleGetNoteSuccess,
+				error: handleGetNoteFailure
+			});
+		},
+
+		GetNotes: function(data, handleGetNotesSuccess, handleGetNotesFailure) {
+			$.ajax({
+				"url": "/api/notes",
+				"type": "GET",
+				"data": data,
+				success: handleGetNoteSuccess,
+				error: handleGetCotnactSuccess
+			});
+		},
+
+		UpdateNote: function(noteId, data, handleUpdateNoteSuccess, handleUpdateNoteFailure) {
+			$.ajax({
+				"url": "/api/notes/" + noteId,
+				"type": "PUT",
+				success: handleUpdateNoteSuccess,
+				error: handleUpdateNoteFailure
+			});
+		},
+
+		DeleteNote: function(handleCreateDeleteSuccess, handleCreateDeleteError) {
+			$.ajax({
+				"url": "/api/notes",
+				"type": "DELETE",
+				success: handleDeleteNoteSuccess,
+				error: handleDeleteNoteError
 			});
 		},
 	}

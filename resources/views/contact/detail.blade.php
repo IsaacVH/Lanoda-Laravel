@@ -55,7 +55,7 @@
 
 	<!-- Create Note Button -->
 	<div style="z-index: 2; display: inline-block; position: absolute; bottom: 40px; right: 40px;">
-		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored open-modal" data-modal="addNoteModal">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored open-modal" data-modal="createNoteModal">
 			<i class="material-icons">add</i>
 		</button>
 	</div>
@@ -87,4 +87,6 @@
 			</div>
 		@endforeach
 	</div>
+
+	@include('contact.partials.note-create-modal')
 @stop

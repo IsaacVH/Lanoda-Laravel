@@ -90,7 +90,7 @@
 .lanoda-form-card {
   padding-top: 30px;
   width: 450px; }
-  .lanoda-form-card #createContactForm .mdl-textfield {
+  .lanoda-form-card .mdl-textfield {
     min-width: 300px;
     width: 80%; }
 

@@ -89,6 +89,7 @@ $PrimaryMintTeal: #6cc0c0;
   }
 
   .mdl-layout__content {
+    z-index: 5;    
     overflow-y: visible;
     overflow-x: visible;
   }
@@ -97,6 +98,7 @@ $PrimaryMintTeal: #6cc0c0;
 .mdl-layout__drawer {
   padding: 15px;
 }
+
 .mdl-button--fab.mdl-button--colored {
   background: $SecondaryPurple;
 
@@ -104,13 +106,26 @@ $PrimaryMintTeal: #6cc0c0;
     background: $SecondaryPurple;
   }
 }
+
 .mdl-button--colored {
   color: white;
 }
 
 .sub-header {
   margin: 20px auto; 
-  apadding: 0 10% 0 5%;
+  padding: 0 10% 0 5%;
+}
+
+.sub-header-title {
+  margin: 0;
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  font-weight: 300;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .hidden-menu {
@@ -156,7 +171,7 @@ $PrimaryMintTeal: #6cc0c0;
 }
 
 .modal {
-  z-index: 6;
+  z-index: 7;
   position: fixed;
   top: 0;
   left: 50%;

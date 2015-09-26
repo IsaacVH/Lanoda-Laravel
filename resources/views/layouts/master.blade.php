@@ -40,7 +40,7 @@
 						</div>
 						<div class="profile-icon">
 							@if (isset($user) && $user->image != null)
-								<img src=<?php echo "'".$user->image->file_url."'"; ?> />
+								<img src='{{ $user->image->file_url }}'; ?> />
 							@else
 								<button class="mdl-button mdl-js-button mdl-button--icon" style="height: 36px; width: 30px;">
 									<i class="material-icons md-30" style="margin-left: -3px">person</i>
