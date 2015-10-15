@@ -3,6 +3,7 @@
 namespace Lanoda\Http\Controllers\Contact;
 
 use Auth;
+use Lanoda\NoteType;
 use Lanoda\Contact;
 use Lanoda\ContactType;
 use Lanoda\Image;
@@ -20,7 +21,7 @@ class ContactController extends Controller
      */
     public function showContactDetail($contact_name) 
     {
-        return view('contact.detail', ['contact' => Contact::where('url_name', $contact_name)->first(), 'contactTypes' => ContactType::all()]);
+        return view('contact.detail', ['contact' => Contact::where('url_name', $contact_name)->first(), 'contactTypes' => ContactType::all(), 'noteTypes' => NoteType::all()]);
     }
 
     /**

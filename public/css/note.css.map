@@ -1,0 +1,1 @@
+{"version":3,"sources":["note.scss"],"names":[],"mappings":"AAEC;EACC,cAAa,EADK","file":"note.css","sourcesContent":["#createNoteModal {\r\n\r\n\t.lanoda-form-card {\r\n\t\twidth: 500px;\r\n\t}\r\n}\r\n\r\n\r\n"],"sourceRoot":"/source/"}

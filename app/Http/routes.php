@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Notes
 	Route::get('/contacts/{contact_name}/notes/{note}', 'Note\NoteController@showNoteDetail');
-	Route::get('/contacts/{contact_name}/notes', 'Note\NoteController@showNotesForContact');
+	Route::get('/contacts/{contact}/notes', 'Note\NoteController@showNotesForContact');
 
 
 	// Tags

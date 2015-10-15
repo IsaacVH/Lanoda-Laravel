@@ -77,8 +77,16 @@ class GenerateBaseTables extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('contact_id')->unsigned();
+            $table->integer('type_id')->unsigned();
             $table->string('title');
             $table->string('body');
+            $table->timestamps();
+        });
+
+        Schema::create('note_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
 
@@ -115,6 +123,8 @@ class GenerateBaseTables extends Migration
             $table->foreign('contact_id')
                   ->references('id')->on('contacts')
                   ->onDelete('cascade');
+            $table->foreign('type_id')
+                  ->references('id')->on('note_types');
         });
 
         // notes_tags
@@ -137,6 +147,7 @@ class GenerateBaseTables extends Migration
     {
         Schema::drop('note_tag');
         Schema::drop('notes');
+        Schema::drop('note_types');
         Schema::drop('contacts');
         Schema::drop('contact_types');
         Schema::drop('users');

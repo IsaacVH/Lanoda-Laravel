@@ -4,7 +4,9 @@ namespace Lanoda\Http\Controllers\Note;
 
 use Auth;
 use Lanoda\Note;
+use Lanoda\NoteType;
 use Lanoda\Image;
+use Lanoda\Contact;
 use Lanoda\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,7 @@ class NoteController extends Controller
     {
     	$user = Auth::user();
     	if ($user->id == $contact->user_id) {
-        	return view('notes.list', ['user' => $user, 'contact' => $contact]);
+        	return view('note.list', ['user' => $user, 'contact' => $contact, 'noteTypes' => NoteType::all()]);
     	} else {
     		return "Error! You do not have access to these notes";
     	}
@@ -37,7 +39,7 @@ class NoteController extends Controller
     {
     	$user = Auth::user();
     	if ($user->id == $note->user_id) {
-        	return view('notes.detail', ['user' => $user, 'contact' => $note]);
+        	return view('note.detail', ['user' => $user, 'contact' => $note]);
     	} else {
     		return "Error! You do not have access to that contact!";
     	}
@@ -51,8 +53,7 @@ class NoteController extends Controller
      */
     public function renderCreateNoteTile(Request $request) 
     {
-
-        return view('contact.partials.note-tile', ['contact' => $this->createNote($request)]);
+        return view('contact.partials.note-tile', ['note' => $this->createNote($request)]);
     }
 
 
@@ -68,14 +69,15 @@ class NoteController extends Controller
     }
 
     /**
-     * Create a new contact for the current user
+     * Create a new note for the given contact id
      *
      * @return Response
      */
-    public function createNote(Request $request, Contact $contact) 
+    public function createNote(Request $request) 
     {
         $note = [
-            'contact_id' => $contact->id,
+            'contact_id' => $request->input('contact_id'),
+            'type_id' => $request->input('type_id'),
             'title' => $request->input('title'),
             'body' => $request->input('body')
         ];

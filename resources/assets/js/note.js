@@ -38,7 +38,9 @@ var notes = {
 		},
 
 		Failure: function (data) {
-			alert("Could not create note!");
+			alert(data.statusText + ": Could not create note!");
+			var opened = window.open("");
+			opened.document.write(data.responseText);
 		},
 	},
 
@@ -48,7 +50,7 @@ var notes = {
 		},
 
 		Failure: function (data) {
-			alert("Could not delete Contact");
+			alert(data.statusText + ": Could not delete Contact");
 		}
 	}
 };

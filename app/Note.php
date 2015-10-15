@@ -19,7 +19,7 @@ class Note extends Model
      *
      * @var array
      */
-    protected $fillable = ['contact_id', 'title', 'body'];
+    protected $fillable = ['contact_id', 'type_id', 'title', 'body'];
 
     /**
      * The attributes excluded from the model's JSON form.

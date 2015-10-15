@@ -14,6 +14,7 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
     mix.sass('contact.scss', 'public/css/contact.css', null);
+    mix.sass('note.scss', 'public/css/note.css', null);
     mix.sass('form-card.scss', 'public/css/form-card.css', null);
 
     mix.styles([
@@ -24,6 +25,7 @@ elixir(function(mix) {
     	"vendor/jquery/jquery-1.11.3.min.js",
     	"vendor/mdl/material.min.js",
     	"app.js",
-        "contact.js"
+        "contact.js",
+        "note.js"
     ], 'public/js/compiled.js', null);
 });

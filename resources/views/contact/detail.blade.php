@@ -4,11 +4,21 @@
 
 @section('styles')
 	<link rel="stylesheet" href="/css/contact.css" />
+	<link rel="stylesheet" href="/css/note.css" />
 @stop
 
 @section('header')
 	@parent
 @stop
+
+<?php
+	$noteTypeIdFriend = 1;
+	$noteTypeIdFamily = 2;
+	$noteTypeIdWork = 3;
+	$noteTypeIdSchool = 4;
+
+	$invalid_characters = array("$", "%", "#", "<", ">", "|", "/", "\\");
+?>
 
 @section('sidebar')
 	<div class="mdl-layout__drawer">
@@ -66,27 +76,20 @@
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="text-align: center;">
 			<div class="mdl-tabs__tab-bar" style="display: inline-block; margin: 0 auto;">
 				<a href="#show-all" class="mdl-tabs__tab is-active">all</a>
-				@foreach ($contactTypes as $contactType)
-					<a href="#show-{{ $contactType->name }}" class="mdl-tabs__tab">{{ $contactType->name }}</a>
+				@foreach ($noteTypes as $noteType)
+					<a href="#show-{{ str_replace($invalid_characters, "-", $noteType->name) }}" class="mdl-tabs__tab">{{ $noteType->name }}</a>
 				@endforeach
 			</div>
 		</div>
 	</div>
 
-	<div class="note-list mdl-grid">
+	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">
 		
-		<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell loading-cell">
-			<div class="spinner-wrapper">
-				<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"></div>
-			</div>
-		</div>
-		
-		@foreach ($contact->notes as $note)
-			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell">
-				@note->title
-			</div>
-		@endforeach
+		@include('note.list', ['contact' => $contact])
+
 	</div>
 
 	@include('contact.partials.note-create-modal')
 @stop
+
+

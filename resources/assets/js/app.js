@@ -19,11 +19,18 @@ var app = {
 		});
 
 		$(".background-shadow").on('click', app.closeModal);
+		$(".lanoda-expandlist-button").on('click', app.expandList);
 	},
 
 	closeModal: function() {
 		$(".mdl-layout").removeClass("modal-open");
 		$(".modal").removeClass('show');
+	},
+
+	expandList: function() {
+		$('.lanoda-expandlist[for=\''+$(this).attr('id')+'\']').toggleClass('expanded');
+		$(this).find(".down-arrow").toggleClass("lanoda-hide");
+		$(this).find(".up-arrow").toggleClass("lanoda-hide");
 	},
 
 	contacts: {
