@@ -21,7 +21,11 @@ class ContactController extends Controller
      */
     public function showContactDetail($contact_name) 
     {
-        return view('contact.detail', ['contact' => Contact::where('url_name', $contact_name)->first(), 'contactTypes' => ContactType::all(), 'noteTypes' => NoteType::all()]);
+        $contact = Contact::where('url_name', $contact_name)->first();
+        if ($contact == null) {
+            return redirect('/contacts');
+        }
+        return view('contact.detail', ['contact' => $contact, 'contactTypes' => ContactType::all(), 'noteTypes' => NoteType::all()]);
     }
 
     /**
@@ -69,7 +73,6 @@ class ContactController extends Controller
      */
     public function createContact(Request $request) 
     {
-        $middleinitial = $request->has('middlename') && sizeof($request->input('middlename')) > 0 ? $request->input('middlename')[0] : "";
         $contact = [
             'user_id' => Auth::user()->id,
             'url_name' => $this->buildUrlName($request->input('firstname'), $request->input('middlename'), $request->input('lastname')),
@@ -118,10 +121,16 @@ class ContactController extends Controller
      * @return Response
      */
     private function buildUrlName($firstname, $middlename, $lastname) {
-        $firstname = $firstname != null ? $firstname : "";
-        $middleInitial = $middlename != null && sizeof($middlename) > 0 ? $middlename[0] . "-" : "";
-        $lastname = $lastname != null ? $lastname : "";
-        $urlName = strtolower($firstname) . "-" . strtolower($middleInitial) . strtolower($lastname);
+
+        $invalid_characters = array("$", "%", "#", "<", ">", "|", "/", "\\", " ");
+
+        $fname = $firstname != null ? urlencode(strtolower(str_replace($invalid_characters, "", $firstname))) : "";
+        $mname = $middlename != null ? urlencode(strtolower(str_replace($invalid_characters, "", $middlename))) : "";
+        $lname = $lastname != null ? urlencode(strtolower(str_replace($invalid_characters, "", $lastname))) : "";
+
+        $minit = sizeof($middlename) > 0 ? $mname[0] . "-" : "";
+
+        $urlName = $fname . "-" . $minit . $lname;
 
         if (sizeof(Contact::where('url_name', $urlName)->get()) > 0) {
             $urlName .= "-1";

@@ -1,4 +1,41 @@
+.note-list-cell {
+  height: 150px; }
+  .note-list-cell.note-general {
+    background-color: #6cc0c0; }
+  .note-list-cell.note-likedislike {
+    background-color: purple; }
+  .note-list-cell.note-memory {
+    background-color: blue; }
+  .note-list-cell.note-reminder {
+    background-color: lightblue; }
+  .note-list-cell.note-photo {
+    background-color: pink; }
+  .note-list-cell .note-tile {
+    color: white; }
+    .note-list-cell .note-tile .note-icon {
+      height: 48px;
+      width: 48px;
+      border-radius: 24px;
+      text-align: center; }
+      .note-list-cell .note-tile .note-icon .material-icons {
+        color: white;
+        margin-top: 12px; }
+    .note-list-cell .note-tile .note-title {
+      font-size: 20px; }
+
 #createNoteModal .lanoda-form-card {
   width: 500px; }
+  #createNoteModal .lanoda-form-card .mdl-textfield {
+    width: 100%; }
+
+#createNoteModal .menu-icon-wrapper {
+  width: 24px;
+  height: 48px;
+  margin-right: 5px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle; }
+  #createNoteModal .menu-icon-wrapper .material-icons {
+    margin-top: 12px; }
 
 /*# sourceMappingURL=note.css.map */

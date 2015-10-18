@@ -1,11 +1,15 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+/* Primary Colors */
 $DarkBlue: #1b1464;
 $SecondaryPurple: #93278f;
 $SecondaryPurpleLight: #bb32b6;
 $LightBlue: #7ac1ed;
 $LightGrey: #999999;
 $PrimaryMintTeal: #6cc0c0;
+
+/* Other Colors */
+$DarkGray: #4d4d4d;
 
 /* BEGIN Google Material Icons */
 @font-face {
@@ -111,6 +115,8 @@ $PrimaryMintTeal: #6cc0c0;
   color: white;
 }
 
+
+
 .sub-header {
   margin: 20px auto; 
   padding: 0 5% 0 5%;
@@ -177,38 +183,24 @@ $PrimaryMintTeal: #6cc0c0;
   */
 }
 
-.lanoda-form-card {
-  overflow: visible;
-}
+.lanoda-form-card { overflow: visible; }
+.lanoda-hide { display: none; }
+.lanoda-left { float: left; }
+.lanoda-right { float: right; }
 
-.lanoda-hide {
-  display: none;
-}
+.align-vertical-top { vertical-align: top; }
+.align-vertical-middle { vertical-align: middle; }
+.align-vertical-bottom { vertical-align: bottom; }
 
-.lanoda-left {
-  float: left;
-}
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-black { color: black; }
+.text-white { color: white; }
+.text-darkgray { color: $DarkGray; }
 
-.lanoda-right {
-  float: right;
-}
-
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-black {
-  color: black;
-}
+.inline-block { display: inline-block; }
+.normalize-link { text-decoration: none; color: black; }
 
 
 .background-shadow {

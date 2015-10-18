@@ -12,10 +12,11 @@
 @stop
 
 <?php
-	$noteTypeIdFriend = 1;
-	$noteTypeIdFamily = 2;
-	$noteTypeIdWork = 3;
-	$noteTypeIdSchool = 4;
+	$noteTypeIdGeneral = 1;
+	$noteTypeIdLikeDislike = 2;
+	$noteTypeIdMemory = 3;
+	$noteTypeIdReminder = 4;
+	$noteTypeIdPhoto = 5;
 
 	$invalid_characters = array("$", "%", "#", "<", ">", "|", "/", "\\");
 ?>
@@ -85,11 +86,11 @@
 
 	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">
 		
-		@include('note.list', ['contact' => $contact])
+		@include('note.list', compact($contact, $noteTypes))
 
 	</div>
 
-	@include('contact.partials.note-create-modal')
+	@include('note.partials.note-create-modal', compact($contact, $noteTypes))
 @stop
 
 

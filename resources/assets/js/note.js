@@ -1,12 +1,25 @@
 var notes = {
 
+	init: function () {
+		$('.note-select-type').on('click', notes.selectNoteType);
+	},
+
 	onClickDelete: function () {
 		app.deleteNote(notes.onDelete.Success, notes.onDelete.Failure);
+	},
+
+	selectNoteType: function () {
+		var typeText = $(this).data('type');
+		var iconText = $(this).data('icon');
+		$('#noteTypeId').attr('value', typeText);
+		$('#note-type-button .default-text').addClass("lanoda-hide");
+		$('#note-type-button .material-icons').html(iconText);
 	},
 
 	submitCreateForm: function() {
 		var data = $("#createNoteForm").serialize();
 		
+		console.log(data);
 		var noteForm = notes.validateNoteForm(data);
 		if (noteForm.IsValid) {
 			$(".note-list .loading-cell").removeClass("lanoda-hide");

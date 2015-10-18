@@ -1,5 +1,7 @@
 $(function() {
 	app.init();
+	contacts.init();
+	notes.init();
 });
 
 var app = {

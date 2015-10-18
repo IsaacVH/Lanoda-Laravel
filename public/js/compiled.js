@@ -16,6 +16,8 @@ function MaterialButton(e){"use strict";this.element_=e,this.init()}function Mat
 //# sourceMappingURL=material.min.js.map
 $(function() {
 	app.init();
+	contacts.init();
+	notes.init();
 });
 
 var app = {
@@ -152,17 +154,13 @@ var app = {
 
 
 
-$(function () {
-	contacts.init();
-});
 
 var contacts = {
 
 	noteListFailure: "Note List Failed",
 
 	init: function () {
-		var notelist = contacts.loadNoteListHtml($("#contactNoteList").data("contactid"));
-		$('.content-area').html(notelist);
+		
 	},
 
 	onClickDelete: function () {
@@ -189,20 +187,6 @@ var contacts = {
 			IsValid: true,
 			Errors: []
 		};
-	},
-
-	loadNoteListHtml: function(contactid) {
-		$.ajax({
-			url: "/contacts/" + contactid + "/notes",
-			type: "GET",
-			success: function(data) {
-				$("#contactNoteList").html(data);
-			},
-			failure: function(data) {
-				$("#contactNoteList").html(contacts.noteListFailure);
-				console.log(data);
-			},
-		});
 	},
 
 	onCreate: {
@@ -235,13 +219,26 @@ var contacts = {
 
 var notes = {
 
+	init: function () {
+		$('.note-select-type').on('click', notes.selectNoteType);
+	},
+
 	onClickDelete: function () {
 		app.deleteNote(notes.onDelete.Success, notes.onDelete.Failure);
+	},
+
+	selectNoteType: function () {
+		var typeText = $(this).data('type');
+		var iconText = $(this).data('icon');
+		$('#noteTypeId').attr('value', typeText);
+		$('#note-type-button .default-text').addClass("lanoda-hide");
+		$('#note-type-button .material-icons').html(iconText);
 	},
 
 	submitCreateForm: function() {
 		var data = $("#createNoteForm").serialize();
 		
+		console.log(data);
 		var noteForm = notes.validateNoteForm(data);
 		if (noteForm.IsValid) {
 			$(".note-list .loading-cell").removeClass("lanoda-hide");

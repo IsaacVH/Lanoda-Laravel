@@ -9,26 +9,26 @@
 	<?php 
 		$noteClass = '';
 		switch($note->type_id) {
-			case $noteTypeIdFriend:
-				$noteClass = 'note-friend';
+			case $noteTypeIdGeneral:
+				$noteClass = 'note-general';
 				break;
-			case $noteTypeIdFamily:
-				$noteClass = 'note-family';
+			case $noteTypeIdLikeDislike:
+				$noteClass = 'note-likedislike';
 				break;
-			case $noteTypeIdWork:
-				$noteClass = 'note-work';
+			case $noteTypeIdMemory:
+				$noteClass = 'note-memory';
 				break;
-			case $noteTypeIdSchool:
-				$noteClass = 'note-school';
+			case $noteTypeIdReminder:
+				$noteClass = 'note-reminder';
+				break;
+			case $noteTypeIdPhoto:
+				$noteClass = 'note-photo';
 				break;
 		}
 
+		$noteType = $noteTypes[$note->type_id - 1];
 	?>
+	@include('note.partials.note-tile', compact($contact, $note, $noteClass, $noteType))
 
-	<div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone note-list-cell {{ $noteClass }}">
-		<i classs="material-icons"></i>
-		<div>{{ $note->title }}</div>
-		<div>{{ $note->body }}</div>
-	</div>
 @endforeach
 

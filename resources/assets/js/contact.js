@@ -1,14 +1,10 @@
-$(function () {
-	contacts.init();
-});
 
 var contacts = {
 
 	noteListFailure: "Note List Failed",
 
 	init: function () {
-		var notelist = contacts.loadNoteListHtml($("#contactNoteList").data("contactid"));
-		$('.content-area').html(notelist);
+		
 	},
 
 	onClickDelete: function () {
@@ -35,20 +31,6 @@ var contacts = {
 			IsValid: true,
 			Errors: []
 		};
-	},
-
-	loadNoteListHtml: function(contactid) {
-		$.ajax({
-			url: "/contacts/" + contactid + "/notes",
-			type: "GET",
-			success: function(data) {
-				$("#contactNoteList").html(data);
-			},
-			failure: function(data) {
-				$("#contactNoteList").html(contacts.noteListFailure);
-				console.log(data);
-			},
-		});
 	},
 
 	onCreate: {

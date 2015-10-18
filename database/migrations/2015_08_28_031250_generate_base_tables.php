@@ -70,6 +70,7 @@ class GenerateBaseTables extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('description');
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
 
@@ -87,6 +88,7 @@ class GenerateBaseTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
 

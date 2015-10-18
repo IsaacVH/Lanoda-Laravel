@@ -1,3 +1,5 @@
+/* Primary Colors */
+/* Other Colors */
 /* BEGIN Google Material Icons */
 @font-face {
   font-family: 'Material Icons';
@@ -149,6 +151,15 @@
 .lanoda-right {
   float: right; }
 
+.align-vertical-top {
+  vertical-align: top; }
+
+.align-vertical-middle {
+  vertical-align: middle; }
+
+.align-vertical-bottom {
+  vertical-align: bottom; }
+
 .text-center {
   text-align: center; }
 
@@ -159,6 +170,19 @@
   text-align: right; }
 
 .text-black {
+  color: black; }
+
+.text-white {
+  color: white; }
+
+.text-darkgray {
+  color: #4d4d4d; }
+
+.inline-block {
+  display: inline-block; }
+
+.normalize-link {
+  text-decoration: none;
   color: black; }
 
 .background-shadow {
