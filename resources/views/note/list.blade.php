@@ -7,21 +7,22 @@
 
 @foreach ($contact->notes as $note)
 	<?php 
+		$noteTypeIds = ["General" => 1, "LikeDislike" => 2, "Memory" => 3, "Reminder" => 4, "Photo" => 5];
 		$noteClass = '';
 		switch($note->type_id) {
-			case $noteTypeIdGeneral:
+			case $noteTypeIds["General"]:
 				$noteClass = 'note-general';
 				break;
-			case $noteTypeIdLikeDislike:
+			case $noteTypeIds["LikeDislike"]:
 				$noteClass = 'note-likedislike';
 				break;
-			case $noteTypeIdMemory:
+			case $noteTypeIds["Memory"]:
 				$noteClass = 'note-memory';
 				break;
-			case $noteTypeIdReminder:
+			case $noteTypeIds["Reminder"]:
 				$noteClass = 'note-reminder';
 				break;
-			case $noteTypeIdPhoto:
+			case $noteTypeIds["Photo"]:
 				$noteClass = 'note-photo';
 				break;
 		}

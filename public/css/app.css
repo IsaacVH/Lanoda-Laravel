@@ -50,11 +50,14 @@
   .mdl-layout__header .mdl-layout__drawer-button {
     box-sizing: border-box;
     margin: 0;
-    padding-left: 18px;
-    padding-top: 18px; }
+    padding-left: 16px;
+    padding-top: 16px; }
   .mdl-layout__header .mdl-layout__header-row {
     padding-left: 30px;
     padding-right: 60px; }
+    .mdl-layout__header .mdl-layout__header-row .profile-icon .mdl-menu__container.is-visible {
+      right: 60px !important;
+      margin-top: 5px !important; }
 
 .mdl-layout.modal-open .background-shadow {
   display: block; }
@@ -73,6 +76,11 @@
 
 .mdl-layout__drawer {
   padding: 15px; }
+  .mdl-layout__drawer .close-drawer-button {
+    display: none; }
+
+.mdl-textfield__label:after {
+  background-color: #fff; }
 
 .mdl-button--fab.mdl-button--colored {
   background: #93278f; }
@@ -99,6 +107,9 @@
   transition: height 0.1s; }
   .hidden-menu.show {
     height: 36px; }
+
+.capitalize {
+  text-transform: uppercase; }
 
 .lanoda-expandlist-button {
   position: relative !important;
@@ -218,16 +229,27 @@
 
 @media (min-width: 1025px) {
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
-    margin-top: 64px;
-    height: calc(100% - 64px); }
-  .mdl-layout__header .mdl-layout__drawer-button {
-    display: none; } }
+    margin-top: 80px;
+    height: calc(100% - 80px); }
+  .mdl-layout__header {
+    min-height: 80px; }
+    .mdl-layout__header .mdl-layout__drawer-button {
+      display: none; }
+    .mdl-layout__header .mdl-layout__header-row {
+      margin-top: 8px;
+      margin-bottom: 8px; } }
 
 @media (max-width: 1024px) {
   .mdl-layout--fixed-drawer > .mdl-layout__drawer {
     margin-top: 0;
     height: 100%; }
   .mdl-layout__header .mdl-layout__header-row {
-    padding-left: 50px; } }
+    padding-left: 50px; }
+    .mdl-layout__header .mdl-layout__header-row .search-bar form {
+      margin: 0; }
+    .mdl-layout__header .mdl-layout__header-row .search-bar .mdl-textfield {
+      padding-top: 16px; }
+  .mdl-layout__drawer .close-drawer-button {
+    display: inline; } }
 
 /*# sourceMappingURL=app.css.map */

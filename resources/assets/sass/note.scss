@@ -1,12 +1,25 @@
 
+/* Primary Colors */
+$DarkBlue: #1b1464;
+$SecondaryPurple: #93278f;
+$SecondaryPurpleLight: #bb32b6;
+$LightBlue: #7ac1ed;
+$LightGrey: #999999;
+$PrimaryMintTeal: #6cc0c0;
+
+/* Other Colors */
+$DarkGray: #4d4d4d;
+$DarkGold: #d4bc72;
+
+
 .note-list-cell {
 	height: 150px;
 
-	&.note-general { background-color: #6cc0c0; }
-	&.note-likedislike { background-color: purple; }
-	&.note-memory { background-color: blue; }
-	&.note-reminder { background-color: lightblue; }
-	&.note-photo { background-color: pink; }
+	&.note-general { background-color: $DarkBlue; }
+	&.note-likedislike { background-color: $SecondaryPurple; }
+	&.note-memory { background-color: $LightBlue; }
+	&.note-reminder { background-color: $PrimaryMintTeal; }
+	&.note-photo { background-color: $DarkGold; }
 
 	.note-tile {
 		color: white;

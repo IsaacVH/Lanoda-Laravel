@@ -12,12 +12,6 @@
 @stop
 
 <?php
-	$noteTypeIdGeneral = 1;
-	$noteTypeIdLikeDislike = 2;
-	$noteTypeIdMemory = 3;
-	$noteTypeIdReminder = 4;
-	$noteTypeIdPhoto = 5;
-
 	$invalid_characters = array("$", "%", "#", "<", ">", "|", "/", "\\");
 ?>
 
@@ -28,21 +22,24 @@
 			<a href="/contacts">
 				<label class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons text-black">arrow_back</i></label>
 			</a>
+			<span href="#" class="lanoda-right close-drawer-button">
+				<label class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons text-black">close</i></label>
+			</span>
 		</span>
 		<div class="text-center">
 			<div class="profile-image-background">
 				@if($contact->image_id != null) )
 					<img src=" {{ $contact->image->file_url }} " />
 				@else
-					<div style="position: relative; background-color: lightgray; height: 100%; width: 100%; overflow: hidden; border-radius: 3px;">
-						<i class="material-icons" style=" font-size: 180px;">person</i>
+					<div class="profile-image-gray">
+						<i class="material-icons" style="font-size: 180px;">person</i>
 						<div class="shadow-overlay">
 							<div class="mdl-button mdl-js-button add-image-button">Add an Image</div>
 						</div>
 					</div>
 				@endif
 			</div>
-			<h5 class="text-center">{{ $contact->firstname }} <!--{{ $contact->middlename }}--> {{ substr($contact->lastname, 0, 1) }}.</h5>
+			<h5 class="text-center">{{ $contact->firstname }} {{ substr($contact->lastname, 0, 1) }}. <span>{{ $contact->age != null ? $contact->age : "" }}</span></h5>
 			<div class="menu-item">{{ $contact->phone_number }}</div>
 			<div class="menu-item">{{ $contact->email }}</div>
 			<div class="menu-item">{{ $contact->address }}</div>
@@ -74,6 +71,27 @@
 
 @section('content')
 	<div class="sub-header">
+		<div style="text-align: center;">
+			<a class="normalize-link" href="#" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
+				<div class="inline-block" style="width: 100px; text-align: center;">
+					<div class="inline-block noteType-tab all selected" style="text-align: center;">
+						<div class="capitalize">All</div>
+						<div class="number">{{ $contact->notes->count() }}</div>
+					</div>
+				</div>
+			</a>
+			@foreach($noteTypes as $noteType)
+				<a class="normalize-link" href="#show-{{ str_replace($invalid_characters, '-', $noteType->name) }}" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
+					<div class="inline-block" style="width: 100px; text-align: center;">
+						<div class="inline-block noteType-tab {{ str_replace($invalid_characters, '-', $noteType->name) }}" style="text-align: center;">
+							<div class="capitalize">{{ $noteType->name }}</div>
+							<div class="number">{{ $contact->notes->where('type_id', $noteType->id)->count() }}</div>
+						</div>
+					</div>
+				</a>
+			@endforeach
+		</div>
+		<!--
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="text-align: center;">
 			<div class="mdl-tabs__tab-bar" style="display: inline-block; margin: 0 auto;">
 				<a href="#show-all" class="mdl-tabs__tab is-active">all</a>
@@ -82,6 +100,7 @@
 				@endforeach
 			</div>
 		</div>
+		-->
 	</div>
 
 	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">

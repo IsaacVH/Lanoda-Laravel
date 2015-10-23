@@ -1,15 +1,17 @@
+/* Primary Colors */
+/* Other Colors */
 .note-list-cell {
   height: 150px; }
   .note-list-cell.note-general {
-    background-color: #6cc0c0; }
+    background-color: #1b1464; }
   .note-list-cell.note-likedislike {
-    background-color: purple; }
+    background-color: #93278f; }
   .note-list-cell.note-memory {
-    background-color: blue; }
+    background-color: #7ac1ed; }
   .note-list-cell.note-reminder {
-    background-color: lightblue; }
+    background-color: #6cc0c0; }
   .note-list-cell.note-photo {
-    background-color: pink; }
+    background-color: #d4bc72; }
   .note-list-cell .note-tile {
     color: white; }
     .note-list-cell .note-tile .note-icon {

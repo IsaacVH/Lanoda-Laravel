@@ -1,16 +1,23 @@
-$PrimaryColor: #6cc0c0; /* MintTeal */
-$SecondaryColor: #93278f; /* Purple */
-$BackgroundBaseOne: #D3D3D3; /* LightGray */
-$BackgroundBaseTwo: #999999; /* DarkGray */
-$AccentOne: #7ac1ed; /* LightBlue */
-$AccentTwo: #1b1464; /* DarkBlue */
 
+/* Primary Colors */
+$DarkBlue: #1b1464;
+$LightBlue: #4bb3c8;
+$SecondaryPurple: #93278f;
+$SecondaryPurpleLight: #bb32b6;
+$LightBlue: #7ac1ed;
+$LightGrey: #999999;
+$PaleGray: lightgray;
+$PrimaryMintTeal: #6cc0c0;
+
+/* Other Colors */
+$DarkGray: #4d4d4d;
+$DarkGold: #d4bc72;
 
 .mdl-layout__drawer {
 
 
 	.contact-image-wrapper {
-		background-color: $BackgroundBaseOne;
+		background-color: $LightGrey;
 		text-align: center;
 		width: 100%;
 		height: 190px;
@@ -24,7 +31,7 @@ $AccentTwo: #1b1464; /* DarkBlue */
 
 		.contact-icon {
 			font-size: 180px;
-			color: $BackgroundBaseTwo;
+			color: $DarkGray;
 		}
 	}
 }
@@ -66,9 +73,22 @@ $AccentTwo: #1b1464; /* DarkBlue */
 	}
 }
 
+.profile-image-gray {
+	position: relative;
+	background-color: lightgray;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
 .menu-item {
 	height: 24px;
 	margin-bottom: 5px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .contact-list {
@@ -89,7 +109,7 @@ $AccentTwo: #1b1464; /* DarkBlue */
 	cursor: pointer;
 
 	.contact-image-wrapper {
-		background-color: $BackgroundBaseOne;
+		background-color: $PaleGray;
 		text-align: center;
 		width: 100%;
 		height: 190px;
@@ -103,26 +123,26 @@ $AccentTwo: #1b1464; /* DarkBlue */
 
 		.contact-icon {
 			font-size: 180px;
-			color: $BackgroundBaseTwo;
+			color: $LightGrey;
 		}
 	}
 
 	.contact-plus {
 		margin-top: -43px;
-		background-color: $SecondaryColor;
+		background-color: $SecondaryPurple;
 	}
 
 	.contact-name {
 		text-align: center;
 		width: 100%;
 		font-size: 18px;
-		color: $SecondaryColor;
+		color: $SecondaryPurple;
 		box-sizing: border-box;
 	}
 
 	&:hover {
 		.contact-plus {
-			background-color: $AccentOne;
+			background-color: $SecondaryPurpleLight;
 		}
 	}
 }
@@ -149,5 +169,80 @@ $AccentTwo: #1b1464; /* DarkBlue */
 	position: absolute;
 	bottom: 30px;
 	right: 30px;
+}
+
+
+.noteType-tab {
+
+	border-bottom: 2px solid transparent;
+	.number {
+		font-weight: bold;
+	}
+
+	&.all {
+
+		&.selected {
+			border-bottom: 2px solid $LightGrey;
+		}
+
+		.number {
+			color: $LightGrey;
+		}
+	}
+
+	&.general {
+
+		&.selected {
+			border-bottom: 2px solid $DarkBlue;
+		}
+
+		.number {
+			color: $DarkBlue;
+		}
+	}
+
+	&.like-dislike {
+
+		&.selected {
+			border-bottom: 2px solid $SecondaryPurple;
+		}
+		
+		.number {
+			color: $SecondaryPurple;
+		}
+	}
+
+	&.memory {
+
+		&.selected {
+			border-bottom: 2px solid $LightBlue;
+		}
+		
+		.number {
+			color: $LightBlue;
+		}
+	}
+
+	&.reminder {
+
+		&.selected {
+			border-bottom: 2px solid $PrimaryMintTeal;
+		}
+		
+		.number {
+			color: $PrimaryMintTeal;
+		}
+	}
+
+	&.photo {
+
+		&.selected {
+			border-bottom: 2px solid $DarkGold;
+		}
+		
+		.number {
+			color: $DarkGold;
+		}
+	}
 }
 

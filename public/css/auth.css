@@ -1,0 +1,14 @@
+.mdl-layout__header {
+  border-bottom: 6px solid #fff; }
+
+.mdl-layout__content .page-content {
+  height: calc(100% - 86px); }
+
+.lanoda-form-card {
+  overflow: hidden; }
+
+@media (max-width: 1024px) {
+  .mdl-layout__content .page-content {
+    height: calc(100% - 62px); } }
+
+/*# sourceMappingURL=auth.css.map */

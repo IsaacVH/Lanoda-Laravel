@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('header')
-	<!-- no content -->
+	@include('layouts.partials.auth-header')
 @endsection
 
 @section('sidebar')

@@ -4,7 +4,7 @@ var contacts = {
 	noteListFailure: "Note List Failed",
 
 	init: function () {
-		
+		$(".close-drawer-button").on('click', function() { $('.mdl-layout__drawer').removeClass("is-visible"); });
 	},
 
 	onClickDelete: function () {

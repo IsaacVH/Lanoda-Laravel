@@ -6,6 +6,7 @@ $SecondaryPurple: #93278f;
 $SecondaryPurpleLight: #bb32b6;
 $LightBlue: #7ac1ed;
 $LightGrey: #999999;
+$PaleGray: lightgray;
 $PrimaryMintTeal: #6cc0c0;
 
 /* Other Colors */
@@ -56,7 +57,11 @@ $DarkGray: #4d4d4d;
 
   .mdl-layout-title {
     .lanoda-header-logo {
+
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
       box-sizing: border-box;
+
       padding: 15px;
       height: 100%;
     }
@@ -65,13 +70,20 @@ $DarkGray: #4d4d4d;
   .mdl-layout__drawer-button {
     box-sizing: border-box;
     margin: 0;
-    padding-left: 18px;
-    padding-top: 18px;
+    padding-left: 16px;
+    padding-top: 16px;
   }
 
   .mdl-layout__header-row {
     padding-left: 30px;
     padding-right: 60px;
+
+    .profile-icon {
+      .mdl-menu__container.is-visible {
+        right: 60px !important;
+        margin-top: 5px !important;
+      }
+    }
   }
 }
 
@@ -101,6 +113,14 @@ $DarkGray: #4d4d4d;
 
 .mdl-layout__drawer {
   padding: 15px;
+
+  .close-drawer-button {
+    display: none;
+  }
+}
+
+.mdl-textfield__label:after {
+  background-color: #fff;
 }
 
 .mdl-button--fab.mdl-button--colored {
@@ -139,6 +159,10 @@ $DarkGray: #4d4d4d;
   &.show {
     height: 36px;
   }
+}
+
+.capitalize {
+  text-transform: uppercase;
 }
 
 
@@ -247,13 +271,20 @@ $DarkGray: #4d4d4d;
 
 @media(min-width: 1025px) {
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__drawer {
-    margin-top: 64px;
-    height: calc(100% - 64px);
+    margin-top: 80px;
+    height: calc(100% - 80px);
   }
 
   .mdl-layout__header {
+    min-height: 80px;
+
     .mdl-layout__drawer-button {
       display: none;
+    }
+
+    .mdl-layout__header-row {
+      margin-top: 8px;
+      margin-bottom: 8px;
     }
   }
 }
@@ -268,6 +299,20 @@ $DarkGray: #4d4d4d;
   .mdl-layout__header {
     .mdl-layout__header-row {
       padding-left: 50px;
+      
+      .search-bar {
+        form {
+          margin: 0;
+        }
+        .mdl-textfield {
+          padding-top: 16px;
+        }
+      }
+    }
+  }
+  .mdl-layout__drawer {
+    .close-drawer-button {
+      display: inline;
     }
   }
 }

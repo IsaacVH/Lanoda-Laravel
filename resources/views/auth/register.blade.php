@@ -3,6 +3,7 @@
 @section('title', 'Sign Up')
 
 @section('styles')
+	<link rel="stylesheet" href="/css/auth.css">
 	<link rel="stylesheet" href="/css/form-card.css" />
 @stop
 

@@ -13,6 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+    mix.sass('auth.scss', 'public/css/auth.css', null);
     mix.sass('contact.scss', 'public/css/contact.css', null);
     mix.sass('note.scss', 'public/css/note.css', null);
     mix.sass('form-card.scss', 'public/css/form-card.css', null);

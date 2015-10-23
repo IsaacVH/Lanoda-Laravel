@@ -1,11 +1,7 @@
-/* MintTeal */
-/* Purple */
-/* LightGray */
-/* DarkGray */
-/* LightBlue */
-/* DarkBlue */
+/* Primary Colors */
+/* Other Colors */
 .mdl-layout__drawer .contact-image-wrapper {
-  background-color: #D3D3D3;
+  background-color: #999999;
   text-align: center;
   width: 100%;
   height: 190px;
@@ -16,7 +12,7 @@
     height: 100%; }
   .mdl-layout__drawer .contact-image-wrapper .contact-icon {
     font-size: 180px;
-    color: #999999; }
+    color: #4d4d4d; }
 
 .profile-image-background {
   color: #999999;
@@ -44,9 +40,20 @@
       background-color: #eaeaea;
       cursor: pointer; }
 
+.profile-image-gray {
+  position: relative;
+  background-color: lightgray;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3px; }
+
 .menu-item {
   height: 24px;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .contact-list {
   max-width: 1200px; }
@@ -63,7 +70,7 @@
   margin: 10px auto;
   cursor: pointer; }
   .contact-tile .contact-image-wrapper {
-    background-color: #D3D3D3;
+    background-color: lightgray;
     text-align: center;
     width: 100%;
     height: 190px;
@@ -85,7 +92,7 @@
     color: #93278f;
     box-sizing: border-box; }
   .contact-tile:hover .contact-plus {
-    background-color: #7ac1ed; }
+    background-color: #bb32b6; }
 
 .lanoda-form-card {
   padding-top: 30px;
@@ -104,5 +111,34 @@
   position: absolute;
   bottom: 30px;
   right: 30px; }
+
+.noteType-tab {
+  border-bottom: 2px solid transparent; }
+  .noteType-tab .number {
+    font-weight: bold; }
+  .noteType-tab.all.selected {
+    border-bottom: 2px solid #999999; }
+  .noteType-tab.all .number {
+    color: #999999; }
+  .noteType-tab.general.selected {
+    border-bottom: 2px solid #1b1464; }
+  .noteType-tab.general .number {
+    color: #1b1464; }
+  .noteType-tab.like-dislike.selected {
+    border-bottom: 2px solid #93278f; }
+  .noteType-tab.like-dislike .number {
+    color: #93278f; }
+  .noteType-tab.memory.selected {
+    border-bottom: 2px solid #7ac1ed; }
+  .noteType-tab.memory .number {
+    color: #7ac1ed; }
+  .noteType-tab.reminder.selected {
+    border-bottom: 2px solid #6cc0c0; }
+  .noteType-tab.reminder .number {
+    color: #6cc0c0; }
+  .noteType-tab.photo.selected {
+    border-bottom: 2px solid #d4bc72; }
+  .noteType-tab.photo .number {
+    color: #d4bc72; }
 
 /*# sourceMappingURL=contact.css.map */

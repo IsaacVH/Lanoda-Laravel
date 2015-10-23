@@ -19,33 +19,7 @@
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
 
 			@section('header')
-				<header class="mdl-layout__header">
-					<div class="mdl-layout__header-row">
-						<!-- Title -->
-						<span class="mdl-layout-title"><img class="lanoda-header-logo" src="/img/logo/lanoda-logo-white.png" /></span>
-						<!-- Add spacer, to align navigation to the right -->
-						<div class="mdl-layout-spacer"></div>
-						<!-- Navigation. We hide it in small screens. -->
-						<div class="search-bar" style="height: 100%;">
-							<form action="#">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-									<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-										<i class="material-icons">search</i>
-									</label>
-									<div class="mdl-textfield__expandable-holder">
-										<input class="mdl-textfield__input" type="text" name="search" id="search" />
-										<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="profile-icon">
-							<button class="mdl-button mdl-js-button mdl-button--icon" style="height: 36px; width: 30px;">
-								<i class="material-icons md-30" style="margin-left: -3px">person</i>
-							</button>
-						</div>
-					</div>
-				</header>
+				@include('layouts.partials.header')
 			@show
 
 	        @section('sidebar')
