@@ -1,3 +1,31 @@
+html {
+	background-image: url('/img/background/login-signup.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.page-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100%;
+
+	&:before {
+		content: " ";
+
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba(255,255,255,0.1);
+		height: 100%;
+		width: 100%;
+	}
+}
+
 .mdl-layout__header {
 	border-bottom: 6px solid #fff;
 }
@@ -8,7 +36,118 @@
 	}
 }
 
-.lanoda-form-card { overflow: hidden; }
+/* Form-Styles */
+.center-element {
+	width: 400px;
+	margin: 0 auto;
+
+	padding-bottom: 128px;
+}
+
+.lanoda-textfield {
+	margin-bottom: 20px;
+	border-bottom: 1px solid white;
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		background: none;
+		border: none;
+		width: 100%;
+		outline: none;
+		padding: 10px;
+		padding-left: 0;
+		color: white;
+		font-size: 16px;
+	}
+}
+
+.lanoda-checkbox {
+	margin-top: 25px;
+}
+
+.lanoda-card {
+	box-shadow:  0 0 4px rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+
+	.bordered-area {
+		border: 1px solid #6cc0c0;
+		padding: 45px;
+	}
+
+	.control-area {
+		border: 1px solid #6cc0c0;
+		border-top: none;
+
+		button {
+			&:hover {
+				cursor: pointer;
+			}
+
+			display: inline-block;
+
+			width: 50%;
+			padding: 8px;
+
+			border: none;
+			outline: none;
+
+			line-height: 20px;
+			font-size: 20px;
+			font-weight: 600;
+			text-transform: lowercase;
+
+			vertical-align: baseline;
+			border-radius: 0;
+		}
+	}
+
+	.submit-button {
+		background-color: white;
+		color: #6cc0c0;
+
+		margin-left: -2px;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 1);
+		}
+	}
+
+	.cancel-button {
+		background-color: #6cc0c0;
+		color: white;
+
+		margin-right: -2px;
+
+		&:hover {
+			background-color: rgba(108, 192, 192, 1);
+		}
+	}
+}
+
+
+.mdl-checkbox {
+
+	&.is-checked .mdl-checkbox__box-outline {
+		border-color: #6cc0c0;
+	}
+
+	&.is-checked .mdl-checkbox__box-outline .mdl-checkbox__tick-outline {
+		background-color: #6cc0c0;
+	}
+
+	.mdl-checkbox__box-outline {
+		border: 2px solid;
+		border-color: white;
+	}
+
+	.mdl-checkbox__ripple-container .mdl-ripple {
+		background: #93278f;
+	}
+}
+/* END Form-Styles */
+
 
 @media(max-width: 1024px) {
 	.mdl-layout__content {

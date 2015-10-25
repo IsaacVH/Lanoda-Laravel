@@ -7,26 +7,29 @@ $(function() {
 var app = {
 
 	init: function () {
-		$('.open-modal').on('click', function(event) {
-			var modal = $(event.target).closest('.open-modal').data("modal");
-			$("#"+modal).addClass('show');
-			$("#"+modal).find('.close-modal').on('click', app.closeModal);
-			$(".mdl-layout").addClass("modal-open");
-		});
-
-		
-		var hiddenMenu = $('.hidden-menu');
-		$('#'+hiddenMenu.attr('for')).on('click', function(event) {
-			hiddenMenu.toggleClass('show');
-		});
-
+		$('.open-modal').on('click', app.openModal);
+		$('#' + $('.hidden-menu').attr('for')).on('click', app.toggleHiddenMenu);
 		$(".background-shadow").on('click', app.closeModal);
+
 		$(".lanoda-expandlist-button").on('click', app.expandList);
+		$(".lanoda-textfield input").on('focus', function(){ this.placeholder = ''; });
+		$(".lanoda-textfield input").on('blur', function(){ this.placeholder = $(this).data('placeholder'); });
+	},
+
+	openModal: function(event) {
+		var modal = $(event.target).closest('.open-modal').data("modal");
+		$("#"+modal).addClass('show');
+		$("#"+modal).find('.close-modal').on('click', app.closeModal);
+		$(".mdl-layout").addClass("modal-open");
 	},
 
 	closeModal: function() {
 		$(".mdl-layout").removeClass("modal-open");
 		$(".modal").removeClass('show');
+	},
+
+	toggleHiddenMenu: function() {
+		$('.hidden-menu[for="' + $(this).attr('id') + '"]').toggleClass('show');
 	},
 
 	expandList: function() {
@@ -50,7 +53,6 @@ var app = {
 			$.ajax({
 				"url": "/api/contacts/" + contactId,
 				"type": "GET",
-				"data": data,
 				success: handleGetContactSuccess,
 				error: handleGetContactFailure
 			});
@@ -100,7 +102,6 @@ var app = {
 			$.ajax({
 				"url": "/api/notes/" + noteId,
 				"type": "GET",
-				"data": data,
 				success: handleGetNoteSuccess,
 				error: handleGetNoteFailure
 			});
@@ -131,6 +132,55 @@ var app = {
 				"type": "DELETE",
 				success: handleDeleteNoteSuccess,
 				error: handleDeleteNoteError
+			});
+		},
+	},
+
+	tags: {
+		CreateTag: function(data, handleCreateNoteSuccess, handleCreateNoteError) {
+			$.ajax({
+				"url": "/api/tags",
+				"type": "POST",
+				"data": data,
+				success: handleCreateNoteSuccess,
+				error: handleDeleteNoteError
+			});
+		},
+
+		GetTag: function(tagId, handleGetTagSuccess, handleGetTagError) {
+			$.ajax({
+				"url": "/api/tags/" + tagId,
+				"type": "GET",
+				success: handleGetTagSuccess,
+				error: handleGetTagError
+			});
+		},
+
+		GetTags: function(data, handleGetTagsSuccess, handleGetTagsError) {
+			$.ajax({
+				"url": "/api/tags",
+				"type": "GET",
+				"data": data,
+				success: handleGetTagsSuccess,
+				error: handleGetTagsError
+			});
+		},
+
+		UpdateTag: function(tagId, data, handleUpdateTagSuccess, handleUpdateTagError) {
+			$.ajax({
+				"url": "/api/tags" + tagId,
+				"type": "PUT",
+				success: handleUpdateTagSuccess,
+				error: handleUpdateTagError
+			});
+		},
+
+		DeleteTag: function(tagId, handleDeleteTagSuccess, handleUpdateTagError) {
+			$.ajax({
+				"url": "/api/tags" + tagId,
+				"type": "DELETE",
+				success: handleDeleteTagSuccess,
+				error: handleDeleteTagError
 			});
 		},
 	}

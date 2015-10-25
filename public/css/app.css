@@ -43,10 +43,12 @@
 
 .mdl-layout__header {
   background-color: #6cc0c0; }
-  .mdl-layout__header .mdl-layout-title .lanoda-header-logo {
-    box-sizing: border-box;
-    padding: 15px;
+  .mdl-layout__header .mdl-layout-title {
     height: 100%; }
+    .mdl-layout__header .mdl-layout-title .lanoda-header-logo {
+      box-sizing: border-box;
+      padding: 15px;
+      height: 100%; }
   .mdl-layout__header .mdl-layout__drawer-button {
     box-sizing: border-box;
     margin: 0;
@@ -89,6 +91,14 @@
 
 .mdl-button--colored {
   color: white; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .sub-header {
   margin: 20px auto;
@@ -170,6 +180,9 @@
 
 .align-vertical-bottom {
   vertical-align: bottom; }
+
+.text-bold {
+  font-weight: bold; }
 
 .text-center {
   text-align: center; }
