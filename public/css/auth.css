@@ -53,6 +53,12 @@ html {
 .lanoda-checkbox {
   margin-top: 25px; }
 
+.error-message {
+  margin-bottom: 20px;
+  padding: 10px 5px;
+  background-color: #950a00;
+  border: 2px solid #af0c00; }
+
 .lanoda-card {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
   background: rgba(0, 0, 0, 0.6);

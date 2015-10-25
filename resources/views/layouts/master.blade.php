@@ -2,11 +2,15 @@
     <head>
         <title>Lanoda - @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/compiled.css" />
-        <link rel="stylesheet" href="/css/app.css" />
-        @section('styles')
+        <link rel="stylesheet" href="/css/compiled-vendor.css" />
+        @if(App::environment('local', 'staging'))
+        	<link rel="stylesheet" href="/css/app.css" />
+	    	@section('styles')
 
-        @show
+	    	@show
+	    @else
+	    	<link rel="stylesheet" href="/css/compiled.css" />
+        @endif
     </head>
     <body>
     	<div class="error-bar">
@@ -15,7 +19,7 @@
     	</div>
 
 		<!-- Always shows a header, even in smaller screens. -->
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header @section('drawer') @show">
 
 			@section('header')
 				@include('layouts.partials.header')
@@ -34,9 +38,13 @@
 		</div>
 
 		<!-- Scripts -->
-        <script src="/js/compiled.js"></script>
-		@section('scripts')
+		@if(App::environment('local', 'staging'))
+	        <script src="/js/compiled.js"></script>
+        @else
+        	<script src="/js/app.js"></script>
+			@section('scripts')
 
-		@show
+			@show
+        @endif
     </body>
 </html>

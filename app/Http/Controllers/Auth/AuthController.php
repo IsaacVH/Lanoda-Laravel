@@ -68,26 +68,31 @@ class AuthController extends Controller
      * @return void
      */
     public function postRegister(Request $request) {
-        $firstname = $request->input('firstname');
-        $lastname = $request->input('lastname');
-        $email = $request->input('email');
-        $password = $request->input('password');
+        try {
+            $firstname = $request->input('firstname');
+            $lastname = $request->input('lastname');
+            $email = $request->input('email');
+            $password = $request->input('password');
 
-        $exists = User::where('email', $email)->get()->toArray();
-        if(sizeof($exists) > 0) {
-            return redirect('/auth/login')->with(['error' => 'Email already registered!']);
+            $exists = User::where('email', $email)->get()->toArray();
+            if(sizeof($exists) > 0) {
+                return redirect('/auth/register')->with('error', 'User already registered');
+            }
+
+            $user_data = array(
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'is_admin' => false,
+                'email' => $email,
+                'password' => $password
+            );
+
+            $user = $this->createUser($user_data);
+            Auth::loginUsingId($user['id']);
+        } catch (Exception $e) {
+            return redirect('/auth/register')->with('error', $e);
         }
-
-        $user_data = array(
-            'firstname' => $firstname,
-            'lastname' => $lastname,
-            'is_admin' => false,
-            'email' => $email,
-            'password' => $password
-        );
-
-        $user = $this->createUser($user_data);
-        return $this->authenticate($user['email'], $user['password']);
+        return redirect('/contacts');
     }
 
     /**
@@ -101,10 +106,10 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // Authentication passed...
-            return redirect()->intended('/contacts');
+            return redirect('/contacts');
         }
 
-        return redirect('/auth/login')->with(['errors' => ['error' => 'User not found.']]);
+        return redirect('/auth/login')->with('error', 'Username or Password incorrect');
     }
 
     /**

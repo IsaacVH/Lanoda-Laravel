@@ -71,42 +71,30 @@
 
 @section('content')
 	<div class="sub-header">
-		<div style="text-align: center;">
+		<div style="text-center">
 			<a class="normalize-link" href="#" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
-				<div class="inline-block" style="width: 100px; text-align: center;">
-					<div class="inline-block noteType-tab all selected" style="text-align: center;">
-						<div class="capitalize">All</div>
+				<div class="inline-block text-center" style="width: 100px;">
+					<div class="inline-block text-center noteType-tab all selected">
+						<div class="text-capitalize">All</div>
 						<div class="number">{{ $contact->notes->count() }}</div>
 					</div>
 				</div>
 			</a>
 			@foreach($noteTypes as $noteType)
 				<a class="normalize-link" href="#show-{{ str_replace($invalid_characters, '-', $noteType->name) }}" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
-					<div class="inline-block" style="width: 100px; text-align: center;">
-						<div class="inline-block noteType-tab {{ str_replace($invalid_characters, '-', $noteType->name) }}" style="text-align: center;">
-							<div class="capitalize">{{ $noteType->name }}</div>
+					<div class="inline-block text-center" style="width: 100px;">
+						<div class="inline-block text-center noteType-tab {{ str_replace($invalid_characters, '-', $noteType->name) }}">
+							<div class="text-capitalize">{{ $noteType->name }}</div>
 							<div class="number">{{ $contact->notes->where('type_id', $noteType->id)->count() }}</div>
 						</div>
 					</div>
 				</a>
 			@endforeach
 		</div>
-		<!--
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="text-align: center;">
-			<div class="mdl-tabs__tab-bar" style="display: inline-block; margin: 0 auto;">
-				<a href="#show-all" class="mdl-tabs__tab is-active">all</a>
-				@foreach ($noteTypes as $noteType)
-					<a href="#show-{{ str_replace($invalid_characters, "-", $noteType->name) }}" class="mdl-tabs__tab">{{ $noteType->name }}</a>
-				@endforeach
-			</div>
-		</div>
-		-->
 	</div>
 
 	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">
-		
 		@include('note.list', compact($contact, $noteTypes))
-
 	</div>
 
 	@include('note.partials.note-create-modal', compact($contact, $noteTypes))

@@ -2,11 +2,6 @@
 
 @section('title', 'Login')
 
-@section('styles')
-	<link rel="stylesheet" href="/css/auth.css">
-	<link rel="stylesheet" href="/css/form-card.css" />
-@stop
-
 @section('content')
 
 	<div class="center-element">
@@ -15,8 +10,14 @@
 		<div class="lanoda-card">
 			<div class="lanoda-login-form">
 				<form id="loginForm" method="POST" action="/auth/login">
+
 					{!! csrf_field() !!}
 					<div class="bordered-area">
+
+						@if(session()->has('error'))
+							<div class="error-message">{{ session('error') }}</div>
+						@endif
+
 						<div class="lanoda-textfield">
 							<input type="email" name="email" id="login-email" data-placeholder="* Email" placeholder="* Email" required />
 						</div>
