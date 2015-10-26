@@ -30,6 +30,21 @@ class UserController extends Controller
         $users = User::all()->get()->toArray();
         return view('user.list', ['users' => $users]);
     }
+
+    /**
+     * Show the environment variables.
+     * 
+     * @return Response
+     */
+    public function showVars() 
+    {
+        $user = Auth::user()->toArray();
+        if($user["is_admin"]) {
+            return view('admin.settings');
+        }
+
+        return redirect('/auth/login')->with('error', 'You do not have permission to access that.');
+    }
 }
 
 

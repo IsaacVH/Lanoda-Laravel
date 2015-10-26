@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// Users
+	Route::get('/user/settings', 'User\UserController@showVars');
 	Route::get('/user/profile', 'User\UserController@showCurrentUser');
 
 	Route::delete('/user/{user}', 'User\UserController@deleteUser');
@@ -78,6 +79,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'api'], function() {
 	Route::put('/contacts/{contact}', 'Contact\ContactController@updateContact');
 
 
+	// Images
+	Route::delete('/images/{image}', 'Image\ImageController@deleteImage');
+	Route::get('/images/{image}', 'Image\ImageController@getImage');
+	Route::get('/images', 'Image\ImageController@getImages');
+	Route::post('/images', 'Image\ImageController@createImage');
+	Route::put('/images{image}', 'Image\ImageController@updateImage');
+
+
 	// Notes
 	Route::delete('/notes/{note}', 'Note\NoteController@deleteNote');
 	Route::get('/notes/{note}', 'Note\NoteController@getNote');
@@ -92,13 +101,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'api'], function() {
 	Route::get('/tags', 'Tag\TagController@getTags');
 	Route::post('/tags', 'Tag\TagController@createTag');
 	Route::put('/tags{tag}', 'Tag\TagController@updateTag');
-
-
-	// Images
-	Route::delete('/images/{image}', 'Image\ImageController@deleteImage');
-	Route::get('/images/{image}', 'Image\ImageController@getImage');
-	Route::get('/images', 'Image\ImageController@getImages');
-	Route::post('/images', 'Image\ImageController@createImage');
-	Route::put('/images{image}', 'Image\ImageController@updateImage');
 });
 
