@@ -35,6 +35,7 @@
 
 		<!-- Scripts -->
 		<!-- if(App::environment('local', 'staging')) -->
+		<script src="/js/compiled-vendor.js"></script>
         <script src="/js/app.js"></script>
 		@section('scripts')
 
