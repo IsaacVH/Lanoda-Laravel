@@ -34,13 +34,10 @@
 		</div>
 
 		<!-- Scripts -->
-		@if(App::environment('local', 'staging'))
-	        <script src="/js/compiled.js"></script>
-        @else
-        	<script src="/js/app.js"></script>
-			@section('scripts')
+		<!-- if(App::environment('local', 'staging')) -->
+        <script src="/js/app.js"></script>
+		@section('scripts')
 
-			@show
-        @endif
+		@show
     </body>
 </html>
