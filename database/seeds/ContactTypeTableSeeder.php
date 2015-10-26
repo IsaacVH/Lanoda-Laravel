@@ -36,7 +36,7 @@ class ContactTypeTableSeeder extends Seeder
         ]);
 
         DB::table('contact_types')->insert([
-            'id' => '4'
+            'id' => '4',
             'name' => 'School',
             'description' => 'Someone you go to School with.',
             'created_at' => date('Y-m-d H:i:s'),
