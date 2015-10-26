@@ -30,6 +30,12 @@
 			<tr>
 				<td>DB_PASSWORD</td><td>:&nbsp;&nbsp;</td><td>{{ env("DB_PASSWORD") }}</td>
 			</tr>
+			<tr>
+				<td>&nbsp;</td><td></td><td></td>
+			</tr>
+			<tr>
+				<td><?php echo parse_url(getenv("DATABASE_URL")); ?></td><td>&nbsp;</td><td></td>
+			</tr>
 		</table>
 	</div>
 @endsection

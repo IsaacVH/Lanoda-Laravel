@@ -25,11 +25,6 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-// User (for testing purposes)
-Route::get('/user/settings', 'User\UserController@configSettings');
-Route::get('/user/database-settings', 'User\UserController@databaseSettings');
-
-
 Route::group(['middleware' => 'auth'], function () {
 
 	// Route Models
@@ -44,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// Users
+	Route::get('/user/settings', 'User\UserController@configSettings');
 	Route::get('/user/profile', 'User\UserController@showCurrentUser');
 
 	Route::delete('/user/{user}', 'User\UserController@deleteUser');

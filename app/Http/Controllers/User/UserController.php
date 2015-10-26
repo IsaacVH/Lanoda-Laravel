@@ -28,7 +28,11 @@ class UserController extends Controller
     public function listUsers()
     {
         $users = User::all()->get()->toArray();
-        return view('user.list', ['users' => $users]);
+        if(Auth::user()->is_admin) {
+            return view('user.list', ['users' => $users]);
+        }
+
+        return redirect('/auth/login')->with('error', 'You are not authorized to access that.');
     }
 
     /**
@@ -38,12 +42,11 @@ class UserController extends Controller
      */
     public function configSettings() 
     {
-        return view('admin.settings');
-    }
+        if(Auth::user()->is_admin) {
+            return view('admin.settings');
+        }
 
-    public function databaseSettings()
-    {
-        return parse_url(getenv("DATABASE_URL"));
+        return redirect('/auth/login')->with('error', 'You are not authorized to access that.');
     }
 }
 
