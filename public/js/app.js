@@ -1,7 +1,13 @@
 $(function() {
 	app.init();
-	contacts.init();
-	notes.init();
+
+	if(contacts != null) {
+		contacts.init();
+	}
+
+	if(notes != null) {
+		notes.init();
+	}
 });
 
 var app = {

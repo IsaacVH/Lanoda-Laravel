@@ -38,22 +38,12 @@ class UserController extends Controller
      */
     public function configSettings() 
     {
-        $user = Auth::user()->toArray();
-        if($user["is_admin"]) {
-            return view('admin.settings');
-        }
-
-        return redirect('/auth/login')->with('error', 'You do not have permission to access that.');
+        return view('admin.settings');
     }
 
     public function databaseSettings()
     {
-        $user = Auth::user()->toArray();
-        if($user["is_admin"]) {
-            return parse_url(getenv("DATABASE_URL"));
-        }
-
-        return redirect('/auth/login')->with('error', 'You do not have permission to access that.');
+        return parse_url(getenv("DATABASE_URL"));
     }
 }
 
