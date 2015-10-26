@@ -38,7 +38,9 @@
         ],
         "post-update-cmd": [
             "php artisan optimize",
-            "php artisan migrate"
+            "php artisan migrate:reset",
+            "php artisan migrate",
+            "php artisan db:seed"
         ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
