@@ -39,7 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// Users
-	Route::get('/user/settings', 'User\UserController@showVars');
+	Route::get('/user/settings', 'User\UserController@configSettings');
+	Route::get('/user/database-settings', 'User\UserController@databaseSettings');
 	Route::get('/user/profile', 'User\UserController@showCurrentUser');
 
 	Route::delete('/user/{user}', 'User\UserController@deleteUser');

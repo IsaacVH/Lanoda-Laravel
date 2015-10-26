@@ -3,14 +3,10 @@
         <title>Lanoda - @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/compiled-vendor.css" />
-        @if(App::environment('local', 'staging'))
-        	<link rel="stylesheet" href="/css/app.css" />
-	    	@section('styles')
+        <link rel="stylesheet" href="/css/app.css" />
+	    @section('styles')
 
-	    	@show
-	    @else
-	    	<link rel="stylesheet" href="/css/compiled.css" />
-        @endif
+	    @show
     </head>
     <body>
     	<div class="error-bar">
