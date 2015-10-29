@@ -11,6 +11,7 @@ class ContactTypeTableSeeder extends Seeder
      */
     public function run()
     {
+        $deleted_rows = DB::table('contact_types')->where('id', 1)->delete();
         DB::table('contact_types')->insert([
             'id' => '1',
             'name' => 'Friends',
@@ -19,6 +20,7 @@ class ContactTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('contact_types')->where('id', 2)->delete();
         DB::table('contact_types')->insert([
             'id' => '2',
             'name' => 'Family',
@@ -27,6 +29,7 @@ class ContactTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('contact_types')->where('id', 3)->delete();
         DB::table('contact_types')->insert([
             'id' => '3',
             'name' => 'Work',
@@ -35,6 +38,7 @@ class ContactTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('contact_types')->where('id', 4)->delete();
         DB::table('contact_types')->insert([
             'id' => '4',
             'name' => 'School',

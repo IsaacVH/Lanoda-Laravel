@@ -11,6 +11,7 @@ class NoteTypeTableSeeder extends Seeder
      */
     public function run()
     {
+        $deleted_rows = DB::table('note_types')->where('id', 1)->delete();
         DB::table('note_types')->insert([
             'id' => '1',
             'name' => 'General',
@@ -20,6 +21,7 @@ class NoteTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('note_types')->where('id', 2)->delete();
         DB::table('note_types')->insert([
             'id' => '2',
             'name' => 'Like/Dislike',
@@ -29,6 +31,7 @@ class NoteTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('note_types')->where('id', 3)->delete();
         DB::table('note_types')->insert([
             'id' => '3',
             'name' => 'Memory',
@@ -38,6 +41,7 @@ class NoteTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('note_types')->where('id', 4)->delete();
         DB::table('note_types')->insert([
             'id' => '4',
             'name' => 'Reminder',
@@ -47,6 +51,7 @@ class NoteTypeTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        $deleted_rows = DB::table('note_types')->where('id', 5)->delete();
         DB::table('note_types')->insert([
             'id' => '5',
             'name' => 'Photo',
