@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('low-styles')
-	<link rel="stylesheet" href="/css/auth.css" media="all">
+	<link rel="stylesheet" href="/css/auth.css" />
 @stop
 
 

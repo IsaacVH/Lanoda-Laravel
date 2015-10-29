@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="/img/lanoda-favicon.png">
 
 		<!-- <link rel="stylesheet" href="/css/compiled-complete.css" media="all" /> -->
-		<link rel="stylesheet" href="/css/compiled-vendor.css" media="all" />
+		<link rel="stylesheet" href="/css/compiled-vendor.css" />
 		@section('top-styles')
 
 		@show
@@ -36,7 +36,7 @@
 		</div>
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="/css/app.css" media="all">
+		<link rel="stylesheet" href="/css/app.css">
 		@section('low-styles')
 
 		@show
