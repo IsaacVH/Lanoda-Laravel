@@ -2,6 +2,8 @@
 
 @section('title', 'Login')
 
+@section('class', 'user-profile')
+
 @section('styles')
 	<link rel="stylesheet" href="/css/profile.css" />
 @stop

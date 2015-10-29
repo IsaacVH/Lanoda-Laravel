@@ -1,7 +1,15 @@
+/***************** BEGIN APP.JS ********************/
+
 $(function() {
 	app.init();
-	contacts.init();
-	notes.init();
+
+	if(typeof contacts != 'undefined') {
+		contacts.init();
+	}
+
+	if(typeof notes != 'undefined') {
+		notes.init();
+	}
 });
 
 var app = {
@@ -186,4 +194,4 @@ var app = {
 	}
 }
 
-
+/***************** END APP.JS **********************/

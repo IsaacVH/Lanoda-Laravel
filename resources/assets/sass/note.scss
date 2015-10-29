@@ -1,69 +1,14 @@
+/**************** BEGIN NOTE.SCSS ******************/
 
-/* Primary Colors */
-$DarkBlue: #1b1464;
-$SecondaryPurple: #93278f;
-$SecondaryPurpleLight: #bb32b6;
-$LightBlue: #7ac1ed;
-$LightGrey: #999999;
-$PrimaryMintTeal: #6cc0c0;
-
-/* Other Colors */
-$DarkGray: #4d4d4d;
-$DarkGold: #d4bc72;
+// Utilities
+@import "resources/assets/sass/utilities/variables";
 
 
-.note-list-cell {
-	height: 150px;
+html[class*="page-note"] {
 
-	&.note-general { background-color: $DarkBlue; }
-	&.note-likedislike { background-color: $SecondaryPurple; }
-	&.note-memory { background-color: $LightBlue; }
-	&.note-reminder { background-color: $PrimaryMintTeal; }
-	&.note-photo { background-color: $DarkGold; }
 
-	.note-tile {
-		color: white;
 
-		.note-icon {
-			height: 48px;
-			width: 48px;
-			border-radius: 24px;
-			text-align: center;
-
-			.material-icons {
-				color: white;
-				margin-top: 12px;
-			}
-		}
-
-		.note-title {
-			font-size: 20px;
-		}
-	}
 }
 
-#createNoteModal {
-
-	.lanoda-form-card {
-		width: 500px;
-
-		.mdl-textfield {
-			width: 100%;
-		}
-	}
-	
-	.menu-icon-wrapper {
-		width: 24px;
-		height: 48px;
-		margin-right: 5px;
-		overflow: hidden;
-		display: inline-block;
-		vertical-align: middle;
-
-		.material-icons {
-			margin-top: 12px;
-		}
-	}
-}
-
+/**************** END NOTE.SCSS ********************/
 

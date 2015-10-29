@@ -2,6 +2,9 @@
 
 @section('title', 'Contact List')
 
+@section('class', 'contact-list')
+
+
 @section('styles')
 	<link rel="stylesheet" href="/css/contact.css" />
 @stop

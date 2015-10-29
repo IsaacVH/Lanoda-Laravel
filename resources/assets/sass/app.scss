@@ -1,16 +1,11 @@
+/**************** BEGIN APP.SCSS *******************/
+
+// Utilities
+@import "resources/assets/sass/utilities/variables";
+
+// Libraries
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-/* Primary Colors */
-$DarkBlue: #1b1464;
-$SecondaryPurple: #93278f;
-$SecondaryPurpleLight: #bb32b6;
-$LightBlue: #7ac1ed;
-$LightGrey: #999999;
-$PaleGray: lightgray;
-$PrimaryMintTeal: #6cc0c0;
-
-/* Other Colors */
-$DarkGray: #4d4d4d;
 
 /* BEGIN Google Material Icons */
 @font-face {
@@ -256,4 +251,4 @@ $DarkGray: #4d4d4d;
     }
   }
 }
-
+/**************** END APP.SCSS *********************/

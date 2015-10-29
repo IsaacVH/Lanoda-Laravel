@@ -1,11 +1,11 @@
 $(function() {
 	app.init();
 
-	if(contacts != null) {
+	if(typeof contacts != 'undefined') {
 		contacts.init();
 	}
 
-	if(notes != null) {
+	if(typeof notes != 'undefined') {
 		notes.init();
 	}
 });

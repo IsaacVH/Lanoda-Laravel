@@ -2,6 +2,8 @@
 
 @section('title', 'Login')
 
+@section('class', 'user-list')
+
 @section('styles')
 	<link rel="stylesheet" href="/css/contact.css" />
 @stop

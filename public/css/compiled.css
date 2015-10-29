@@ -1,5 +1,4 @@
-/* Primary Colors */
-/* Other Colors */
+/**************** BEGIN APP.SCSS *******************/
 /* BEGIN Google Material Icons */
 @font-face {
   font-family: 'Material Icons';
@@ -231,305 +230,297 @@
   .mdl-layout__drawer .close-drawer-button {
     display: inline; } }
 
-html {
+/**************** END APP.SCSS *********************/
+
+/**************** BEGIN AUTH.SCSS ******************/
+html[class*="page-auth"] {
+  /* Put background Image up */
   background-image: url("/img/background/login-signup.jpg");
-  background-size: cover; }
-
-.page-content {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100%; }
-  .page-content:before {
-    content: " ";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.1);
-    height: 100%;
-    width: 100%; }
-
-.mdl-layout__header {
-  border-bottom: 6px solid #fff; }
-
-.mdl-layout__content .page-content {
-  height: calc(100% - 86px); }
-
-/* Form-Styles */
-.center-element {
-  width: 400px;
-  margin: 0 auto;
-  padding-bottom: 128px; }
-
-.lanoda-textfield {
-  margin-bottom: 20px;
-  border-bottom: 1px solid white; }
-  .lanoda-textfield input[type="text"],
-  .lanoda-textfield input[type="email"],
-  .lanoda-textfield input[type="password"] {
-    background: none;
-    border: none;
-    width: 100%;
-    outline: none;
-    padding: 10px;
-    padding-left: 0;
-    color: white;
-    font-size: 16px; }
-
-.lanoda-checkbox {
-  margin-top: 25px; }
-
-.error-message {
-  margin-bottom: 20px;
-  padding: 10px 5px;
-  background-color: #950a00;
-  border: 2px solid #af0c00; }
-
-.lanoda-card {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-  background: rgba(0, 0, 0, 0.6);
-  color: white; }
-  .lanoda-card .bordered-area {
-    border: 1px solid #6cc0c0;
-    padding: 45px; }
-  .lanoda-card .control-area {
-    border: 1px solid #6cc0c0;
-    border-top: none; }
-    .lanoda-card .control-area button {
-      display: inline-block;
-      width: 50%;
-      padding: 8px;
-      border: none;
-      outline: none;
-      line-height: 20px;
-      font-size: 20px;
-      font-weight: 600;
-      text-transform: lowercase;
-      vertical-align: baseline;
-      border-radius: 0; }
-      .lanoda-card .control-area button:hover {
-        cursor: pointer; }
-  .lanoda-card .submit-button {
-    background-color: white;
-    color: #6cc0c0;
-    margin-left: -2px; }
-    .lanoda-card .submit-button:hover {
-      background-color: white; }
-  .lanoda-card .cancel-button {
-    background-color: #6cc0c0;
-    color: white;
-    margin-right: -2px; }
-    .lanoda-card .cancel-button:hover {
-      background-color: #6cc0c0; }
-
-.mdl-checkbox.is-checked .mdl-checkbox__box-outline {
-  border-color: #6cc0c0; }
-
-.mdl-checkbox.is-checked .mdl-checkbox__box-outline .mdl-checkbox__tick-outline {
-  background-color: #6cc0c0; }
-
-.mdl-checkbox .mdl-checkbox__box-outline {
-  border: 2px solid;
-  border-color: white; }
-
-.mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple {
-  background: #93278f; }
-
-/* END Form-Styles */
-@media (max-width: 1024px) {
-  .mdl-layout__content .page-content {
-    height: calc(100% - 62px); } }
-
-/* Primary Colors */
-/* Other Colors */
-.mdl-layout__drawer .contact-image-wrapper {
-  background-color: #999999;
-  text-align: center;
-  width: 100%;
-  height: 190px;
-  margin-bottom: 15px;
-  box-sizing: border-box; }
-  .mdl-layout__drawer .contact-image-wrapper .contact-image {
-    width: 100%;
+  background-size: cover;
+  /* Begin Styling actual content */
+  /* Form-Styles */
+  /* END Form-Styles */ }
+  html[class*="page-auth"] .page-content {
     height: 100%; }
-  .mdl-layout__drawer .contact-image-wrapper .contact-icon {
-    font-size: 180px;
-    color: #4d4d4d; }
-
-.profile-image-background {
-  color: #999999;
-  margin-top: 20px;
-  width: 100%;
-  height: 209px;
-  padding: 15px;
-  box-sizing: border-box; }
-  .profile-image-background .shadow-overlay {
-    display: none; }
-  .profile-image-background:hover .shadow-overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
+    html[class*="page-auth"] .page-content:before {
+      content: " ";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.1);
+      height: 100%;
+      width: 100%; }
+  html[class*="page-auth"] .mdl-layout__header {
+    border-bottom: 6px solid #fff; }
+  html[class*="page-auth"] .mdl-layout__content .page-content {
+    height: calc(100% - 86px); }
+  html[class*="page-auth"] .center-horizontal {
     height: 100%;
+    width: 400px;
+    max-width: 95%;
+    margin: 0 auto; }
+  html[class*="page-auth"] .center-vertical {
+    display: inline-block;
     width: 100%; }
-  .profile-image-background .add-image-button {
-    background-color: lightgray;
-    font-weight: bold;
-    height: 36px;
-    margin-top: calc(50% - 18px); }
-    .profile-image-background .add-image-button:hover {
-      background-color: #eaeaea;
-      cursor: pointer; }
+    html[class*="page-auth"] .center-vertical:before {
+      content: " ";
+      display: block; }
+    html[class*="page-auth"] .center-vertical.login:before {
+      height: calc(50% - 250px); }
+    html[class*="page-auth"] .center-vertical.signup:before {
+      height: calc(50% - 315px); }
+    html[class*="page-auth"] .center-vertical form {
+      margin-bottom: 0; }
+  html[class*="page-auth"] .lanoda-textfield {
+    margin-bottom: 20px;
+    border-bottom: 1px solid white; }
+    html[class*="page-auth"] .lanoda-textfield input[type="text"],
+    html[class*="page-auth"] .lanoda-textfield input[type="email"],
+    html[class*="page-auth"] .lanoda-textfield input[type="password"] {
+      background: none;
+      border: none;
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      padding-left: 0;
+      color: white;
+      font-size: 16px; }
+  html[class*="page-auth"] .lanoda-checkbox {
+    margin-top: 25px; }
+  html[class*="page-auth"] .error-message {
+    margin-bottom: 20px;
+    padding: 10px 5px;
+    background-color: #950a00;
+    border: 2px solid #af0c00; }
+  html[class*="page-auth"] .lanoda-card {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    margin-bottom: 88px; }
+    html[class*="page-auth"] .lanoda-card .bordered-area {
+      border: 1px solid #6cc0c0;
+      padding: 45px; }
+    html[class*="page-auth"] .lanoda-card .control-area {
+      border: 1px solid #6cc0c0;
+      border-top: none; }
+      html[class*="page-auth"] .lanoda-card .control-area button {
+        display: inline-block;
+        width: 50%;
+        padding: 8px;
+        border: none;
+        outline: none;
+        line-height: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: lowercase;
+        vertical-align: baseline;
+        border-radius: 0; }
+        html[class*="page-auth"] .lanoda-card .control-area button:hover {
+          cursor: pointer; }
+    html[class*="page-auth"] .lanoda-card .submit-button {
+      background-color: white;
+      color: #6cc0c0;
+      margin-left: -2px; }
+      html[class*="page-auth"] .lanoda-card .submit-button:hover {
+        background-color: white; }
+    html[class*="page-auth"] .lanoda-card .cancel-button {
+      background-color: #6cc0c0;
+      color: white;
+      margin-right: -2px; }
+      html[class*="page-auth"] .lanoda-card .cancel-button:hover {
+        background-color: #6cc0c0; }
+  html[class*="page-auth"] .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+    border-color: #6cc0c0; }
+  html[class*="page-auth"] .mdl-checkbox.is-checked .mdl-checkbox__box-outline .mdl-checkbox__tick-outline {
+    background-color: #6cc0c0; }
+  html[class*="page-auth"] .mdl-checkbox .mdl-checkbox__box-outline {
+    border: 2px solid;
+    border-color: white; }
+  html[class*="page-auth"] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple {
+    background: #93278f; }
+  @media (max-width: 1024px) {
+    html[class*="page-auth"] .mdl-layout__content .page-content {
+      height: calc(100% - 62px); }
+    html[class*="page-auth"] .lanoda-card .bordered-area {
+      padding: 10%; } }
 
-.profile-image-gray {
-  position: relative;
-  background-color: lightgray;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 3px; }
+/**************** END AUTH.SCSS ********************/
 
-.menu-item {
-  height: 24px;
-  margin-bottom: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
-
-.contact-list {
-  max-width: 1200px; }
-
-.contact-list-cell {
-  min-width: 190px;
-  text-align: center; }
-
-.contact-tile {
-  position: relative;
-  display: inline-block;
-  width: 190px;
-  height: 220px;
-  margin: 10px auto;
-  cursor: pointer; }
-  .contact-tile .contact-image-wrapper {
-    background-color: lightgray;
+/**************** BEGIN CONTACT.SCSS ***************/
+html[class*="page-contact"] {
+  /* Note styles */ }
+  html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper {
+    background-color: #999999;
     text-align: center;
     width: 100%;
     height: 190px;
     margin-bottom: 15px;
     box-sizing: border-box; }
-    .contact-tile .contact-image-wrapper .contact-image {
+    html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper .contact-image {
       width: 100%;
       height: 100%; }
-    .contact-tile .contact-image-wrapper .contact-icon {
+    html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper .contact-icon {
       font-size: 180px;
-      color: #999999; }
-  .contact-tile .contact-plus {
-    margin-top: -43px;
-    background-color: #93278f; }
-  .contact-tile .contact-name {
-    text-align: center;
+      color: #4d4d4d; }
+  html[class*="page-contact"] .profile-image-background {
+    color: #999999;
+    margin-top: 20px;
     width: 100%;
-    font-size: 18px;
-    color: #93278f;
+    height: 209px;
+    padding: 15px;
     box-sizing: border-box; }
-  .contact-tile:hover .contact-plus {
-    background-color: #bb32b6; }
+    html[class*="page-contact"] .profile-image-background .shadow-overlay {
+      display: none; }
+    html[class*="page-contact"] .profile-image-background:hover .shadow-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%; }
+    html[class*="page-contact"] .profile-image-background .add-image-button {
+      background-color: lightgray;
+      font-weight: bold;
+      height: 36px;
+      margin-top: calc(50% - 18px); }
+      html[class*="page-contact"] .profile-image-background .add-image-button:hover {
+        background-color: #eaeaea;
+        cursor: pointer; }
+  html[class*="page-contact"] .profile-image-gray {
+    position: relative;
+    background-color: lightgray;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px; }
+  html[class*="page-contact"] .menu-item {
+    height: 24px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  html[class*="page-contact"] .contact-list {
+    max-width: 1200px; }
+  html[class*="page-contact"] .contact-list-cell {
+    min-width: 190px;
+    text-align: center; }
+  html[class*="page-contact"] .contact-tile {
+    position: relative;
+    display: inline-block;
+    width: 190px;
+    height: 220px;
+    margin: 10px auto;
+    cursor: pointer; }
+    html[class*="page-contact"] .contact-tile .contact-image-wrapper {
+      background-color: #d3d3d3;
+      text-align: center;
+      width: 100%;
+      height: 190px;
+      margin-bottom: 15px;
+      box-sizing: border-box; }
+      html[class*="page-contact"] .contact-tile .contact-image-wrapper .contact-image {
+        width: 100%;
+        height: 100%; }
+      html[class*="page-contact"] .contact-tile .contact-image-wrapper .contact-icon {
+        font-size: 180px;
+        color: #999999; }
+    html[class*="page-contact"] .contact-tile .contact-plus {
+      margin-top: -43px;
+      background-color: #93278f; }
+    html[class*="page-contact"] .contact-tile .contact-name {
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      color: #93278f;
+      box-sizing: border-box; }
+    html[class*="page-contact"] .contact-tile:hover .contact-plus {
+      background-color: #bb32b6; }
+  html[class*="page-contact"] .lanoda-form-card {
+    padding-top: 30px;
+    width: 450px; }
+    html[class*="page-contact"] .lanoda-form-card .mdl-textfield {
+      min-width: 300px;
+      width: 80%; }
+  html[class*="page-contact"] .lanoda-tooltip {
+    display: none; }
+    html[class*="page-contact"] .lanoda-tooltip.lanoda-tooltip--left {
+      -webkit-transform: translate3d(-100px, 0, 0);
+      transform: translate3d(-100px, 0, 0); }
+  html[class*="page-contact"] #addNoteButton {
+    position: absolute;
+    bottom: 30px;
+    right: 30px; }
+  html[class*="page-contact"] .noteType-tab {
+    border-bottom: 2px solid transparent; }
+    html[class*="page-contact"] .noteType-tab .number {
+      font-weight: bold; }
+    html[class*="page-contact"] .noteType-tab.all.selected {
+      border-bottom: 2px solid #999999; }
+    html[class*="page-contact"] .noteType-tab.all .number {
+      color: #999999; }
+    html[class*="page-contact"] .noteType-tab.general.selected {
+      border-bottom: 2px solid #1b1464; }
+    html[class*="page-contact"] .noteType-tab.general .number {
+      color: #1b1464; }
+    html[class*="page-contact"] .noteType-tab.like-dislike.selected {
+      border-bottom: 2px solid #93278f; }
+    html[class*="page-contact"] .noteType-tab.like-dislike .number {
+      color: #93278f; }
+    html[class*="page-contact"] .noteType-tab.memory.selected {
+      border-bottom: 2px solid #7ac1ed; }
+    html[class*="page-contact"] .noteType-tab.memory .number {
+      color: #7ac1ed; }
+    html[class*="page-contact"] .noteType-tab.reminder.selected {
+      border-bottom: 2px solid #6cc0c0; }
+    html[class*="page-contact"] .noteType-tab.reminder .number {
+      color: #6cc0c0; }
+    html[class*="page-contact"] .noteType-tab.photo.selected {
+      border-bottom: 2px solid #d4bc72; }
+    html[class*="page-contact"] .noteType-tab.photo .number {
+      color: #d4bc72; }
+  html[class*="page-contact"] .note-list-cell {
+    height: 150px; }
+    html[class*="page-contact"] .note-list-cell.note-general {
+      background-color: #1b1464; }
+    html[class*="page-contact"] .note-list-cell.note-likedislike {
+      background-color: #93278f; }
+    html[class*="page-contact"] .note-list-cell.note-memory {
+      background-color: #7ac1ed; }
+    html[class*="page-contact"] .note-list-cell.note-reminder {
+      background-color: #6cc0c0; }
+    html[class*="page-contact"] .note-list-cell.note-photo {
+      background-color: #d4bc72; }
+    html[class*="page-contact"] .note-list-cell .note-tile {
+      color: white; }
+      html[class*="page-contact"] .note-list-cell .note-tile .note-icon {
+        height: 48px;
+        width: 48px;
+        border-radius: 24px;
+        text-align: center; }
+        html[class*="page-contact"] .note-list-cell .note-tile .note-icon .material-icons {
+          color: white;
+          margin-top: 12px; }
+      html[class*="page-contact"] .note-list-cell .note-tile .note-title {
+        font-size: 20px; }
+  html[class*="page-contact"] #createNoteModal .lanoda-form-card {
+    width: 500px; }
+    html[class*="page-contact"] #createNoteModal .lanoda-form-card .mdl-textfield {
+      width: 100%; }
+  html[class*="page-contact"] #createNoteModal .menu-icon-wrapper {
+    width: 24px;
+    height: 48px;
+    margin-right: 5px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle; }
+    html[class*="page-contact"] #createNoteModal .menu-icon-wrapper .material-icons {
+      margin-top: 12px; }
 
-.lanoda-form-card {
-  padding-top: 30px;
-  width: 450px; }
-  .lanoda-form-card .mdl-textfield {
-    min-width: 300px;
-    width: 80%; }
+/**************** END CONTACT.SCSS *****************/
 
-.lanoda-tooltip {
-  display: none; }
-  .lanoda-tooltip.lanoda-tooltip--left {
-    -webkit-transform: translate3d(-100px, 0, 0);
-    transform: translate3d(-100px, 0, 0); }
-
-#addNoteButton {
-  position: absolute;
-  bottom: 30px;
-  right: 30px; }
-
-.noteType-tab {
-  border-bottom: 2px solid transparent; }
-  .noteType-tab .number {
-    font-weight: bold; }
-  .noteType-tab.all.selected {
-    border-bottom: 2px solid #999999; }
-  .noteType-tab.all .number {
-    color: #999999; }
-  .noteType-tab.general.selected {
-    border-bottom: 2px solid #1b1464; }
-  .noteType-tab.general .number {
-    color: #1b1464; }
-  .noteType-tab.like-dislike.selected {
-    border-bottom: 2px solid #93278f; }
-  .noteType-tab.like-dislike .number {
-    color: #93278f; }
-  .noteType-tab.memory.selected {
-    border-bottom: 2px solid #7ac1ed; }
-  .noteType-tab.memory .number {
-    color: #7ac1ed; }
-  .noteType-tab.reminder.selected {
-    border-bottom: 2px solid #6cc0c0; }
-  .noteType-tab.reminder .number {
-    color: #6cc0c0; }
-  .noteType-tab.photo.selected {
-    border-bottom: 2px solid #d4bc72; }
-  .noteType-tab.photo .number {
-    color: #d4bc72; }
-
-/* Primary Colors */
-/* Other Colors */
-.note-list-cell {
-  height: 150px; }
-  .note-list-cell.note-general {
-    background-color: #1b1464; }
-  .note-list-cell.note-likedislike {
-    background-color: #93278f; }
-  .note-list-cell.note-memory {
-    background-color: #7ac1ed; }
-  .note-list-cell.note-reminder {
-    background-color: #6cc0c0; }
-  .note-list-cell.note-photo {
-    background-color: #d4bc72; }
-  .note-list-cell .note-tile {
-    color: white; }
-    .note-list-cell .note-tile .note-icon {
-      height: 48px;
-      width: 48px;
-      border-radius: 24px;
-      text-align: center; }
-      .note-list-cell .note-tile .note-icon .material-icons {
-        color: white;
-        margin-top: 12px; }
-    .note-list-cell .note-tile .note-title {
-      font-size: 20px; }
-
-#createNoteModal .lanoda-form-card {
-  width: 500px; }
-  #createNoteModal .lanoda-form-card .mdl-textfield {
-    width: 100%; }
-
-#createNoteModal .menu-icon-wrapper {
-  width: 24px;
-  height: 48px;
-  margin-right: 5px;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle; }
-  #createNoteModal .menu-icon-wrapper .material-icons {
-    margin-top: 12px; }
+/**************** BEGIN NOTE.SCSS ******************/
+/**************** END NOTE.SCSS ********************/
 
 /*# sourceMappingURL=compiled.css.map */

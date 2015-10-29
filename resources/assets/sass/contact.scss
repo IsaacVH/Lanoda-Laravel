@@ -1,248 +1,300 @@
+/**************** BEGIN CONTACT.SCSS ***************/
 
-/* Primary Colors */
-$DarkBlue: #1b1464;
-$LightBlue: #4bb3c8;
-$SecondaryPurple: #93278f;
-$SecondaryPurpleLight: #bb32b6;
-$LightBlue: #7ac1ed;
-$LightGrey: #999999;
-$PaleGray: lightgray;
-$PrimaryMintTeal: #6cc0c0;
-
-/* Other Colors */
-$DarkGray: #4d4d4d;
-$DarkGold: #d4bc72;
-
-.mdl-layout__drawer {
+// Utilities
+@import "resources/assets/sass/utilities/variables";
 
 
-	.contact-image-wrapper {
-		background-color: $LightGrey;
-		text-align: center;
+html[class*="page-contact"] {
+
+	.mdl-layout__drawer {
+
+
+		.contact-image-wrapper {
+			background-color: $LightGrey;
+			text-align: center;
+			width: 100%;
+			height: 190px;
+			margin-bottom: 15px;
+			box-sizing: border-box;
+
+			.contact-image {
+				width: 100%;
+				height: 100%;
+			}
+
+			.contact-icon {
+				font-size: 180px;
+				color: $DarkGray;
+			}
+		}
+	}
+
+	.profile-image-background {
+		color: #999999;
+		margin-top: 20px;
 		width: 100%;
-		height: 190px;
-		margin-bottom: 15px;
+		height: 209px;
+		padding: 15px;
 		box-sizing: border-box;
 
-		.contact-image {
-			width: 100%;
-			height: 100%;
-		}
-
-		.contact-icon {
-			font-size: 180px;
-			color: $DarkGray;
-		}
-	}
-}
-
-.profile-image-background {
-	color: #999999;
-	margin-top: 20px;
-	width: 100%;
-	height: 209px;
-	padding: 15px;
-	box-sizing: border-box;
-
-	.shadow-overlay {
-		display: none;
-	}
-
-	&:hover {
 		.shadow-overlay {
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: rgba(0, 0, 0, 0.6);
-			height: 100%;
-			width: 100%;
+			display: none;
 		}
-	}
-
-	.add-image-button {
-		background-color: lightgray;
-		font-weight: bold;
-		height: 36px;
-		margin-top: calc(50% - 18px);
 
 		&:hover {
-			background-color: #eaeaea;
-			cursor: pointer;
+			.shadow-overlay {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.6);
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		.add-image-button {
+			background-color: lightgray;
+			font-weight: bold;
+			height: 36px;
+			margin-top: calc(50% - 18px);
+
+			&:hover {
+				background-color: #eaeaea;
+				cursor: pointer;
+			}
 		}
 	}
-}
 
-.profile-image-gray {
-	position: relative;
-	background-color: lightgray;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	border-radius: 3px;
-}
-
-.menu-item {
-	height: 24px;
-	margin-bottom: 5px;
-	
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.contact-list {
-	max-width: 1200px;
-}
-
-.contact-list-cell {
-	min-width: 190px;
-	text-align: center;
-}
-
-.contact-tile {
-	position: relative;
-	display: inline-block;
-	width: 190px;
-	height: 220px;
-	margin: 10px auto;
-	cursor: pointer;
-
-	.contact-image-wrapper {
-		background-color: $PaleGray;
-		text-align: center;
+	.profile-image-gray {
+		position: relative;
+		background-color: lightgray;
+		height: 100%;
 		width: 100%;
-		height: 190px;
-		margin-bottom: 15px;
-		box-sizing: border-box;
+		overflow: hidden;
+		border-radius: 3px;
+	}
 
-		.contact-image {
+	.menu-item {
+		height: 24px;
+		margin-bottom: 5px;
+		
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.contact-list {
+		max-width: 1200px;
+	}
+
+	.contact-list-cell {
+		min-width: 190px;
+		text-align: center;
+	}
+
+	.contact-tile {
+		position: relative;
+		display: inline-block;
+		width: 190px;
+		height: 220px;
+		margin: 10px auto;
+		cursor: pointer;
+
+		.contact-image-wrapper {
+			background-color: $PaleGray;
+			text-align: center;
 			width: 100%;
-			height: 100%;
+			height: 190px;
+			margin-bottom: 15px;
+			box-sizing: border-box;
+
+			.contact-image {
+				width: 100%;
+				height: 100%;
+			}
+
+			.contact-icon {
+				font-size: 180px;
+				color: $LightGrey;
+			}
 		}
 
-		.contact-icon {
-			font-size: 180px;
-			color: $LightGrey;
-		}
-	}
-
-	.contact-plus {
-		margin-top: -43px;
-		background-color: $SecondaryPurple;
-	}
-
-	.contact-name {
-		text-align: center;
-		width: 100%;
-		font-size: 18px;
-		color: $SecondaryPurple;
-		box-sizing: border-box;
-	}
-
-	&:hover {
 		.contact-plus {
-			background-color: $SecondaryPurpleLight;
-		}
-	}
-}
-
-.lanoda-form-card {
-	padding-top: 30px;
-	width: 450px;
-
-	.mdl-textfield {
-		min-width: 300px;
-		width: 80%;
-	}
-}
-
-.lanoda-tooltip {
-	display: none;
-
-	&.lanoda-tooltip--left {
-		transform: translate3d(-100px, 0, 0);
-	}
-}
-
-#addNoteButton {
-	position: absolute;
-	bottom: 30px;
-	right: 30px;
-}
-
-
-.noteType-tab {
-
-	border-bottom: 2px solid transparent;
-	.number {
-		font-weight: bold;
-	}
-
-	&.all {
-
-		&.selected {
-			border-bottom: 2px solid $LightGrey;
+			margin-top: -43px;
+			background-color: $SecondaryPurple;
 		}
 
-		.number {
-			color: $LightGrey;
-		}
-	}
-
-	&.general {
-
-		&.selected {
-			border-bottom: 2px solid $DarkBlue;
-		}
-
-		.number {
-			color: $DarkBlue;
-		}
-	}
-
-	&.like-dislike {
-
-		&.selected {
-			border-bottom: 2px solid $SecondaryPurple;
-		}
-		
-		.number {
+		.contact-name {
+			text-align: center;
+			width: 100%;
+			font-size: 18px;
 			color: $SecondaryPurple;
+			box-sizing: border-box;
+		}
+
+		&:hover {
+			.contact-plus {
+				background-color: $SecondaryPurpleLight;
+			}
 		}
 	}
 
-	&.memory {
+	.lanoda-form-card {
+		padding-top: 30px;
+		width: 450px;
 
-		&.selected {
-			border-bottom: 2px solid $LightBlue;
-		}
-		
-		.number {
-			color: $LightBlue;
-		}
-	}
-
-	&.reminder {
-
-		&.selected {
-			border-bottom: 2px solid $PrimaryMintTeal;
-		}
-		
-		.number {
-			color: $PrimaryMintTeal;
+		.mdl-textfield {
+			min-width: 300px;
+			width: 80%;
 		}
 	}
 
-	&.photo {
+	.lanoda-tooltip {
+		display: none;
 
-		&.selected {
-			border-bottom: 2px solid $DarkGold;
+		&.lanoda-tooltip--left {
+			transform: translate3d(-100px, 0, 0);
+		}
+	}
+
+	#addNoteButton {
+		position: absolute;
+		bottom: 30px;
+		right: 30px;
+	}
+
+
+	.noteType-tab {
+
+		border-bottom: 2px solid transparent;
+		.number {
+			font-weight: bold;
+		}
+
+		&.all {
+
+			&.selected {
+				border-bottom: 2px solid $LightGrey;
+			}
+
+			.number {
+				color: $LightGrey;
+			}
+		}
+
+		&.general {
+
+			&.selected {
+				border-bottom: 2px solid $DarkBlue;
+			}
+
+			.number {
+				color: $DarkBlue;
+			}
+		}
+
+		&.like-dislike {
+
+			&.selected {
+				border-bottom: 2px solid $SecondaryPurple;
+			}
+			
+			.number {
+				color: $SecondaryPurple;
+			}
+		}
+
+		&.memory {
+
+			&.selected {
+				border-bottom: 2px solid $LightBlue;
+			}
+			
+			.number {
+				color: $LightBlue;
+			}
+		}
+
+		&.reminder {
+
+			&.selected {
+				border-bottom: 2px solid $PrimaryMintTeal;
+			}
+			
+			.number {
+				color: $PrimaryMintTeal;
+			}
+		}
+
+		&.photo {
+
+			&.selected {
+				border-bottom: 2px solid $DarkGold;
+			}
+			
+			.number {
+				color: $DarkGold;
+			}
+		}
+	}
+
+	/* Note styles */
+
+	.note-list-cell {
+		height: 150px;
+
+		&.note-general { background-color: $DarkBlue; }
+		&.note-likedislike { background-color: $SecondaryPurple; }
+		&.note-memory { background-color: $LightBlue; }
+		&.note-reminder { background-color: $PrimaryMintTeal; }
+		&.note-photo { background-color: $DarkGold; }
+
+		.note-tile {
+			color: white;
+
+			.note-icon {
+				height: 48px;
+				width: 48px;
+				border-radius: 24px;
+				text-align: center;
+
+				.material-icons {
+					color: white;
+					margin-top: 12px;
+				}
+			}
+
+			.note-title {
+				font-size: 20px;
+			}
+		}
+	}
+
+	#createNoteModal {
+
+		.lanoda-form-card {
+			width: 500px;
+
+			.mdl-textfield {
+				width: 100%;
+			}
 		}
 		
-		.number {
-			color: $DarkGold;
+		.menu-icon-wrapper {
+			width: 24px;
+			height: 48px;
+			margin-right: 5px;
+			overflow: hidden;
+			display: inline-block;
+			vertical-align: middle;
+
+			.material-icons {
+				margin-top: 12px;
+			}
 		}
 	}
 }
+
+/**************** END CONTACT.SCSS *****************/
 

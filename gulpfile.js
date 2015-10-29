@@ -12,11 +12,6 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
-    mix.sass('auth.scss', 'public/css/auth.css', null);
-    mix.sass('contact.scss', 'public/css/contact.css', null);
-    mix.sass('note.scss', 'public/css/note.css', null);
-
     mix.sass([
         'app.scss',
         'auth.scss',
@@ -25,8 +20,13 @@ elixir(function(mix) {
     ], 'public/css/compiled.css', null);
 
     mix.styles([
-    	"vendor/mdl/material.min.css",
+        "vendor/mdl/material.min.css",
     ], 'public/css/compiled-vendor.css', null);
+
+    mix.styles([
+        "public/css/compiled-vendor.css",
+        "public/css/compiled.css"
+    ], "public/css/compiled-complete.css", "./");
 
 
     mix.scripts([
@@ -34,15 +34,14 @@ elixir(function(mix) {
         'vendor/mdl/material.min.js'
     ], 'public/js/compiled-vendor.js', null);
 
-    mix.scripts('app.js', 'public/js/app.js', null);
-    mix.scripts('contact.js', 'public/js/contact.js', null);
-    mix.scripts('note.js', 'public/js/note.js', null);
-    
     mix.scripts([
-    	"vendor/jquery/jquery-1.11.3.min.js",
-    	"vendor/mdl/material.min.js",
-    	"app.js",
+        "app.js",
         "contact.js",
         "note.js"
     ], 'public/js/compiled.js', null);
+
+    mix.scripts([
+    	"public/js/compiled-vendor.js",
+    	"public/js/compiled.js"
+    ], 'public/js/compiled-complete.js', "./");
 });

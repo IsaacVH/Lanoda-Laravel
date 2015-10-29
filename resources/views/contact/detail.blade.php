@@ -2,6 +2,9 @@
 
 @section('title', 'Contact Detail')
 
+@section('class', 'contact-detail')
+
+
 @section('styles')
 	<link rel="stylesheet" href="/css/contact.css" />
 	<link rel="stylesheet" href="/css/note.css" />
@@ -94,7 +97,7 @@
 	</div>
 
 	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">
-		@include('note.list', compact($contact, $noteTypes))
+		@include('note.partials.note-list', compact($contact, $noteTypes))
 	</div>
 
 	@include('note.partials.note-create-modal', compact($contact, $noteTypes))

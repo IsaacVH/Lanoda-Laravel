@@ -1,144 +1,172 @@
-/* Primary Colors */
-/* Other Colors */
-.mdl-layout__drawer .contact-image-wrapper {
-  background-color: #999999;
-  text-align: center;
-  width: 100%;
-  height: 190px;
-  margin-bottom: 15px;
-  box-sizing: border-box; }
-  .mdl-layout__drawer .contact-image-wrapper .contact-image {
-    width: 100%;
-    height: 100%; }
-  .mdl-layout__drawer .contact-image-wrapper .contact-icon {
-    font-size: 180px;
-    color: #4d4d4d; }
-
-.profile-image-background {
-  color: #999999;
-  margin-top: 20px;
-  width: 100%;
-  height: 209px;
-  padding: 15px;
-  box-sizing: border-box; }
-  .profile-image-background .shadow-overlay {
-    display: none; }
-  .profile-image-background:hover .shadow-overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    height: 100%;
-    width: 100%; }
-  .profile-image-background .add-image-button {
-    background-color: lightgray;
-    font-weight: bold;
-    height: 36px;
-    margin-top: calc(50% - 18px); }
-    .profile-image-background .add-image-button:hover {
-      background-color: #eaeaea;
-      cursor: pointer; }
-
-.profile-image-gray {
-  position: relative;
-  background-color: lightgray;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 3px; }
-
-.menu-item {
-  height: 24px;
-  margin-bottom: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
-
-.contact-list {
-  max-width: 1200px; }
-
-.contact-list-cell {
-  min-width: 190px;
-  text-align: center; }
-
-.contact-tile {
-  position: relative;
-  display: inline-block;
-  width: 190px;
-  height: 220px;
-  margin: 10px auto;
-  cursor: pointer; }
-  .contact-tile .contact-image-wrapper {
-    background-color: lightgray;
+/**************** BEGIN APP.SCSS *******************/
+html[class*="page-contact"] {
+  /* Note styles */ }
+  html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper {
+    background-color: #999999;
     text-align: center;
     width: 100%;
     height: 190px;
     margin-bottom: 15px;
     box-sizing: border-box; }
-    .contact-tile .contact-image-wrapper .contact-image {
+    html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper .contact-image {
       width: 100%;
       height: 100%; }
-    .contact-tile .contact-image-wrapper .contact-icon {
+    html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper .contact-icon {
       font-size: 180px;
-      color: #999999; }
-  .contact-tile .contact-plus {
-    margin-top: -43px;
-    background-color: #93278f; }
-  .contact-tile .contact-name {
-    text-align: center;
+      color: #4d4d4d; }
+  html[class*="page-contact"] .profile-image-background {
+    color: #999999;
+    margin-top: 20px;
     width: 100%;
-    font-size: 18px;
-    color: #93278f;
+    height: 209px;
+    padding: 15px;
     box-sizing: border-box; }
-  .contact-tile:hover .contact-plus {
-    background-color: #bb32b6; }
-
-.lanoda-form-card {
-  padding-top: 30px;
-  width: 450px; }
-  .lanoda-form-card .mdl-textfield {
-    min-width: 300px;
-    width: 80%; }
-
-.lanoda-tooltip {
-  display: none; }
-  .lanoda-tooltip.lanoda-tooltip--left {
-    -webkit-transform: translate3d(-100px, 0, 0);
-    transform: translate3d(-100px, 0, 0); }
-
-#addNoteButton {
-  position: absolute;
-  bottom: 30px;
-  right: 30px; }
-
-.noteType-tab {
-  border-bottom: 2px solid transparent; }
-  .noteType-tab .number {
-    font-weight: bold; }
-  .noteType-tab.all.selected {
-    border-bottom: 2px solid #999999; }
-  .noteType-tab.all .number {
-    color: #999999; }
-  .noteType-tab.general.selected {
-    border-bottom: 2px solid #1b1464; }
-  .noteType-tab.general .number {
-    color: #1b1464; }
-  .noteType-tab.like-dislike.selected {
-    border-bottom: 2px solid #93278f; }
-  .noteType-tab.like-dislike .number {
-    color: #93278f; }
-  .noteType-tab.memory.selected {
-    border-bottom: 2px solid #7ac1ed; }
-  .noteType-tab.memory .number {
-    color: #7ac1ed; }
-  .noteType-tab.reminder.selected {
-    border-bottom: 2px solid #6cc0c0; }
-  .noteType-tab.reminder .number {
-    color: #6cc0c0; }
-  .noteType-tab.photo.selected {
-    border-bottom: 2px solid #d4bc72; }
-  .noteType-tab.photo .number {
-    color: #d4bc72; }
+    html[class*="page-contact"] .profile-image-background .shadow-overlay {
+      display: none; }
+    html[class*="page-contact"] .profile-image-background:hover .shadow-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      height: 100%;
+      width: 100%; }
+    html[class*="page-contact"] .profile-image-background .add-image-button {
+      background-color: lightgray;
+      font-weight: bold;
+      height: 36px;
+      margin-top: calc(50% - 18px); }
+      html[class*="page-contact"] .profile-image-background .add-image-button:hover {
+        background-color: #eaeaea;
+        cursor: pointer; }
+  html[class*="page-contact"] .profile-image-gray {
+    position: relative;
+    background-color: lightgray;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 3px; }
+  html[class*="page-contact"] .menu-item {
+    height: 24px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  html[class*="page-contact"] .contact-list {
+    max-width: 1200px; }
+  html[class*="page-contact"] .contact-list-cell {
+    min-width: 190px;
+    text-align: center; }
+  html[class*="page-contact"] .contact-tile {
+    position: relative;
+    display: inline-block;
+    width: 190px;
+    height: 220px;
+    margin: 10px auto;
+    cursor: pointer; }
+    html[class*="page-contact"] .contact-tile .contact-image-wrapper {
+      background-color: #d3d3d3;
+      text-align: center;
+      width: 100%;
+      height: 190px;
+      margin-bottom: 15px;
+      box-sizing: border-box; }
+      html[class*="page-contact"] .contact-tile .contact-image-wrapper .contact-image {
+        width: 100%;
+        height: 100%; }
+      html[class*="page-contact"] .contact-tile .contact-image-wrapper .contact-icon {
+        font-size: 180px;
+        color: #999999; }
+    html[class*="page-contact"] .contact-tile .contact-plus {
+      margin-top: -43px;
+      background-color: #93278f; }
+    html[class*="page-contact"] .contact-tile .contact-name {
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      color: #93278f;
+      box-sizing: border-box; }
+    html[class*="page-contact"] .contact-tile:hover .contact-plus {
+      background-color: #bb32b6; }
+  html[class*="page-contact"] .lanoda-form-card {
+    padding-top: 30px;
+    width: 450px; }
+    html[class*="page-contact"] .lanoda-form-card .mdl-textfield {
+      min-width: 300px;
+      width: 80%; }
+  html[class*="page-contact"] .lanoda-tooltip {
+    display: none; }
+    html[class*="page-contact"] .lanoda-tooltip.lanoda-tooltip--left {
+      -webkit-transform: translate3d(-100px, 0, 0);
+      transform: translate3d(-100px, 0, 0); }
+  html[class*="page-contact"] #addNoteButton {
+    position: absolute;
+    bottom: 30px;
+    right: 30px; }
+  html[class*="page-contact"] .noteType-tab {
+    border-bottom: 2px solid transparent; }
+    html[class*="page-contact"] .noteType-tab .number {
+      font-weight: bold; }
+    html[class*="page-contact"] .noteType-tab.all.selected {
+      border-bottom: 2px solid #999999; }
+    html[class*="page-contact"] .noteType-tab.all .number {
+      color: #999999; }
+    html[class*="page-contact"] .noteType-tab.general.selected {
+      border-bottom: 2px solid #1b1464; }
+    html[class*="page-contact"] .noteType-tab.general .number {
+      color: #1b1464; }
+    html[class*="page-contact"] .noteType-tab.like-dislike.selected {
+      border-bottom: 2px solid #93278f; }
+    html[class*="page-contact"] .noteType-tab.like-dislike .number {
+      color: #93278f; }
+    html[class*="page-contact"] .noteType-tab.memory.selected {
+      border-bottom: 2px solid #7ac1ed; }
+    html[class*="page-contact"] .noteType-tab.memory .number {
+      color: #7ac1ed; }
+    html[class*="page-contact"] .noteType-tab.reminder.selected {
+      border-bottom: 2px solid #6cc0c0; }
+    html[class*="page-contact"] .noteType-tab.reminder .number {
+      color: #6cc0c0; }
+    html[class*="page-contact"] .noteType-tab.photo.selected {
+      border-bottom: 2px solid #d4bc72; }
+    html[class*="page-contact"] .noteType-tab.photo .number {
+      color: #d4bc72; }
+  html[class*="page-contact"] .note-list-cell {
+    height: 150px; }
+    html[class*="page-contact"] .note-list-cell.note-general {
+      background-color: #1b1464; }
+    html[class*="page-contact"] .note-list-cell.note-likedislike {
+      background-color: #93278f; }
+    html[class*="page-contact"] .note-list-cell.note-memory {
+      background-color: #7ac1ed; }
+    html[class*="page-contact"] .note-list-cell.note-reminder {
+      background-color: #6cc0c0; }
+    html[class*="page-contact"] .note-list-cell.note-photo {
+      background-color: #d4bc72; }
+    html[class*="page-contact"] .note-list-cell .note-tile {
+      color: white; }
+      html[class*="page-contact"] .note-list-cell .note-tile .note-icon {
+        height: 48px;
+        width: 48px;
+        border-radius: 24px;
+        text-align: center; }
+        html[class*="page-contact"] .note-list-cell .note-tile .note-icon .material-icons {
+          color: white;
+          margin-top: 12px; }
+      html[class*="page-contact"] .note-list-cell .note-tile .note-title {
+        font-size: 20px; }
+  html[class*="page-contact"] #createNoteModal .lanoda-form-card {
+    width: 500px; }
+    html[class*="page-contact"] #createNoteModal .lanoda-form-card .mdl-textfield {
+      width: 100%; }
+  html[class*="page-contact"] #createNoteModal .menu-icon-wrapper {
+    width: 24px;
+    height: 48px;
+    margin-right: 5px;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle; }
+    html[class*="page-contact"] #createNoteModal .menu-icon-wrapper .material-icons {
+      margin-top: 12px; }
 
 /*# sourceMappingURL=contact.css.map */
