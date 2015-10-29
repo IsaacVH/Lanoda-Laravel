@@ -1,7 +1,6 @@
 @extends('layouts.auth')
 
 @section('title', 'Sign Up')
-
 @section('class', 'auth-register')
 
 

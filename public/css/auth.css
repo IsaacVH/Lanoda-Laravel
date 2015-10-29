@@ -1,20 +1,12 @@
-/**************** BEGIN APP.SCSS *******************/
+/**************** BEGIN AUTH.SCSS ******************/
 html[class*="page-auth"] {
+  /* Put background Image up */
   background-image: url("/img/background/login-signup.jpg");
   background-size: cover;
-  /* Begin actual content */
+  /* Begin Styling actual content */
   /* Form-Styles */
   /* END Form-Styles */ }
   html[class*="page-auth"] .page-content {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
     height: 100%; }
     html[class*="page-auth"] .page-content:before {
       content: " ";
@@ -29,10 +21,23 @@ html[class*="page-auth"] {
     border-bottom: 6px solid #fff; }
   html[class*="page-auth"] .mdl-layout__content .page-content {
     height: calc(100% - 86px); }
-  html[class*="page-auth"] .center-element {
+  html[class*="page-auth"] .center-horizontal {
+    height: 100%;
     width: 400px;
-    margin: 0 auto;
-    padding-bottom: 128px; }
+    max-width: 95%;
+    margin: 0 auto; }
+  html[class*="page-auth"] .center-vertical {
+    display: inline-block;
+    width: 100%; }
+    html[class*="page-auth"] .center-vertical:before {
+      content: " ";
+      display: block; }
+    html[class*="page-auth"] .center-vertical.login:before {
+      height: calc(50% - 250px); }
+    html[class*="page-auth"] .center-vertical.signup:before {
+      height: calc(50% - 315px); }
+    html[class*="page-auth"] .center-vertical form {
+      margin-bottom: 0; }
   html[class*="page-auth"] .lanoda-textfield {
     margin-bottom: 20px;
     border-bottom: 1px solid white; }
@@ -57,7 +62,8 @@ html[class*="page-auth"] {
   html[class*="page-auth"] .lanoda-card {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
     background: rgba(0, 0, 0, 0.6);
-    color: white; }
+    color: white;
+    margin-bottom: 88px; }
     html[class*="page-auth"] .lanoda-card .bordered-area {
       border: 1px solid #6cc0c0;
       padding: 45px; }
@@ -101,6 +107,10 @@ html[class*="page-auth"] {
     background: #93278f; }
   @media (max-width: 1024px) {
     html[class*="page-auth"] .mdl-layout__content .page-content {
-      height: calc(100% - 62px); } }
+      height: calc(100% - 62px); }
+    html[class*="page-auth"] .lanoda-card .bordered-area {
+      padding: 10%; } }
+
+/**************** END AUTH.SCSS ********************/
 
 /*# sourceMappingURL=auth.css.map */

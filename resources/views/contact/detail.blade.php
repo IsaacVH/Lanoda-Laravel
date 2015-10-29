@@ -1,11 +1,10 @@
 @extends('layouts.sidebar')
 
 @section('title', 'Contact Detail')
-
 @section('class', 'contact-detail')
 
 
-@section('styles')
+@section('low-styles')
 	<link rel="stylesheet" href="/css/contact.css" />
 	<link rel="stylesheet" href="/css/note.css" />
 @stop

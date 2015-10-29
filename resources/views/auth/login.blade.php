@@ -1,7 +1,6 @@
 @extends('layouts.auth')
 
 @section('title', 'Login')
-
 @section('class', 'auth-login')
 
 @section('content')

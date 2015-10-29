@@ -1,42 +1,4 @@
-/**************** BEGIN APP.SCSS *******************/
-html[class*="page-note"] .note-list-cell {
-  height: 150px; }
-  html[class*="page-note"] .note-list-cell.note-general {
-    background-color: #1b1464; }
-  html[class*="page-note"] .note-list-cell.note-likedislike {
-    background-color: #93278f; }
-  html[class*="page-note"] .note-list-cell.note-memory {
-    background-color: #7ac1ed; }
-  html[class*="page-note"] .note-list-cell.note-reminder {
-    background-color: #6cc0c0; }
-  html[class*="page-note"] .note-list-cell.note-photo {
-    background-color: #d4bc72; }
-  html[class*="page-note"] .note-list-cell .note-tile {
-    color: white; }
-    html[class*="page-note"] .note-list-cell .note-tile .note-icon {
-      height: 48px;
-      width: 48px;
-      border-radius: 24px;
-      text-align: center; }
-      html[class*="page-note"] .note-list-cell .note-tile .note-icon .material-icons {
-        color: white;
-        margin-top: 12px; }
-    html[class*="page-note"] .note-list-cell .note-tile .note-title {
-      font-size: 20px; }
-
-html[class*="page-note"] #createNoteModal .lanoda-form-card {
-  width: 500px; }
-  html[class*="page-note"] #createNoteModal .lanoda-form-card .mdl-textfield {
-    width: 100%; }
-
-html[class*="page-note"] #createNoteModal .menu-icon-wrapper {
-  width: 24px;
-  height: 48px;
-  margin-right: 5px;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle; }
-  html[class*="page-note"] #createNoteModal .menu-icon-wrapper .material-icons {
-    margin-top: 12px; }
+/**************** BEGIN NOTE.SCSS ******************/
+/**************** END NOTE.SCSS ********************/
 
 /*# sourceMappingURL=note.css.map */

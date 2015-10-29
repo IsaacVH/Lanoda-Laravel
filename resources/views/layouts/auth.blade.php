@@ -1,8 +1,9 @@
 @extends('layouts.master')
 
-@section('styles')
-	<link rel="stylesheet" href="/css/auth.css">
+@section('low-styles')
+	<link rel="stylesheet" href="/css/auth.css" media="all">
 @stop
+
 
 @section('header')
 	@include('layouts.partials.auth-header')

@@ -1,4 +1,4 @@
-/**************** BEGIN APP.SCSS *******************/
+/**************** BEGIN CONTACT.SCSS ***************/
 html[class*="page-contact"] {
   /* Note styles */ }
   html[class*="page-contact"] .mdl-layout__drawer .contact-image-wrapper {
@@ -168,5 +168,7 @@ html[class*="page-contact"] {
     vertical-align: middle; }
     html[class*="page-contact"] #createNoteModal .menu-icon-wrapper .material-icons {
       margin-top: 12px; }
+
+/**************** END CONTACT.SCSS *****************/
 
 /*# sourceMappingURL=contact.css.map */

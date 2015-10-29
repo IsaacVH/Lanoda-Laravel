@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('title', 'Contact List')
-
 @section('class', 'contact-list')
 
 
-@section('styles')
+@section('low-styles')
 	<link rel="stylesheet" href="/css/contact.css" />
 @stop
 

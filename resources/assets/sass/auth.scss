@@ -53,23 +53,10 @@ html[class*="page-auth"] {
 	.center-vertical {
 		display: inline-block;
 		width: 100%;
-
-		&:before {
-			content: " ";
-			display: block;
-		}
-
-		&.login {
-			&:before {
-				height: calc(50% - 250px);
-			}
-		}
-
-		&.signup {
-			&:before {
-				height: calc(50% - 315px);
-			}
-		}
+		
+		&:before { content: " "; display: block; }
+		&.login { &:before { height: calc(50% - 250px); } }
+		&.signup { &:before { height: calc(50% - 315px); } }
 
 		form {
 			margin-bottom: 0;
