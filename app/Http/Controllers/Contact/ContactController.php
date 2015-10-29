@@ -38,18 +38,7 @@ class ContactController extends Controller
     {
         return view('contact.list', ['user' => Auth::user()]);
     }
-
-    /**
-     * Render a partial view of a contact tile (for Ajax requests).
-     *
-     * @param  Request $request
-     * @return Response
-     */
-    public function renderCreateContact(Request $request) 
-    {
-        return view('contact.partials.contact-tile', ['contact' => $this->createContact($request)]);
-    }
-
+    
 
 
     /**

@@ -92,7 +92,7 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return redirect('/auth/register')->with('error', $e);
         }
-        return redirect('/contacts');
+        return redirect('/');
     }
 
     /**
@@ -106,7 +106,7 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // Authentication passed...
-            return redirect('/contacts');
+            return redirect('/');
         }
 
         return redirect('/auth/login')->with('error', 'Username or Password incorrect');

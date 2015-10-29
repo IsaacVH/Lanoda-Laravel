@@ -11,11 +11,6 @@
 |
 */
 
-// The default route
-Route::get('/', function () {
-	return redirect('/contacts');
-});
-
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -42,14 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/user/settings', 'User\UserController@configSettings');
 	Route::get('/user/profile', 'User\UserController@showCurrentUser');
 
-	Route::delete('/user/{user}', 'User\UserController@deleteUser');
-	Route::put('/user/{user}', 'User\UserController@updateUser');
-
 
 	// Contacts
 	Route::get('/contacts/{contact_name}', 'Contact\ContactController@showContactDetail');
-	Route::get('/contacts', 'Contact\ContactController@showContactsForCurrentUser');
-	Route::post('/contacts', 'Contact\ContactController@renderCreateContact');
+	Route::get('/', 'Contact\ContactController@showContactsForCurrentUser');
 
 
 	// Notes
@@ -101,5 +92,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'api'], function() {
 	Route::get('/tags', 'Tag\TagController@getTags');
 	Route::post('/tags', 'Tag\TagController@createTag');
 	Route::put('/tags{tag}', 'Tag\TagController@updateTag');
+
+
+	// Users
+	Route::delete('/user/{user}', 'User\UserController@deleteUser');
+	Route::put('/user/{user}', 'User\UserController@updateUser');
 });
 

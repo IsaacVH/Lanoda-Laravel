@@ -3,18 +3,7 @@
         <title>Lanoda - @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/img/lanoda-favicon.png">
-		<link rel="stylesheet" href="/css/compiled-complete.css" />
-
-		<!--
-		@if(App::environment('local', 'dev', 'staging'))
-	        <link rel="stylesheet" href="/css/compiled-vendor.css" />
-	        <link rel="stylesheet" href="/css/app.css" />
-		    @section('styles')
-
-		    @show
-		@else
-	    @endif
-	    -->
+		<link rel="stylesheet" href="/css/compiled-complete.css" media="all" />
     </head>
     <body>
     	<div class="error-bar">
@@ -43,12 +32,5 @@
 
 		<!-- Scripts -->
 		<script src="/js/compiled-complete.js"></script>
-		<!--
-		<script src="/js/compiled-vendor.js"></script>
-	    <script src="/js/app.js"></script>
-		@section('scripts')
-
-		@show
-		-->
     </body>
 </html>
