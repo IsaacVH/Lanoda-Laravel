@@ -2,7 +2,8 @@
     <head>
         <title>Lanoda - @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="/img/lanoda-favicon.png">
+        <link rel="shortcut icon" href="/img/lanoda-favicon.png" />
+        <link rel="stylesheet" href="/css/compiled-vendor.css" />
     </head>
     <body>
     	<div class="error-bar">
@@ -30,7 +31,8 @@
 		</div>
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="/css/compiled-complete.css" />
+		<!-- <link rel="stylesheet" href="/css/compiled-complete.css" /> -->
+		<link rel="stylesheet" href="/css/compiled.css">
 		<!-- Scripts -->
 		<script src="/js/compiled-complete.js"></script>
     </body>
