@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Contacts
 	Route::get('/contacts/{contact_name}', 'Contact\ContactController@showContactDetail');
+	Route::get('/contacts', 'Contact\ContactController@showContactsForCurrentUser');
 	Route::get('/', 'Contact\ContactController@showContactsForCurrentUser');
 
 

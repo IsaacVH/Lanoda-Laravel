@@ -39,6 +39,8 @@ var app = {
 		$(".lanoda-expandlist-button").on('click', app.expandList);
 		$(".lanoda-textfield input").on('focus', function(){ this.placeholder = ''; });
 		$(".lanoda-textfield input").on('blur', function(){ this.placeholder = $(this).data('placeholder'); });
+
+		$(".sort-type").on('click', app.selectSort);
 	},
 
 	openModal: function(event) {
@@ -51,6 +53,11 @@ var app = {
 	closeModal: function() {
 		$(".mdl-layout").removeClass("modal-open");
 		$(".modal").removeClass('show');
+	},
+
+	selectSort: function() {
+		$(this).parent().find("[class*='-tab']").removeClass('selected');
+		$(this).find('.noteType-tab').addClass('selected');
 	},
 
 	toggleHiddenMenu: function() {

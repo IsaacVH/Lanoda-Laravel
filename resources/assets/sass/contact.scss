@@ -7,8 +7,6 @@
 html[class*="page-contact"] {
 
 	.mdl-layout__drawer {
-
-
 		.contact-image-wrapper {
 			background-color: $LightGrey;
 			text-align: center;
@@ -140,13 +138,81 @@ html[class*="page-contact"] {
 		}
 	}
 
-	.lanoda-form-card {
-		padding-top: 30px;
-		width: 450px;
+	.modal {
+		background-color: #fff;
+		box-shadow: 0 0 8px 2px #3a3a3a;
+		padding: 20px;
 
-		.mdl-textfield {
-			min-width: 300px;
-			width: 80%;
+		.heading {
+			text-align: left;
+			margin-top: 0;
+			margin-left: 15px;
+			color: $PrimaryMintTeal;
+			font-weight: 600;
+		}
+	}
+
+	.lanoda-form-card {
+		width: 450px;
+		max-width: 100%;
+
+		.lanoda-textfield {
+			border-bottom: 1px solid $DarkGray;
+
+			input {
+				color: black;
+			}
+		}
+
+		.lanoda-number {
+			border-bottom: 1px solid $DarkGray;
+
+			input {
+				border: none;
+				outline: none;
+
+				height: 45px;
+				width: 100%;
+
+				padding: 10px;
+				padding-left: 5px;
+			}
+		}
+
+		.lanoda-datepicker {
+			border-bottom: 1px solid $DarkGray;
+
+			input {
+				border: none;
+				outline: none;
+
+				height: 45px;
+				width: 100%;
+
+				padding: 10px;
+				padding-left: 5px;
+			}
+		}
+
+		.control-area {
+			padding: 10px;
+
+			button {
+				float: right;
+				margin: 0 5px;
+
+				text-transform: none;
+				letter-spacing: 1px;
+
+				&.submit {
+					background-color: $PrimaryMintTeal;
+					color: #fff;
+				}
+
+				&.cancel {
+					color: $PrimaryMintTeal;
+				}
+			}
 		}
 	}
 

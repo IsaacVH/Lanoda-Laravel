@@ -73,8 +73,8 @@
 
 @section('content')
 	<div class="sub-header">
-		<div style="text-center">
-			<a class="normalize-link" href="#" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
+		<div class="text-center">
+			<a class="sort-type normalize-link" href="#">
 				<div class="inline-block text-center" style="width: 100px;">
 					<div class="inline-block text-center noteType-tab all selected">
 						<div class="text-capitalize">All</div>
@@ -83,7 +83,7 @@
 				</div>
 			</a>
 			@foreach($noteTypes as $noteType)
-				<a class="normalize-link" href="#show-{{ str_replace($invalid_characters, '-', $noteType->name) }}" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
+				<a class="sort-type normalize-link" href="#show-{{ str_replace($invalid_characters, '-', $noteType->name) }}" onclick="$('.noteType-tab').removeClass('selected'); $(this).find('.noteType-tab').addClass('selected');">
 					<div class="inline-block text-center" style="width: 100px;">
 						<div class="inline-block text-center noteType-tab {{ str_replace($invalid_characters, '-', $noteType->name) }}">
 							<div class="text-capitalize">{{ $noteType->name }}</div>

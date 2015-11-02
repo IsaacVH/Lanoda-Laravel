@@ -26,34 +26,20 @@ html[class*="page-auth"] {
     width: 400px;
     max-width: 95%;
     margin: 0 auto; }
-  html[class*="page-auth"] .center-vertical {
-    display: inline-block;
-    width: 100%; }
-    html[class*="page-auth"] .center-vertical:before {
-      content: " ";
-      display: block; }
-    html[class*="page-auth"] .center-vertical.login:before {
-      height: calc(50% - 250px); }
-    html[class*="page-auth"] .center-vertical.signup:before {
-      height: calc(50% - 315px); }
-    html[class*="page-auth"] .center-vertical form {
+  html[class*="page-auth"] .center-vertical-wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    html[class*="page-auth"] .center-vertical-wrapper .center-vertical form {
       margin-bottom: 0; }
-  html[class*="page-auth"] .lanoda-textfield {
-    margin-bottom: 20px;
-    border-bottom: 1px solid white; }
-    html[class*="page-auth"] .lanoda-textfield input[type="text"],
-    html[class*="page-auth"] .lanoda-textfield input[type="email"],
-    html[class*="page-auth"] .lanoda-textfield input[type="password"] {
-      background: none;
-      border: none;
-      width: 100%;
-      outline: none;
-      padding: 10px;
-      padding-left: 0;
-      color: white;
-      font-size: 16px; }
-  html[class*="page-auth"] .lanoda-checkbox {
-    margin-top: 25px; }
   html[class*="page-auth"] .error-message {
     margin-bottom: 20px;
     padding: 10px 5px;

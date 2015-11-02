@@ -6,10 +6,10 @@
 		<!-- Add spacer, to align navigation to the right -->
 		<div class="mdl-layout-spacer"></div>
 		<!-- Navigation. We hide it in small screens. -->
-		<div class="search-bar" style="height: 100%; margin-right: 8px;">
+		<div class="search-bar" style="height: 32px; margin-right: 8px;">
 			<form action="#">
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="padding: 0;">
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="search" style="bottom: 0;">
 						<i class="material-icons">search</i>
 					</label>
 					<div class="mdl-textfield__expandable-holder">

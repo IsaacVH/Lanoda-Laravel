@@ -56,9 +56,8 @@
   .mdl-layout__header .mdl-layout__header-row {
     padding-left: 30px;
     padding-right: 60px; }
-    .mdl-layout__header .mdl-layout__header-row .profile-icon .mdl-menu__container.is-visible {
-      right: 60px !important;
-      margin-top: 5px !important; }
+    .mdl-layout__header .mdl-layout__header-row .profile-icon .mdl-menu__container {
+      right: 30px !important; }
 
 .mdl-layout.modal-open .background-shadow {
   display: block; }
@@ -132,6 +131,8 @@
   position: fixed;
   top: 0;
   left: 50%;
+  max-width: 95%;
+  background-color: #fff;
   transition: top 0.5s;
   transition-timing-function: cubic-bezier(0.5, 0.8, 0, 1);
   -webkit-transform: -webkit-translate3d(-50%, -200%, 0);
@@ -140,6 +141,25 @@
     top: 50%;
     -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0); }
+
+.lanoda-textfield {
+  margin-bottom: 20px;
+  border-bottom: 1px solid white; }
+  .lanoda-textfield input[type="text"],
+  .lanoda-textfield input[type="email"],
+  .lanoda-textfield input[type="phone"],
+  .lanoda-textfield input[type="password"] {
+    background: none;
+    border: none;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    padding-left: 5px;
+    color: white;
+    font-size: 16px; }
+
+.lanoda-checkbox {
+  margin-top: 25px; }
 
 .inline-block {
   display: inline-block; }
@@ -222,11 +242,14 @@
     margin-top: 0;
     height: 100%; }
   .mdl-layout__header .mdl-layout__header-row {
-    padding-left: 50px; }
+    padding-left: 50px;
+    padding-right: 30px; }
     .mdl-layout__header .mdl-layout__header-row .search-bar form {
       margin: 0; }
     .mdl-layout__header .mdl-layout__header-row .search-bar .mdl-textfield {
       padding-top: 16px; }
+  .mdl-layout:not(.mdl-layout--fixed-drawer) .mdl-layout__header .mdl-layout__header-row {
+    padding-left: 15px; }
   .mdl-layout__drawer .close-drawer-button {
     display: inline; } }
 
@@ -260,34 +283,20 @@ html[class*="page-auth"] {
     width: 400px;
     max-width: 95%;
     margin: 0 auto; }
-  html[class*="page-auth"] .center-vertical {
-    display: inline-block;
-    width: 100%; }
-    html[class*="page-auth"] .center-vertical:before {
-      content: " ";
-      display: block; }
-    html[class*="page-auth"] .center-vertical.login:before {
-      height: calc(50% - 250px); }
-    html[class*="page-auth"] .center-vertical.signup:before {
-      height: calc(50% - 315px); }
-    html[class*="page-auth"] .center-vertical form {
+  html[class*="page-auth"] .center-vertical-wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    html[class*="page-auth"] .center-vertical-wrapper .center-vertical form {
       margin-bottom: 0; }
-  html[class*="page-auth"] .lanoda-textfield {
-    margin-bottom: 20px;
-    border-bottom: 1px solid white; }
-    html[class*="page-auth"] .lanoda-textfield input[type="text"],
-    html[class*="page-auth"] .lanoda-textfield input[type="email"],
-    html[class*="page-auth"] .lanoda-textfield input[type="password"] {
-      background: none;
-      border: none;
-      width: 100%;
-      outline: none;
-      padding: 10px;
-      padding-left: 0;
-      color: white;
-      font-size: 16px; }
-  html[class*="page-auth"] .lanoda-checkbox {
-    margin-top: 25px; }
   html[class*="page-auth"] .error-message {
     margin-bottom: 20px;
     padding: 10px 5px;
@@ -437,12 +446,53 @@ html[class*="page-contact"] {
       box-sizing: border-box; }
     html[class*="page-contact"] .contact-tile:hover .contact-plus {
       background-color: #bb32b6; }
+  html[class*="page-contact"] .modal {
+    background-color: #fff;
+    box-shadow: 0 0 8px 2px #3a3a3a;
+    padding: 20px; }
+    html[class*="page-contact"] .modal .heading {
+      text-align: left;
+      margin-top: 0;
+      margin-left: 15px;
+      color: #6cc0c0;
+      font-weight: 600; }
   html[class*="page-contact"] .lanoda-form-card {
-    padding-top: 30px;
-    width: 450px; }
-    html[class*="page-contact"] .lanoda-form-card .mdl-textfield {
-      min-width: 300px;
-      width: 80%; }
+    width: 450px;
+    max-width: 100%; }
+    html[class*="page-contact"] .lanoda-form-card .lanoda-textfield {
+      border-bottom: 1px solid #4d4d4d; }
+      html[class*="page-contact"] .lanoda-form-card .lanoda-textfield input {
+        color: black; }
+    html[class*="page-contact"] .lanoda-form-card .lanoda-number {
+      border-bottom: 1px solid #4d4d4d; }
+      html[class*="page-contact"] .lanoda-form-card .lanoda-number input {
+        border: none;
+        outline: none;
+        height: 45px;
+        width: 100%;
+        padding: 10px;
+        padding-left: 5px; }
+    html[class*="page-contact"] .lanoda-form-card .lanoda-datepicker {
+      border-bottom: 1px solid #4d4d4d; }
+      html[class*="page-contact"] .lanoda-form-card .lanoda-datepicker input {
+        border: none;
+        outline: none;
+        height: 45px;
+        width: 100%;
+        padding: 10px;
+        padding-left: 5px; }
+    html[class*="page-contact"] .lanoda-form-card .control-area {
+      padding: 10px; }
+      html[class*="page-contact"] .lanoda-form-card .control-area button {
+        float: right;
+        margin: 0 5px;
+        text-transform: none;
+        letter-spacing: 1px; }
+        html[class*="page-contact"] .lanoda-form-card .control-area button.submit {
+          background-color: #6cc0c0;
+          color: #fff; }
+        html[class*="page-contact"] .lanoda-form-card .control-area button.cancel {
+          color: #6cc0c0; }
   html[class*="page-contact"] .lanoda-tooltip {
     display: none; }
     html[class*="page-contact"] .lanoda-tooltip.lanoda-tooltip--left {

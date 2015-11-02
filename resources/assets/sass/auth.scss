@@ -50,39 +50,18 @@ html[class*="page-auth"] {
 		margin: 0 auto;
 	}
 
-	.center-vertical {
-		display: inline-block;
+	.center-vertical-wrapper {
 		width: 100%;
-		
-		&:before { content: " "; display: block; }
-		&.login { &:before { height: calc(50% - 250px); } }
-		&.signup { &:before { height: calc(50% - 315px); } }
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
-		form {
-			margin-bottom: 0;
+		.center-vertical {
+			form {
+				margin-bottom: 0;
+			}
 		}
-	}
-
-	.lanoda-textfield {
-		margin-bottom: 20px;
-		border-bottom: 1px solid white;
-
-		input[type="text"],
-		input[type="email"],
-		input[type="password"] {
-			background: none;
-			border: none;
-			width: 100%;
-			outline: none;
-			padding: 10px;
-			padding-left: 0;
-			color: white;
-			font-size: 16px;
-		}
-	}
-
-	.lanoda-checkbox {
-		margin-top: 25px;
 	}
 
 	.error-message {

@@ -1,40 +1,64 @@
 
 <div id="createContactModal" class="modal">
-	<div class="mdl-card mdl-shadow--2dp lanoda-form-card">
+	<h4 class="heading">CREATE NEW CONTACT</h4>
+	<div class="lanoda-form-card">
 		<form id="createContactForm" onsubmit="return contacts.submitCreateForm()">
-			<div class="mdl-card--border text-center">
+			<div class="text-center">
 				<!-- Simple Textfield -->
 				{!! csrf_field() !!}
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="firstname" id="contact-firstname" />
-					<label class="mdl-textfield__label" for="contact-firstname">First Name</label>
-				</div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="middlename" id="contact-middlename" />
-					<label class="mdl-textfield__label" for="contact-middlename">Middle Name</label>
-				</div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="lastname" id="contact-lastname" />
-					<label class="mdl-textfield__label" for="contact-lastname">Last Name</label>
-				</div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="email" id="contact-email" />
-					<label class="mdl-textfield__label" for="contact-email">Email</label>
-				</div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="address" id="contact-address" />
-					<label class="mdl-textfield__label" for="contact-address">Address</label>
-				</div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" name="birthday" id="contact-birthday" />
-					<label class="mdl-textfield__label" for="contact-birthday">Birthday</label>
+
+				<div class="mdl-grid">
+
+					<div class="mdl-cell mdl-cell--4-col">
+						<div class="lanoda-textfield">
+							<input type="text" name="firstname" id="contact-firstname" data-placeholder="* First Name" placeholder="* First Name" required />
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col">
+						<div class="lanoda-textfield">
+							<input type="text" name="middlename" id="contact-middlename" data-placeholder="* Middle Name" placeholder="* Middle Name" />
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--4-col">
+						<div class="lanoda-textfield">
+							<input type="text" name="lastname" id="contact-lastname" data-placeholder="* Last Name" placeholder="* Last Name" />
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="lanoda-textfield">
+							<input type="phone" name="phone" id="contact-phone" data-placeholder="* Phone Name" placeholder="* Phone Number" />
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="lanoda-textfield">
+							<input type="email" name="email" id="contact-email" data-placeholder="* Email" placeholder="* Email" />
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--12-col">
+						<div class="lanoda-textfield">
+							<input type="text" name="address" id="contact-address" data-placeholder="* Address" placeholder="* Address" />
+						</div>
+					</div>
+
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="lanoda-number">
+							<input type="number" name="age" id="contact-age" data-placeholder="Age" placeholder="Age" />
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="lanoda-datepicker">
+							<input type="date" name="birthday" id="contact-birthday" data-placeholder="Birthday" placeholder="* Birthday" />
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="mdl-card__actions mdl-card--border">
-				<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored lanoda-right">
-					Create
+			<div class="control-area">
+				<button type="submit" class="submit mdl-button mdl-js-button mdl-js-ripple-effect">
+					Next
 				</button>
-				<button type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect lanoda-left close-modal">
+				<button type="button" class="cancel mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored close-modal">
 					Cancel
 				</button>
 			</div>
