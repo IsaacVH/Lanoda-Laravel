@@ -21,8 +21,13 @@
 	        	<!-- sidebar will go here on sub views -->
 	        @show
 
+			<div class="background-shadow">
+				<div class="click-wrapper"></div>
+				@section('modal')
+				@show
+			</div>
+
 			<main class="mdl-layout__content">
-				<div class="background-shadow"></div>
 				<div class="page-content">
 					@yield('content')
 				</div>

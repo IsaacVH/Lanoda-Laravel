@@ -24,7 +24,9 @@ class GenerateBaseTables extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('file_url');
+            $table->string('url');
+            $table->string('mime_type');
+            $table->string('size');
             $table->timestamps();
         });
 
@@ -54,13 +56,14 @@ class GenerateBaseTables extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('image_id')->unsigned()->nullable();
-            $table->integer('type_id')->unsigned()->nullable();
             $table->string('url_name')->unique();
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
+            $table->string('phone');
             $table->string('email');
             $table->string('address');
+            $table->integer('age');
             $table->date('birthday');
             $table->timestamps();
         });
@@ -92,6 +95,14 @@ class GenerateBaseTables extends Migration
             $table->timestamps();
         });
 
+        
+        // Contacts - ContactTypes Relationship
+        Schema::create('contact_contact_type', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('contact_id')->unsigned();
+            $table->integer('contact_type_id')->unsigned();
+            $table->timestamps();
+        });
 
         // Notes - Tags Relationship
         Schema::create('note_tag', function (Blueprint $table) {
@@ -116,8 +127,6 @@ class GenerateBaseTables extends Migration
                   ->onDelete('cascade');
             $table->foreign('image_id')
                   ->references('id')->on('images');
-            $table->foreign('type_id')
-                  ->references('id')->on('contact_types');
         });
 
         // notes
@@ -138,6 +147,16 @@ class GenerateBaseTables extends Migration
                   ->references('id')->on('tags')
                   ->onDelete('cascade');
         });
+
+        // contact_contact_types
+        Schema::table('contact_contact_type', function (Blueprint $table) {
+            $table->foreign('contact_id')
+                  ->references('id')->on('contacts')
+                  ->onDelete('cascade');
+            $table->foreign('contact_type_id')
+                  ->references('id')->on('contact_types')
+                  ->onDelete('cascade');
+        });
     }
 
     /**
@@ -150,6 +169,7 @@ class GenerateBaseTables extends Migration
         Schema::drop('note_tag');
         Schema::drop('notes');
         Schema::drop('note_types');
+        Schema::drop('contact_contact_type');
         Schema::drop('contacts');
         Schema::drop('contact_types');
         Schema::drop('users');

@@ -30,8 +30,8 @@
 		</span>
 		<div class="text-center">
 			<div class="profile-image-background">
-				@if($contact->image_id != null) )
-					<img src=" {{ $contact->image->file_url }} " />
+				@if($contact->image != null)
+					<img src="{{ $contact->image->url }}" />
 				@else
 					<div class="profile-image-gray">
 						<i class="material-icons" style="font-size: 180px;">person</i>
@@ -41,11 +41,11 @@
 					</div>
 				@endif
 			</div>
-			<h5 class="text-center">{{ $contact->firstname }} {{ substr($contact->lastname, 0, 1) }}. <span>{{ $contact->age != null ? $contact->age : "" }}</span></h5>
-			<div class="menu-item">{{ $contact->phone_number }}</div>
+			<h5 class="text-center">{{ $contact->firstname }} {{ substr($contact->lastname, 0, 1) }}. <span>{{ $contact->age }}</span></h5>
+			<div class="menu-item">{{ $contact->phone }}</div>
 			<div class="menu-item">{{ $contact->email }}</div>
 			<div class="menu-item">{{ $contact->address }}</div>
-			<div class="menu-item">{{ $contact->relationship }}</div>
+			<div class="menu-item">@foreach($contact->contact_types as $contactType) {{ $contactType }} @endforeach</div>
 
 			
 			<div class="hidden-menu" for="openContactOptions">
@@ -65,9 +65,16 @@
 
 	<!-- Create Note Button -->
 	<div style="z-index: 2; display: inline-block; position: absolute; bottom: 40px; right: 40px;">
-		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored open-modal" data-modal="createNoteModal">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored open-modal hover-tooltip" data-tooltip="createNoteTooltip" data-modal="createNoteModal">
 			<i class="material-icons">add</i>
 		</button>
+	</div>
+	<div id="createNoteTooltip" class="tooltip">
+		<ul>
+			@foreach($noteTypes as $noteType)
+				<li>{{ $noteType->name }}</li>
+			@endforeach
+		</ul>
 	</div>
 @stop
 
@@ -96,10 +103,10 @@
 	</div>
 
 	<div id="contactNoteList" class="note-list mdl-grid" data-contactid="{{ $contact->id }}">
-		@include('note.partials.note-list', compact($contact, $noteTypes))
+		@include('note.partials.note-list', compact('contact', 'noteTypes'))
 	</div>
 
-	@include('note.partials.note-create-modal', compact($contact, $noteTypes))
+	@include('note.partials.note-create-modal', compact('contact', 'noteTypes'))
 @stop
 
 

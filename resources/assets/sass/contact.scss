@@ -153,7 +153,7 @@ html[class*="page-contact"] {
 	}
 
 	.lanoda-form-card {
-		width: 450px;
+		width: 750px;
 		max-width: 100%;
 
 		.lanoda-textfield {
@@ -191,6 +191,101 @@ html[class*="page-contact"] {
 
 				padding: 10px;
 				padding-left: 5px;
+			}
+		}
+
+
+		.uploader {
+			display: none;
+		}
+
+		.display-image {
+			height: 130px;
+			width: 100%;
+
+			margin: 20px 0;
+			text-align: center;
+			position: relative;
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 50%;
+
+				width: auto;
+				max-width: 100%;
+				height: 100%;
+
+				display: none;
+			}
+
+			.cover-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				box-sizing: border-box;
+				border: 8px solid $PrimaryMintTeal;
+				opacity: 0;
+
+				transition: opacity 0.3s;
+			}
+
+			button {
+				color: #fff;
+				width: 100%;
+				height: 100%;
+
+				text-align: center;
+				color: white;
+
+				background-color: $PrimaryMintTeal;
+
+				transition: opacity 0.3s;
+
+				.upload-icon {
+					display: none;
+				}
+			}
+
+			&.has-image {
+				button {
+					opacity: 0;
+				}
+
+				img {
+					display: inline-block;
+					transform: translateX(-50%);
+				}
+
+				&:hover {
+					button {
+						opacity: 0.7;
+					}
+				}
+			}
+
+			&.dragenter {
+				.cover-image {
+					display: block;
+					opacity: 0.7;
+				}
+
+				button {
+					opacity: 0.7;
+					height: calc(100% - 16px);
+					width: calc(100% - 16px);
+					border: 4px dashed white;
+					margin: 8px;
+
+					.camera-icon {
+						display: none;
+					}
+					.upload-icon {
+						display: inline;
+					}
+				}
 			}
 		}
 

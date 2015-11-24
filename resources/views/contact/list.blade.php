@@ -45,7 +45,7 @@
 		</div>
 		@foreach ($user->contacts as $contact)
 			<div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--6-col-phone contact-list-cell">
-				@include('contact.partials.contact-tile', compact($contact))
+				@include('contact.partials.contact-tile', compact('contact'))
 			</div>
 		@endforeach
 	

@@ -19,7 +19,19 @@ class Contact extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'image_id', 'type_id', 'url_name', 'firstname', 'middlename', 'lastname', 'email', 'address', 'birthday'];
+    protected $fillable = [
+        'user_id',
+        'image_id',
+        'url_name',
+        'firstname',
+        'middlename',
+        'lastname',
+        'phone',
+        'email',
+        'address',
+        'age',
+        'birthday'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -52,11 +64,21 @@ class Contact extends Model
     /**
      * A Contact has a Contact Type
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contact_type()
+    public function contact_types()
     {
-        return $this->belongsTo('Lanoda\ContactType');
+        return $this->belongsToMany('Lanoda\ContactType', 'contact_contact_type');
+    }
+
+    /**
+     * A Contact has secondary images
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contact_images()
+    {
+        return $this->hasMany('Lanoda\Images');
     }
 
     /**

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    'cloud' => 'gcs',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,6 +78,16 @@ return [
             'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
             'region'    => 'IAD',
             'url_type'  => 'publicURL',
+        ],
+
+        // Google cloud storage
+        'gcs' => [
+            'driver'        => 'gcs',
+            'clientId'      => '109367428449815692844',
+            'email'         => 'account-1@lanoda-1136.iam.gserviceaccount.com',
+            'fingerprint'   => '5621b38f259255a32be8888557284f1c0bcf2ce7',
+            'bucket'        => 'lanoda-user-data',
+            
         ],
 
     ],

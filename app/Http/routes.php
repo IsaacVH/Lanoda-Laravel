@@ -55,7 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	// Images
-	Route::get('/images/{image}', 'Image\ImageController@showImage');
+	Route::get('/images/{image}', 'Image\ImageController@downloadImage');
 	Route::get('/images', 'Image\ImageController@showImagesForCurrentUser');
 });
 

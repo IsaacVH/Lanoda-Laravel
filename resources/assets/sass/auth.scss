@@ -132,25 +132,9 @@ html[class*="page-auth"] {
 		}
 	}
 
-
-	.mdl-checkbox {
-
-		&.is-checked .mdl-checkbox__box-outline {
-			border-color: #6cc0c0;
-		}
-
-		&.is-checked .mdl-checkbox__box-outline .mdl-checkbox__tick-outline {
-			background-color: #6cc0c0;
-		}
-
-		.mdl-checkbox__box-outline {
-			border: 2px solid;
-			border-color: white;
-		}
-
-		.mdl-checkbox__ripple-container .mdl-ripple {
-			background: #93278f;
-		}
+	.mdl-checkbox__box-outline {
+		border: 2px solid;
+		border-color: white;
 	}
 	/* END Form-Styles */
 

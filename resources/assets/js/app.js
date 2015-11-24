@@ -17,25 +17,46 @@ var app = {
 	init: function () {
 		$('.open-modal').on('click', app.openModal);
 		$('#' + $('.hidden-menu').attr('for')).on('click', app.toggleHiddenMenu);
-		$(".background-shadow").on('click', app.closeModal);
+		$(".background-shadow .click-wrapper").on('click', app.closeModal);
 
 		$(".lanoda-expandlist-button").on('click', app.expandList);
 		$(".lanoda-textfield input").on('focus', function(){ this.placeholder = ''; });
 		$(".lanoda-textfield input").on('blur', function(){ this.placeholder = $(this).data('placeholder'); });
 
 		$(".sort-type").on('click', app.selectSort);
+
+		$(".drop-location").on('dragover', app.dragOver);
+		$(".drop-location").on('dragleave', app.dragLeave);
+
+		$(".hover-tooltip").on('mouseover', app.showTooltip);
+		$(".hover-tooltip").on('mouseleave', app.hideTooltip);
 	},
 
 	openModal: function(event) {
 		var modal = $(event.target).closest('.open-modal').data("modal");
 		$("#"+modal).addClass('show');
 		$("#"+modal).find('.close-modal').on('click', app.closeModal);
+
 		$(".mdl-layout").addClass("modal-open");
+		$(".background-shadow").addClass("show");
 	},
 
 	closeModal: function() {
 		$(".mdl-layout").removeClass("modal-open");
 		$(".modal").removeClass('show');
+		$(".background-shadow").removeClass("show");
+	},
+
+	dragOver: function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		$(this).addClass('dragenter');
+	},
+
+	dragLeave: function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		$(this).removeClass('dragenter');
 	},
 
 	selectSort: function() {
@@ -53,12 +74,30 @@ var app = {
 		$(this).find(".up-arrow").toggleClass("lanoda-hide");
 	},
 
+	showTooltip: function() {
+		var tooltipId = $(this).attr('data-tooltip');
+		var position = $(this).offset();
+		var tooltip = $("#"+tooltipId);
+		$(tooltip).addClass('show');
+		$(tooltip).css('top', (position.top - $(tooltip).height()) + "px");
+		$(tooltip).css('left', (position.left - $(tooltip).width()) + "px");
+	},
+
+	hideTooltip: function() {
+		var tooltipId = $(this).attr('data-tooltip');
+		$("#"+tooltipId).removeClass('show');
+		$("#"+tooltipId).css('top', 'auto');
+		$("#"+tooltipId).css('left', 'auto');
+	},
+
 	contacts: {
 		CreateContact: function(data, handleCreateContactSuccess, handleCreateContactError) {
 			$.ajax({
 				"url": "/api/contacts",
 				"type": "POST",
 				"data": data,
+				processData: false,
+				contentType: false,
 				success: handleCreateContactSuccess,
 				error: handleCreateContactError
 			});

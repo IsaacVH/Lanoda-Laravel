@@ -1,9 +1,9 @@
 
 <a href="{{ url('/contacts', $contact->url_name) }}">
 	<div class="contact-tile">
-		<div class="contact-image-wrapper">
+		<div class="contact-image-wrapper" style="overflow: hidden;">
 			@if ($contact->image != null)
-				<img class="contact-image" src="{{ $contact->image->file_url }}" alt="contact-image-name">
+				<img style="height: 100%; width: auto;" class="contact-image" src="{{ $contact->image->url }}" alt="contact-image-name">
 			@else
 				<i class="material-icons contact-icon">person</i>
 			@endif

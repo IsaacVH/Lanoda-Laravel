@@ -9,15 +9,14 @@ use Lanoda\Http\Controllers\Controller;
 class ImageController extends Controller
 {
     /**
-     * Show the profile for the given user.
-     *
-     * @param  int  $id
+     * Get the image file
+     * 
+     * @param  Image  $image
      * @return Response
      */
-    public function showImage()
+    public function downloadImage(Image $image)
     {
-        $user = Auth::user()->toArray();
-        return view('user.profile', ['user' => $user]);
+        return response()->download($image->path);
     }
 
     /**

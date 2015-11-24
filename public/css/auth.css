@@ -82,15 +82,9 @@ html[class*="page-auth"] {
       margin-right: -2px; }
       html[class*="page-auth"] .lanoda-card .cancel-button:hover {
         background-color: #6cc0c0; }
-  html[class*="page-auth"] .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
-    border-color: #6cc0c0; }
-  html[class*="page-auth"] .mdl-checkbox.is-checked .mdl-checkbox__box-outline .mdl-checkbox__tick-outline {
-    background-color: #6cc0c0; }
-  html[class*="page-auth"] .mdl-checkbox .mdl-checkbox__box-outline {
+  html[class*="page-auth"] .mdl-checkbox__box-outline {
     border: 2px solid;
     border-color: white; }
-  html[class*="page-auth"] .mdl-checkbox .mdl-checkbox__ripple-container .mdl-ripple {
-    background: #93278f; }
   @media (max-width: 1024px) {
     html[class*="page-auth"] .mdl-layout__content .page-content {
       height: calc(100% - 62px); }

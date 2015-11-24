@@ -19,13 +19,19 @@ class ContactController extends Controller
      * @param  int $contactId
      * @return Response
      */
-    public function showContactDetail($contact_name) 
+    public function showContactDetail($contact_name)
     {
+        $user = Auth::user();
         $contact = Contact::where('url_name', $contact_name)->first();
         if ($contact == null) {
             return redirect('/contacts');
+        } else if ($contact->user_id != $user->id) {
+            return redirect('/contacts')->with('error', 'You do not have access to that contact.');
         }
-        return view('contact.detail', ['contact' => $contact, 'contactTypes' => ContactType::all(), 'noteTypes' => NoteType::all()]);
+
+        $contactTypes = ContactType::all();
+        $noteTypes = NoteType::all();
+        return view('contact.detail', compact('contact', 'contactTypes', 'noteTypes'));
     }
 
     /**
@@ -62,18 +68,47 @@ class ContactController extends Controller
      */
     public function createContact(Request $request) 
     {
+
+        $response = ['errors' => [], 'messages' => []];
+        $image = null;;
+
+        if ($request->hasFile('image')) {
+            // Save the image to the filesystem and DB
+            $imageResult = $this->saveImage($request->file('image'), Auth::user()->id);
+            array_merge($response['errors'], $imageResult['errors']);
+            $image = $imageResult['image'];
+        }
+
+
+        $name = [
+            'f' => $request->input('firstname'),
+            'm' => $request->input('middlename'),
+            'l' => $request->input('lastname')
+        ];
         $contact = [
             'user_id' => Auth::user()->id,
-            'url_name' => $this->buildUrlName($request->input('firstname'), $request->input('middlename'), $request->input('lastname')),
+            'image_id' => $image != null ? $image->id : null,
+            'url_name' => $this->buildUrlName($name['f'], $name['m'], $name['l']),
             'firstname' => $request->input('firstname'),
             'middlename' => $request->input('middlename'),
             'lastname' => $request->input('lastname'),
+            'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'address' => $request->input('address'),
+            'age' => $request->input('age'),
             'birthday' => $request->input('birthday')
         ];
+
         $result = Contact::create($contact);
-        return $result;
+
+
+        if($request->input('relations') != null) {
+            for ($i = 0; $i < sizeof($request->input('relations')); $i++) {
+                //$response .= "<br/>" . $request->input('relations')[$i];
+            }
+        }
+
+        return $response;
     }
 
     /**
@@ -84,6 +119,17 @@ class ContactController extends Controller
     public function getContact(Contact $contact)
     {
         return $contact;
+    }
+
+    /**
+     * Get all contacts
+     *
+     * @return Response
+     */
+    public function getContacts()
+    {
+        $contacts = Contact::all();
+        return $contacts;
     }
 
     /**
@@ -109,7 +155,8 @@ class ContactController extends Controller
      *
      * @return Response
      */
-    private function buildUrlName($firstname, $middlename, $lastname) {
+    private function buildUrlName($firstname, $middlename, $lastname) 
+    {
 
         $invalid_characters = array("$", "%", "#", "<", ">", "|", "/", "\\", " ");
 
@@ -132,5 +179,37 @@ class ContactController extends Controller
         }
 
         return $urlName;
+    }
+
+    /**
+     * Safely store an image and store location in image table
+     * 
+     * @return string[] Result
+     */
+    private function saveImage($file, $userId) 
+    {
+        $result = ['image' => null, 'errors' => []];
+        if ($file->isValid()) {
+            if ($file->getClientSize() < $file->getMaxFilesize()) {
+
+                // File exists and isValid, now move to directory.
+                $directory = sprintf('/data/users/%s/images', $userId);
+                $image = [
+                    'name' => $file->getClientOriginalName(),
+                    'url' => $directory. '/' . camel_case($file->getClientOriginalName()),
+                    'mime_type' => $file->getMimeType(),
+                    'size' => $file->getClientSize()
+                ];
+                $file->move(public_path() . $directory, camel_case($file->getClientOriginalName()));
+                $result['image'] = Image::create($image);
+
+            } else {
+                array_push($result['errors'], 'Image Error: File is too large');
+            }
+        } else {
+            array_push($result['errors'], 'Image Error: File is not valid');
+        }
+
+        return $result;
     }
 }

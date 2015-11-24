@@ -35,6 +35,6 @@ class Tag extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany('Lanoda\Note');
+        return $this->belongsToMany('Lanoda\Note', 'note_tag');
     }
 }

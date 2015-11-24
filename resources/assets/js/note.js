@@ -4,6 +4,7 @@ var notes = {
 
 	init: function () {
 		$('.note-select-type').on('click', notes.selectNoteType);
+		$('#createNotForm').on('submit', notes.submitCreateForm);
 	},
 
 	onClickDelete: function () {
